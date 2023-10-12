@@ -13,6 +13,8 @@ namespace Camera
         private static CinemachineVirtualCamera _activeCamera;
         private static CinemachineFreeLook _activeFreeLookCamera;
         public static bool IsUsingFreeLook = false;
+        public static CinemachineVirtualCamera ActiveCamera => _activeCamera;
+        public static CinemachineFreeLook ActiveFreeLookCamera => _activeFreeLookCamera;
 
         public static void Register(CinemachineVirtualCamera camera)
         {
@@ -80,6 +82,8 @@ namespace Camera
         {
             return camera == _activeCamera;
         }
+
+
     }
     
     
@@ -90,12 +94,24 @@ namespace Camera
         [SerializeField] private CinemachineVirtualCamera thirdPersonCam;
         [SerializeField] private CinemachineFreeLook freeLookCam;
         
+        public mainCamera Instance { get; private set; }
+        
         private void OnEnable()
         {
             CameraSwitcher.Register(firstPersonCam);
             CameraSwitcher.Register(thirdPersonCam);
             CameraSwitcher.RegisterFreeLook(freeLookCam);
             CameraSwitcher.SwitchCamera(firstPersonCam);
+        }
+        
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+                Destroy(gameObject);
+            else
+            {
+                Instance = this;
+            }
         }
 
         // private void OnDestroy()
@@ -123,6 +139,21 @@ namespace Camera
                 else if (CameraSwitcher.IsActiveCamera(thirdPersonCam))
                     CameraSwitcher.SwitchToFreelookCamera(thirdPersonCam, freeLookCam);
             }
+        }
+        
+        public static bool IsUsingFreelook()
+        {
+            return CameraSwitcher.IsUsingFreeLook;
+        }
+
+        public static CinemachineVirtualCamera GetActiveCamera()
+        {
+            return CameraSwitcher.ActiveCamera;
+        }
+
+        public static CinemachineFreeLook GetActiveFreelook()
+        {
+            return CameraSwitcher.ActiveFreeLookCamera;
         }
     }
 }
