@@ -39,7 +39,7 @@ namespace Player
         public CharacterController characterController;
         public PlayerMovement playerMovement;
         public GameObject playerMesh;
-
+        
         public void Awake()
         {
             characterController = GetComponentInChildren<CharacterController>();
@@ -48,6 +48,11 @@ namespace Player
             mainCamera = eventSystem.GetComponent<mainCamera>();
             inputSystem = eventSystem.GetComponent<inputSystem>();
             playerMesh = transform.FindGameObjectInChildWithTag("PlayerMesh");
+        }
+
+        private void FixedUpdate()
+        {
+            transform.position = playerMesh.transform.position;
         }
     }
 }
