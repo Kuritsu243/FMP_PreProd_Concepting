@@ -39,6 +39,7 @@ namespace Player
         public CharacterController characterController;
         public PlayerMovement playerMovement;
         public GameObject playerMesh;
+        public PlayerWallRunning playerWallRunning;
         
         public void Awake()
         {
@@ -48,6 +49,7 @@ namespace Player
             mainCamera = eventSystem.GetComponent<mainCamera>();
             inputSystem = eventSystem.GetComponent<inputSystem>();
             playerMesh = transform.FindGameObjectInChildWithTag("PlayerMesh");
+            playerWallRunning = GetComponent<PlayerWallRunning>();
         }
 
         private void FixedUpdate()
