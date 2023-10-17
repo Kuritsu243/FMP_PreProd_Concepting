@@ -54,7 +54,7 @@ namespace Player
 
         private void FixedUpdate()
         {
-            transform.position = playerMesh.transform.position;
+            // transform.position = playerMesh.transform.position;
         }
     }
 }

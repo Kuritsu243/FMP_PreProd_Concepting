@@ -85,27 +85,30 @@ namespace Player
             {
                 StartWallRun();
             }
-            else if (_isWallRunning && (!_leftWall || !_rightWall))
+            else if (_isWallRunning && (!_leftWall || !_rightWall) && IsGrounded)
             {
                 StopWallRun();
             }
             
             switch (_isJumping)
             {
-                case true when !IsGrounded && !_isWallRunning:
+                case true when !IsGrounded && !_isWallRunning: // if airborne and not wallrunning
                     _isJumping = false;
                     break;
-                case true when IsGrounded && _useGravity || _isWallRunning:
-                    _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity);
+                case true when IsGrounded && _useGravity: // if grounded, gravity enabled and is wallrunning
+                    _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity); // jump calculations
                     break;
-                case false when !IsGrounded && _isWallRunning:
-                    _useGravity = false;
+                case true when !IsGrounded && _isWallRunning && !_useGravity: // if airborne, gravity disabled and is wallrunning
+                    _useGravity = true; // enable gravity
+                    _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity); // jump calculation
+                    _isJumping = false; // stop jumping
                     break;
                 case false:
                     break;
             }
 
-            if (!_useGravity) return;
+            if (!_useGravity && !_isWallRunning) return;
+            _useGravity = true;
             _verticalVelocity.y += playerGravity * Time.deltaTime;
             _characterController.Move(_verticalVelocity * Time.deltaTime);
 
@@ -116,6 +119,7 @@ namespace Player
             if ((!IsGrounded  && !_isWallRunning) || _isJumping) return;
             Debug.Log("button pressed");
             _isJumping = true;
+            _useGravity = true;
         }
 
         private void CheckWalls()
@@ -129,6 +133,7 @@ namespace Player
         private void StartWallRun()
         {
             _isWallRunning = true;
+            _isJumping = false;
         }
 
         private void StopWallRun()
