@@ -145,6 +145,15 @@ namespace Player
             var position = PlayerTransform.position;
             _rightWall = Physics.Raycast(position, right, out _rightWallHit, maxWallDistance, whatIsWall); // check for wall on right
             _leftWall = Physics.Raycast(position, -right, out _leftWallHit, maxWallDistance, whatIsWall); // check for wall on left
+
+            if (_rightWall)
+            {
+                _mostRecentWall = _rightWallHit.transform.gameObject;
+            }
+            else if (_leftWall)
+            {
+                _mostRecentWall = _leftWallHit.transform.gameObject;
+            }
         }
 
         private void StartWallRun()

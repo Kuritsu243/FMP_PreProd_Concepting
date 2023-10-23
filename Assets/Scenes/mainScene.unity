@@ -2139,7 +2139,7 @@ MonoBehaviour:
   sprintingSpeed: 0
   playerJumpHeight: 4
   playerGravity: -16
-  playerJumpCooldown: 0.8
+  playerJumpCooldown: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 8
