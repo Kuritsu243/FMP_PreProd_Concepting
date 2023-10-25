@@ -29,6 +29,12 @@ namespace Player
         [SerializeField] private float wallJumpUpForce;
         [SerializeField] private float wallJumpSideForce;
         [SerializeField] private float wallMemoryTime;
+        [Header("Sliding Settings")] 
+        [SerializeField] private float maxSlideTime;
+        [SerializeField] private float slideForce;
+        [SerializeField] private float slideYScale;
+        
+        
         
         
         
@@ -52,6 +58,8 @@ namespace Player
         private bool _exitWallTimerActive;
         private bool _hasExceededWallRunTime;
         private Coroutine activeWallRunTimer;
+        private bool _isSliding;
+        private float _startYScale;
         
 
         
@@ -70,6 +78,7 @@ namespace Player
             _playerController = GetComponent<PlayerController>(); // get player controller script
             _inputSystem = _playerController.inputSystem; // reference input system script / component
             _characterController = _playerController.characterController; // get character controller component
+            _startYScale = PlayerTransform.localScale.y;
 
         }
 
@@ -78,6 +87,8 @@ namespace Player
             _isGrounded = _characterController.isGrounded; // constantly updating if player is grounded
             CheckWalls(); 
             HandleMovement();
+            if (_isSliding)
+                SlidingMovement();
             
         }
 
@@ -116,6 +127,7 @@ namespace Player
             {
                 case true when _isWallRunning:
                     StopWallRun();
+                    _hasExceededWallRunTime = false;
                     break;
                 case true when _isGrounded:
                     _hasExceededWallRunTime = false;
@@ -216,12 +228,12 @@ namespace Player
             {
                 _characterController.Move(-wallNormal * (100 * Time.deltaTime)); // push the player off the wall (?)
             }
-            activeWallRunTimer = StartCoroutine(WallRunTimer());
+            activeWallRunTimer = StartCoroutine(nameof(WallRunTimer));
         }
 
         private void WallJump()
         {
-            StopCoroutine(activeWallRunTimer);
+            StopCoroutine(nameof(WallRunTimer));
             if (_hasExceededWallRunTime) _hasExceededWallRunTime = false;
             // exit wall state
             _isExitingWall = true;
@@ -259,5 +271,52 @@ namespace Player
             yield return new WaitForSeconds(wallRunMaxDuration);
             _hasExceededWallRunTime = true;
         }
+
+        public void CheckIfCanSlide()
+        {
+            Debug.LogWarning("Slide Pressed");
+            if (_inputSystem.HorizontalInput != 0 || _inputSystem.VerticalInput != 0)
+                StartSlide();
+        }
+
+        public void CancelSlide()
+        {
+            Debug.LogWarning("Slide Unpressed");
+            if (!_isSliding) return;
+            StopSlide();
+        }
+
+        private void StartSlide()
+        {
+            _isSliding = true;
+            var localScale = PlayerTransform.localScale;
+            localScale = new Vector3(localScale.x, slideYScale, localScale.z);
+            PlayerTransform.localScale = localScale;
+        }
+
+        private void StopSlide()
+        {
+            _isSliding = false;
+            var localScale = PlayerTransform.localScale;
+            localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            PlayerTransform.localScale = localScale;
+        }
+
+        private void SlidingMovement()
+        {
+            var inputDir = PlayerTransform.forward * _inputSystem.VerticalInput +
+                           PlayerTransform.right * _inputSystem.HorizontalInput;
+            
+            _characterController.Move(inputDir.normalized * slideForce);
+            StartCoroutine(nameof(SlideTimer));
+        }
+
+        private IEnumerator SlideTimer()
+        {
+            yield return new WaitForSeconds(maxSlideTime);
+            if (_isSliding) CancelSlide();
+        }
+        
+        
     }
 }

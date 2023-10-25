@@ -155,5 +155,6 @@ namespace Camera
         {
             return CameraSwitcher.ActiveFreeLookCamera;
         }
+        
     }
 }
