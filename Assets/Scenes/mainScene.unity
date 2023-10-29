@@ -252,7 +252,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251456140}
-  m_LocalRotation: {x: 0.002770579, y: 0.98220104, z: -0.1872493, w: 0.014532848}
+  m_LocalRotation: {x: 0.0027705717, y: 0.98220104, z: -0.1872493, w: 0.014532811}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2420,6 +2420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2089587025194910572, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
+      propertyPath: isTesting
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2089587025194910572, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
       propertyPath: freeLookCam
       value: 
