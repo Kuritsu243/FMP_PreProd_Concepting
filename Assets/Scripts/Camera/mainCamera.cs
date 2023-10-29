@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using Cinemachine;
@@ -85,14 +86,70 @@ namespace Camera
 
 
     }
-    
-    
+
+    public static class CinemachineExtras
+    {
+        public static void LerpDutch(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
+        {
+            vcam.StartCoroutine(LerpDutch());
+            IEnumerator LerpDutch()
+            {
+                var start = vcam.m_Lens.Dutch;
+                var timeElapsed = 0f;
+                while (timeElapsed < timeToTake)
+                {
+                    var dutchValue = Mathf.Lerp(start, endValue, timeElapsed / timeToTake);
+                    vcam.m_Lens.Dutch = dutchValue;
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+        }
+        
+        public static void LerpFOV(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
+        {
+            vcam.StartCoroutine(DoLerp());
+            IEnumerator DoLerp()
+            {
+                var start = vcam.m_Lens.FieldOfView;
+                var timeElapsed = 0f;
+                while (timeElapsed < timeToTake)
+                {
+                    var fovValue = Mathf.Lerp(start, endValue, timeElapsed / timeToTake);
+                    vcam.m_Lens.FieldOfView = fovValue;
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+        }
+
+
+
+        
+    }
     
     public class mainCamera : MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera firstPersonCam;
         [SerializeField] private CinemachineVirtualCamera thirdPersonCam;
         [SerializeField] private CinemachineFreeLook freeLookCam;
+        
+        [Header("Testing")]
+        [SerializeField] private bool isTesting;
+        [Range(0, 360)] [SerializeField] private float xRotation;
+        [Range(0, 360)] [SerializeField] private float yRotation;
+        [Range(0, 360)] [SerializeField] private float zRotation;
+        [Range(0, 360)] [SerializeField] private float dutch;
+        [Range(0, 250)] [SerializeField] private float fov;
+        [SerializeField] private bool lerpFOV;
+        
+
+
+        
+        
+        
+        
+
         
         public mainCamera Instance { get; private set; }
         
@@ -154,7 +211,56 @@ namespace Camera
         public static CinemachineFreeLook GetActiveFreelook()
         {
             return CameraSwitcher.ActiveFreeLookCamera;
+            
         }
+
+        private void FixedUpdate()
+        {
+            if (isTesting)
+                Testing();
+        }
+
+        private void Testing()
+        {
+            if (IsUsingFreelook())
+            {
+                GetActiveFreelook().m_Lens.Dutch = dutch;
+                var transformRotation = GetActiveFreelook().transform.localRotation;
+                transformRotation.x = xRotation;
+                transformRotation.y = yRotation;
+
+                GetActiveFreelook().transform.rotation = transformRotation;
+            }
+            else
+            {
+                GetActiveCamera().m_Lens.Dutch = dutch;
+                var transformRotation = GetActiveCamera().transform.rotation;
+                transformRotation.x = xRotation;
+                transformRotation.y = yRotation;
+                transformRotation.z = zRotation;
+
+                GetActiveCamera().transform.rotation = transformRotation;
+
+                if (lerpFOV)
+                {
+                    GetActiveCamera().LerpFOV(120f, 0.45f);
+                }
+
+                
+                
+            }
+        }
+
+        public static void DoFov(float endValue)
+        {
+            GetActiveCamera().LerpFOV(endValue, 0.25f);
+        }
+
+        public static void DoTilt(float endValue)
+        {
+            GetActiveCamera().LerpDutch(endValue, 0.25f);
+        }
+        
         
     }
 }

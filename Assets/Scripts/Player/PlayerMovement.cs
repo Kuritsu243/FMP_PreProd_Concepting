@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using Camera;
 using input;
 using UnityEngine;
 
@@ -94,31 +94,76 @@ namespace Player
 
         private void HandleMovement()
         {
-            if (_isGrounded) _verticalVelocity = Vector3.zero; // if grounded zero vertical velocity
+            // if grounded zero vertical velocity
+            if (_isGrounded) ZeroVerticalVelocity(); 
             // player velocity calculations
-            _playerVelocity = (PlayerTransform.right * _inputSystem.HorizontalInput +
-                               PlayerTransform.forward * _inputSystem.VerticalInput) * playerSpeed;
-            
-            switch (_isWallRunning) // if wall running check
-            {
-                case false:
-                    _characterController.Move(_playerVelocity * Time.deltaTime); // if not wall running then move normally
-                    break;
-                case true:
-                    WallRunMovement(); // wallrun movement
-                    break;
-            }
-            // left or right wall hit, player moving and is airborne, while not wall running
-            if ((_leftWall || _rightWall) && (_playerVelocity.x > 0 || _playerVelocity.z > 0) && !_isGrounded && !_isWallRunning && !_isExitingWall)
-            {
+            CalculatePlayerVelocity();
+            // if is wall running then wall run movement if not then normal movement
+            if (_isWallRunning)
+                WallRunMovement();
+            else
+                NormalPlayerMovement();
+            // if the player has the ability to wall run then start wall run
+            if (IfCanWallRun())
                 StartWallRun();
-            }
-            else if (_isWallRunning && !_leftWall && !_rightWall) // is wall running, no walls and is touching ground
-            {
+            // is wall running, no walls and is touching ground
+            if (IfCanNoLongerWallRun()) 
                 StopWallRun();
+            // check if player is currently exiting a wall
+            CheckExitWallState();
+            // control jumping:as
+            ControlJumpingState();
+            // control gravity 
+            ControlGravityState();
+        }
+
+        public void Jump()
+        {
+            if (!_canJump) return;
+            _useGravity = true;
+            // if airborne and not wallrunning OR if player is already jumping then exit function
+            if (!_isGrounded  && !_isWallRunning) return;
+            _isJumping = true;
+            StartCoroutine(JumpCooldown());
+        }
+
+        private void CalculateVerticalVelocity()
+        {
+            _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity);
+        }
+
+        private void ControlGravityState()
+        {
+            if (!_useGravity && !_isWallRunning) return;
+            ImitateGravity();
+            PlayerVerticalMovement();
+        }
+
+        private void ControlJumpingState()
+        {
+            switch (_isJumping)
+            {
+                case true when !_isGrounded && !_isWallRunning:
+                    _isJumping = false;
+                    break;
+                case true when _isWallRunning:
+                    WallJump();
+                    break;
+                case true when _isGrounded && _useGravity:
+                    CalculateVerticalVelocity();
+                    break;
             }
+        }
+
+        private void ImitateGravity()
+        {
+            _verticalVelocity.y += playerGravity * Time.deltaTime;
+        }
+
+        private void CheckExitWallState()
+        {
             // Exiting Wall State
-            else if (_isExitingWall)
+            if (_isExitingWall)
             {
                 if (_isWallRunning) StopWallRun();
                 if (!_exitWallTimerActive) StartCoroutine(ExitingWallTimer());
@@ -133,43 +178,38 @@ namespace Player
                     _hasExceededWallRunTime = false;
                     break;
             }
-            
-            switch (_isJumping)
-            {
-                case true when !_isGrounded && !_isWallRunning: // if airborne and not wallrunning
-                    _isJumping = false;
-                    break;
-                case true when _isWallRunning:
-                    WallJump();
-                    break;
-                case true when _isGrounded && _useGravity: // if grounded, gravity enabled and is wallrunning
-                    _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity);
-                    break;
-                case false:
-                    break;
-            }
-
-            switch (_useGravity)
-            {
-                case false when !_isWallRunning:
-                    return; // exit function is gravity disabled and isn't wall running
-                case true:
-                    _verticalVelocity.y += playerGravity * Time.deltaTime; // build vertical velocity to simulate gravity
-                    _characterController.Move(_verticalVelocity * Time.deltaTime); // move player vertically
-                    break;
-            }
-            
-
+        }
+        
+        private void ZeroVerticalVelocity()
+        {
+            _verticalVelocity = Vector3.zero;
         }
 
-        public void Jump()
+        private void NormalPlayerMovement()
         {
-            if (!_canJump) return;
-            _useGravity = true;
-            // if airborne and not wallrunning OR if player is already jumping then exit function
-            if (!_isGrounded  && !_isWallRunning) return;
-            _isJumping = true;
-            StartCoroutine(JumpCooldown());
+            _characterController.Move(_playerVelocity * Time.deltaTime);
+        }
+
+        private void PlayerVerticalMovement()
+        {
+            _characterController.Move(_verticalVelocity * Time.deltaTime); // move player vertically
+        }
+
+        private void CalculatePlayerVelocity()
+        {
+            _playerVelocity = (PlayerTransform.right * _inputSystem.HorizontalInput +
+                               PlayerTransform.forward * _inputSystem.VerticalInput) * playerSpeed;
+        }
+
+        private bool IfCanWallRun()
+        {
+            return (_leftWall || _rightWall) && (_playerVelocity.x > 0 || _playerVelocity.z > 0) && !_isGrounded &&
+                   !_isWallRunning && !_isExitingWall;
+        }
+
+        private bool IfCanNoLongerWallRun()
+        {
+            return _isWallRunning && !_leftWall && !_rightWall;
         }
 
         private void CheckWalls()
@@ -193,12 +233,14 @@ namespace Player
         {
             _isWallRunning = true;
             _isJumping = false;
+            ApplyCameraEffects();
         }
 
         private void StopWallRun()
         {
             _isWallRunning = false;
             _useGravity = true;
+            ResetCameraEffects();
         }
 
 
@@ -275,6 +317,7 @@ namespace Player
         public void CheckIfCanSlide()
         {
             Debug.LogWarning("Slide Pressed");
+            if (_isWallRunning || _isSliding || _isJumping || !_isGrounded) return;
             if (_inputSystem.HorizontalInput != 0 || _inputSystem.VerticalInput != 0)
                 StartSlide();
         }
@@ -315,6 +358,32 @@ namespace Player
         {
             yield return new WaitForSeconds(maxSlideTime);
             if (_isSliding) CancelSlide();
+        }
+
+        private void DoFov(float endValue)
+        {
+            mainCamera.DoFov(120f);
+        }
+
+        private void DoTilt(float endValue)
+        {
+            mainCamera.DoTilt(endValue);
+        }
+
+        private void ApplyCameraEffects()
+        {
+            if (_leftWall)
+                DoTilt(-5f);
+            else if (_rightWall)
+                DoTilt(5f);
+
+            DoFov(110f);
+        }
+
+        private void ResetCameraEffects()
+        {
+            DoTilt(0f);
+            DoFov(90f);
         }
         
         
