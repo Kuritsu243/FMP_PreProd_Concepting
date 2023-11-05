@@ -38,6 +38,7 @@ namespace Player
         public mainCamera mainCamera;
         public CharacterController characterController;
         public PlayerMovement playerMovement;
+        public PlayerStamina playerStamina;
         public GameObject playerMesh;
         public PlayerWallRunning playerWallRunning;
         
@@ -48,6 +49,7 @@ namespace Player
             eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
             mainCamera = eventSystem.GetComponent<mainCamera>();
             inputSystem = eventSystem.GetComponent<inputSystem>();
+            playerStamina = GetComponent<PlayerStamina>();
             playerMesh = transform.FindGameObjectInChildWithTag("PlayerMesh");
             playerWallRunning = GetComponent<PlayerWallRunning>();
         }

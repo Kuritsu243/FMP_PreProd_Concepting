@@ -71,6 +71,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e3879ecf-5c15-4d8c-881c-926efc72f51c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f14d9bb4-0a8a-4e11-a1a2-2ad45031ca96"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_main_Perspective = m_main.FindAction("Perspective", throwIfNotFound: true);
         m_main_Jump = m_main.FindAction("Jump", throwIfNotFound: true);
         m_main_Slide = m_main.FindAction("Slide", throwIfNotFound: true);
+        m_main_Sprint = m_main.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_main_Perspective;
     private readonly InputAction m_main_Jump;
     private readonly InputAction m_main_Slide;
+    private readonly InputAction m_main_Sprint;
     public struct MainActions
     {
         private @PlayerActions m_Wrapper;
@@ -260,6 +282,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         public InputAction @Perspective => m_Wrapper.m_main_Perspective;
         public InputAction @Jump => m_Wrapper.m_main_Jump;
         public InputAction @Slide => m_Wrapper.m_main_Slide;
+        public InputAction @Sprint => m_Wrapper.m_main_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -303,6 +329,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -327,5 +356,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         void OnPerspective(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

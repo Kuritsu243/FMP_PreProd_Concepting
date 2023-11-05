@@ -1,44 +1,66 @@
+using System;
 using System.Collections;
 using Camera;
 using input;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [Header("Player Movement")]
-        [SerializeField] private float playerSpeed;
+        [Header("Player Movement")] [SerializeField]
+        private float playerSpeed;
+
         [SerializeField] private float sprintingSpeed;
         [SerializeField] private Quaternion maxWallRotation;
-        [Header("Player Jump")] 
-        [SerializeField] private float playerJumpHeight;
+
+        [Header("Player Jump")] [SerializeField]
+        private float playerJumpHeight;
+
         [SerializeField] private float playerGravity;
         [SerializeField] private float playerJumpCooldown;
-        [Header("Layer Mask Settings")] 
-        [SerializeField] private LayerMask groundMask;
+
+        [Header("Layer Mask Settings")] [SerializeField]
+        private LayerMask groundMask;
+
         [SerializeField] private LayerMask whatIsWall;
-        [Header("Wall Run Settings")] 
-        [SerializeField] private float wallRunSpeed;
+
+        [Header("Wall Run Settings")] [SerializeField]
+        private float wallRunSpeed;
+
         [SerializeField] private float wallRunForce;
         [SerializeField] private float wallRunMaxDuration;
         [SerializeField] private float wallRunExitTime;
-        [Header("Wall Run Detection Settings")] 
-        [SerializeField] private float maxWallDistance;
-        [Header("Wall Jump Settings")]
-        [SerializeField] private float wallJumpUpForce;
+
+        [Header("Wall Run Detection Settings")] [SerializeField]
+        private float maxWallDistance;
+
+        [Header("Wall Jump Settings")] [SerializeField]
+        private float wallJumpUpForce;
+
         [SerializeField] private float wallJumpSideForce;
         [SerializeField] private float wallMemoryTime;
-        [Header("Sliding Settings")] 
-        [SerializeField] private float maxSlideTime;
+
+        [Header("Sliding Settings")] [SerializeField]
+        private float maxSlideTime;
+
         [SerializeField] private float slideForce;
         [SerializeField] private float slideYScale;
-        
-        
-        
-        
-        
-        
+
+
+        public enum MoveStates
+        {
+            Sprinting,
+            Walking,
+            Wallrunning,
+            Sliding,
+            Jumping,
+            Idle
+        }
+
+
+
         private inputSystem _inputSystem;
         private GameObject _eventSystem;
         private GameObject _mostRecentWall;
@@ -46,6 +68,7 @@ namespace Player
         private Vector3 _playerVelocity;
         private Vector3 _verticalVelocity = Vector3.zero;
         private CharacterController _characterController;
+        private PlayerStamina _playerStamina;
         private PlayerController _playerController;
         private RaycastHit _leftWallHit;
         private RaycastHit _rightWallHit;
@@ -59,25 +82,27 @@ namespace Player
         private bool _hasExceededWallRunTime;
         private Coroutine activeWallRunTimer;
         private bool _isSliding;
+        private bool _isSprinting;
         private float _startYScale;
-        
+        private MoveStates _playerMoveState;
 
-        
-        
+
+
         private bool _isGrounded;
         private Transform PlayerTransform => _characterController.transform;
-        
-        
+
+
         public float JumpHeight => playerJumpHeight;
         public float PlayerSpeed => playerSpeed;
         public float SprintingSpeed => sprintingSpeed;
-        
+
 
         private void Start()
         {
             _playerController = GetComponent<PlayerController>(); // get player controller script
             _inputSystem = _playerController.inputSystem; // reference input system script / component
             _characterController = _playerController.characterController; // get character controller component
+            _playerStamina = _playerController.playerStamina;
             _startYScale = PlayerTransform.localScale.y;
 
         }
@@ -85,17 +110,17 @@ namespace Player
         private void FixedUpdate()
         {
             _isGrounded = _characterController.isGrounded; // constantly updating if player is grounded
-            CheckWalls(); 
+            CheckWalls();
             HandleMovement();
             if (_isSliding)
                 SlidingMovement();
-            
+
         }
 
         private void HandleMovement()
         {
             // if grounded zero vertical velocity
-            if (_isGrounded) ZeroVerticalVelocity(); 
+            if (_isGrounded) ZeroVerticalVelocity();
             // player velocity calculations
             CalculatePlayerVelocity();
             // if is wall running then wall run movement if not then normal movement
@@ -107,7 +132,7 @@ namespace Player
             if (IfCanWallRun())
                 StartWallRun();
             // is wall running, no walls and is touching ground
-            if (IfCanNoLongerWallRun()) 
+            if (IfCanNoLongerWallRun())
                 StopWallRun();
             // check if player is currently exiting a wall
             CheckExitWallState();
@@ -122,7 +147,7 @@ namespace Player
             if (!_canJump) return;
             _useGravity = true;
             // if airborne and not wallrunning OR if player is already jumping then exit function
-            if (!_isGrounded  && !_isWallRunning) return;
+            if (!_isGrounded && !_isWallRunning) return;
             _isJumping = true;
             StartCoroutine(JumpCooldown());
         }
@@ -168,18 +193,19 @@ namespace Player
                 if (_isWallRunning) StopWallRun();
                 if (!_exitWallTimerActive) StartCoroutine(ExitingWallTimer());
             }
-            else switch (_hasExceededWallRunTime)
-            {
-                case true when _isWallRunning:
-                    StopWallRun();
-                    _hasExceededWallRunTime = false;
-                    break;
-                case true when _isGrounded:
-                    _hasExceededWallRunTime = false;
-                    break;
-            }
+            else
+                switch (_hasExceededWallRunTime)
+                {
+                    case true when _isWallRunning:
+                        StopWallRun();
+                        _hasExceededWallRunTime = false;
+                        break;
+                    case true when _isGrounded:
+                        _hasExceededWallRunTime = false;
+                        break;
+                }
         }
-        
+
         private void ZeroVerticalVelocity()
         {
             _verticalVelocity = Vector3.zero;
@@ -214,10 +240,13 @@ namespace Player
 
         private void CheckWalls()
         {
-            var right = PlayerTransform.right; 
+            var right = PlayerTransform.right;
             var position = PlayerTransform.position;
-            _rightWall = Physics.Raycast(position, right, out _rightWallHit, maxWallDistance, whatIsWall); // check for wall on right
-            _leftWall = Physics.Raycast(position, -right, out _leftWallHit, maxWallDistance, whatIsWall); // check for wall on left
+            _rightWall =
+                Physics.Raycast(position, right, out _rightWallHit, maxWallDistance,
+                    whatIsWall); // check for wall on right
+            _leftWall = Physics.Raycast(position, -right, out _leftWallHit, maxWallDistance,
+                whatIsWall); // check for wall on left
 
             // if (_rightWall)
             // {
@@ -244,7 +273,7 @@ namespace Player
         }
 
 
-        
+
         private void WallRunMovement()
         {
             // TODO - figure out how this function works
@@ -255,21 +284,22 @@ namespace Player
             var wallNormal = _rightWall ? _rightWallHit.normal : _leftWallHit.normal;
             // cross product of two vectors perpendicular to the normal above and the players y vector
             var wallForward = Vector3.Cross(wallNormal, PlayerTransform.up);
-            
+
             // if length of the player forward subtract the perpendicular vector is greater than the length of the player forward subtract the negative perpendicular vector
             if ((PlayerTransform.forward - wallForward).magnitude > (PlayerTransform.forward - -wallForward).magnitude)
             {
                 wallForward = -wallForward; // inverse the value
             }
-            
+
             // move the player along the wall
             _characterController.Move(wallForward * (wallRunForce * Time.deltaTime));
-        
+
             // if there is no walls detected and player moving
             if (!_leftWall && _inputSystem.HorizontalInput > 0 && !_rightWall && _inputSystem.HorizontalInput < 0)
             {
                 _characterController.Move(-wallNormal * (100 * Time.deltaTime)); // push the player off the wall (?)
             }
+
             activeWallRunTimer = StartCoroutine(nameof(WallRunTimer));
         }
 
@@ -349,7 +379,7 @@ namespace Player
         {
             var inputDir = PlayerTransform.forward * _inputSystem.VerticalInput +
                            PlayerTransform.right * _inputSystem.HorizontalInput;
-            
+
             _characterController.Move(inputDir.normalized * slideForce);
             StartCoroutine(nameof(SlideTimer));
         }
@@ -385,7 +415,20 @@ namespace Player
             DoTilt(0f);
             DoFov(90f);
         }
-        
-        
+
+
+        public MoveStates GetPlayerMovementState()
+        {
+            return _isGrounded switch
+            {
+                false when _verticalVelocity.y > 0 => MoveStates.Jumping,
+                false when _isWallRunning => MoveStates.Wallrunning,
+                true when _isSliding => MoveStates.Sliding,
+                true when _playerVelocity.x > 0 || _playerVelocity.z > 0 => MoveStates.Walking,
+                true when _isSprinting => MoveStates.Sprinting,
+                _ => MoveStates.Idle
+            };
+        }
     }
 }
+
