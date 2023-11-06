@@ -54,9 +54,12 @@ namespace Player
             Sprinting,
             Walking,
             Wallrunning,
+            Walljumping,
             Sliding,
             Jumping,
-            Idle
+            Idle,
+            Airborne
+            
         }
 
 
@@ -96,6 +99,7 @@ namespace Player
         public float PlayerSpeed => playerSpeed;
         public float SprintingSpeed => sprintingSpeed;
 
+        public MoveStates PlayerMoveState => _playerMoveState;
 
         private void Start()
         {
@@ -147,7 +151,9 @@ namespace Player
             if (!_canJump) return;
             _useGravity = true;
             // if airborne and not wallrunning OR if player is already jumping then exit function
-            if (!_isGrounded && !_isWallRunning) return;
+            // if (!_isGrounded && !_isWallRunning) return;
+            var moveState = GetPlayerMovementState();
+            if (moveState is MoveStates.Airborne) return;
             _isJumping = true;
             StartCoroutine(JumpCooldown());
         }
@@ -178,6 +184,7 @@ namespace Player
                     CalculateVerticalVelocity();
                     break;
             }
+
         }
 
         private void ImitateGravity()
@@ -347,7 +354,9 @@ namespace Player
         public void CheckIfCanSlide()
         {
             Debug.LogWarning("Slide Pressed");
-            if (_isWallRunning || _isSliding || _isJumping || !_isGrounded) return;
+            var moveState = GetPlayerMovementState();
+            // if (_isWallRunning || _isSliding || _isJumping || !_isGrounded) return;
+            if (moveState is MoveStates.Wallrunning or MoveStates.Sliding or MoveStates.Jumping or MoveStates.Airborne) return;
             if (_inputSystem.HorizontalInput != 0 || _inputSystem.VerticalInput != 0)
                 StartSlide();
         }
@@ -390,12 +399,12 @@ namespace Player
             if (_isSliding) CancelSlide();
         }
 
-        private void DoFov(float endValue)
+        private static void DoFov(float endValue)
         {
             mainCamera.DoFov(120f);
         }
 
-        private void DoTilt(float endValue)
+        private static void DoTilt(float endValue)
         {
             mainCamera.DoTilt(endValue);
         }
@@ -423,6 +432,8 @@ namespace Player
             {
                 false when _verticalVelocity.y > 0 => MoveStates.Jumping,
                 false when _isWallRunning => MoveStates.Wallrunning,
+                false when _isExitingWall && _verticalVelocity.y > 0 => MoveStates.Walljumping,
+                false when !_isSliding => MoveStates.Airborne,
                 true when _isSliding => MoveStates.Sliding,
                 true when _playerVelocity.x > 0 || _playerVelocity.z > 0 => MoveStates.Walking,
                 true when _isSprinting => MoveStates.Sprinting,
