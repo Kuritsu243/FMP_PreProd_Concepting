@@ -4,95 +4,78 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Serialization;
 
 namespace Camera
 {
     public static class CameraSwitcher
     {
-        private static readonly List<CinemachineVirtualCamera> Cameras = new List<CinemachineVirtualCamera>();
-        private static readonly List<CinemachineFreeLook> FreeLookCamera = new List<CinemachineFreeLook>();
-        private static CinemachineVirtualCamera _activeCamera;
-        private static CinemachineFreeLook _activeFreeLookCamera;
-        public static bool IsUsingFreeLook = false;
-        public static CinemachineVirtualCamera ActiveCamera => _activeCamera;
-        public static CinemachineFreeLook ActiveFreeLookCamera => _activeFreeLookCamera;
-
-        public static void Register(CinemachineVirtualCamera camera)
+        public enum CameraModes
         {
-            Debug.Log("Registered " + camera);
-            Cameras.Add(camera);
+            FirstPerson,
+            ThirdPerson
         }
 
-        public static void RegisterFreeLook(CinemachineFreeLook camera)
+        public enum ThirdPersonCameraModes
         {
-            Debug.Log("Registered " + camera);
-            FreeLookCamera.Add(camera);
+            Basic,
+            Combat,
+            Freelook
+        }
+        
+        public static CinemachineVirtualCamera FirstPersonCam { get; private set; }
+
+        public static CinemachineFreeLook ThirdPersonCam { get; private set; }
+
+        private static CameraModes _cameraTypes;
+        private static ThirdPersonCameraModes _thirdPersonModes;
+        
+        public static void SwitchToFirstPerson()
+        {
+            Debug.Log("Switching from " + ThirdPersonCam + " to " + FirstPersonCam);
+            ThirdPersonCam.Priority = 0;
+            FirstPersonCam.Priority = 10;
+            _cameraTypes = CameraModes.FirstPerson;
         }
 
-        public static void Unregister(CinemachineVirtualCamera camera)
+        public static void SwitchToThirdPerson()
         {
-            Debug.LogWarning("Unregistered " + camera);
-            Cameras.Remove(camera);
+            Debug.Log("Switching from " + FirstPersonCam + " to " + ThirdPersonCam);
+            FirstPersonCam.Priority = 0;
+            ThirdPersonCam.Priority = 10;
+            _cameraTypes = CameraModes.ThirdPerson;
         }
 
-        public static void UnregisterFreeLook(CinemachineFreeLook camera)
+        public static void ChangeThirdPerspective()
         {
-            Debug.LogWarning("Unregistered " + camera);
-            FreeLookCamera.Remove(camera);
+
+        }
+        
+
+        public static CameraModes GetActiveCamera()
+        {
+            return _cameraTypes;
         }
 
-        public static void SwitchCamera(CinemachineVirtualCamera camera)
+        public static void GetActiveCams(out CinemachineFreeLook thirdCam, out CinemachineVirtualCamera firstCam)
         {
-            Debug.Log("Switching from " + _activeCamera + " to " + camera);
-            IsUsingFreeLook = false;
-            camera.Priority = 10;
-            _activeCamera = camera;
-            foreach (var vcam in Cameras.Where(vcam => vcam != camera && vcam.Priority != 0))
-            {
-                vcam.Priority = 0;
-            }
+            thirdCam = ThirdPersonCam;
+            firstCam = FirstPersonCam;
         }
 
-        public static void SwitchToFreelookCamera(CinemachineVirtualCamera camera, CinemachineFreeLook freeLook)
+        public static void SetCams(CinemachineFreeLook thirdCam, CinemachineVirtualCamera firstCam)
         {
-            Debug.Log("Switching from" + camera + " to " + freeLook);
-            IsUsingFreeLook = true;
-            freeLook.Priority = 10;
-            foreach (var vcam in Cameras.Where(vcam => vcam.Priority != 0))
-                vcam.Priority = 0;
-            _activeFreeLookCamera = freeLook;
-            _activeCamera = null;
+            FirstPersonCam = firstCam;
+            ThirdPersonCam = thirdCam;
         }
-
-        public static void SwitchFromFreelookCamera(CinemachineVirtualCamera camera)
-        {
-            Debug.Log("Switching from " + _activeFreeLookCamera + " to " + camera);
-            IsUsingFreeLook = false;
-            _activeFreeLookCamera.Priority = 0;
-            _activeFreeLookCamera = null;
-            _activeCamera = camera;
-            camera.Priority = 10;
-            foreach (var vcam in Cameras.Where(vcam => vcam != camera && vcam.Priority != 0))
-            {
-                vcam.Priority = 0;
-            }
-            
-        }
-
-        public static bool IsActiveCamera(CinemachineVirtualCamera camera)
-        {
-            return camera == _activeCamera;
-        }
-
-
     }
 
     public static class CinemachineExtras
     {
-        public static void LerpDutch(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
+        public static void LerpFirstDutch(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
         {
-            vcam.StartCoroutine(LerpDutch());
-            IEnumerator LerpDutch()
+            vcam.StartCoroutine(DutchLerp());
+            IEnumerator DutchLerp()
             {
                 var start = vcam.m_Lens.Dutch;
                 var timeElapsed = 0f;
@@ -106,7 +89,24 @@ namespace Camera
             }
         }
         
-        public static void LerpFOV(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
+        public static void LerpThirdDutch(this CinemachineFreeLook vcam, float endValue, float timeToTake)
+        {
+            vcam.StartCoroutine(DutchLerp());
+            IEnumerator DutchLerp()
+            {
+                var start = vcam.m_Lens.Dutch;
+                var timeElapsed = 0f;
+                while (timeElapsed < timeToTake)
+                {
+                    var dutchValue = Mathf.Lerp(start, endValue, timeElapsed / timeToTake);
+                    vcam.m_Lens.Dutch = dutchValue;
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+        }
+        
+        public static void LerpFirstFOV(this CinemachineVirtualCamera vcam, float endValue, float timeToTake)
         {
             vcam.StartCoroutine(DoLerp());
             IEnumerator DoLerp()
@@ -123,16 +123,33 @@ namespace Camera
             }
         }
 
+        public static void LerpThirdFOV(this CinemachineFreeLook vcam, float endValue, float timeToTake)
+        {
+            vcam.StartCoroutine(DoLerp());
+            IEnumerator DoLerp()
+            {
+                var start = vcam.m_Lens.FieldOfView;
+                var timeElapsed = 0f;
+                while (timeElapsed < timeToTake)
+                {
+                    var fovValue = Mathf.Lerp(start, endValue, timeElapsed / timeToTake);
+                    vcam.m_Lens.FieldOfView = fovValue;
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+            
+        }
+
 
 
         
     }
     
-    public class mainCamera : MonoBehaviour
+    public class MainCamera : MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera firstPersonCam;
-        [SerializeField] private CinemachineVirtualCamera thirdPersonCam;
-        [SerializeField] private CinemachineFreeLook freeLookCam;
+        [SerializeField] private CinemachineFreeLook thirdPersonCam;
         
         [Header("Testing")]
         [SerializeField] private bool isTesting;
@@ -143,22 +160,14 @@ namespace Camera
         [Range(0, 250)] [SerializeField] private float fov;
         [SerializeField] private bool lerpFOV;
         
-
-
+        public static CameraSwitcher.CameraModes ActiveCameraMode => CameraSwitcher.GetActiveCamera();
         
-        
-        
-        
-
-        
-        public mainCamera Instance { get; private set; }
+        public MainCamera Instance { get; private set; }
         
         private void OnEnable()
         {
-            CameraSwitcher.Register(firstPersonCam);
-            CameraSwitcher.Register(thirdPersonCam);
-            CameraSwitcher.RegisterFreeLook(freeLookCam);
-            CameraSwitcher.SwitchCamera(firstPersonCam);
+            CameraSwitcher.SetCams(thirdPersonCam, firstPersonCam);
+            CameraSwitcher.SwitchToFirstPerson();
         }
         
         private void Awake()
@@ -171,48 +180,26 @@ namespace Camera
             }
         }
 
-        // private void OnDestroy()
-        // {
-        //     CameraSwitcher.Unregister(firstPersonCam);
-        //     CameraSwitcher.Unregister(thirdPersonCam);
-        //     CameraSwitcher.UnregisterFreeLook(freeLookCam);
-        // }
-
-        private void OnDisable()
+        public static void ChangeCamera()
         {
-            CameraSwitcher.Unregister(firstPersonCam);
-            CameraSwitcher.Unregister(thirdPersonCam);
-            CameraSwitcher.UnregisterFreeLook(freeLookCam);
-        }
-
-        public void ChangeCamera()
-        {
-            if (CameraSwitcher.IsUsingFreeLook)
-                CameraSwitcher.SwitchFromFreelookCamera(firstPersonCam);
-            else
+            switch (ActiveCameraMode)
             {
-                if (CameraSwitcher.IsActiveCamera(firstPersonCam))
-                    CameraSwitcher.SwitchCamera(thirdPersonCam);
-                else if (CameraSwitcher.IsActiveCamera(thirdPersonCam))
-                    CameraSwitcher.SwitchToFreelookCamera(thirdPersonCam, freeLookCam);
+                case CameraSwitcher.CameraModes.FirstPerson:
+                    CameraSwitcher.SwitchToThirdPerson();
+                    break;
+                case CameraSwitcher.CameraModes.ThirdPerson:
+                    CameraSwitcher.SwitchToFirstPerson();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
+
+        public static CameraSwitcher.CameraModes GetActiveMode()
+        {
+            return CameraSwitcher.GetActiveCamera();
+        }
         
-        public static bool IsUsingFreelook()
-        {
-            return CameraSwitcher.IsUsingFreeLook;
-        }
-
-        public static CinemachineVirtualCamera GetActiveCamera()
-        {
-            return CameraSwitcher.ActiveCamera;
-        }
-
-        public static CinemachineFreeLook GetActiveFreelook()
-        {
-            return CameraSwitcher.ActiveFreeLookCamera;
-            
-        }
 
         private void FixedUpdate()
         {
@@ -222,43 +209,37 @@ namespace Camera
 
         private void Testing()
         {
-            if (IsUsingFreelook())
-            {
-                GetActiveFreelook().m_Lens.Dutch = dutch;
-                var transformRotation = GetActiveFreelook().transform.localRotation;
-                transformRotation.x = xRotation;
-                transformRotation.y = yRotation;
-
-                GetActiveFreelook().transform.rotation = transformRotation;
-            }
-            else
-            {
-                GetActiveCamera().m_Lens.Dutch = dutch;
-                var transformRotation = GetActiveCamera().transform.rotation;
-                transformRotation.x = xRotation;
-                transformRotation.y = yRotation;
-                transformRotation.z = zRotation;
-
-                GetActiveCamera().transform.rotation = transformRotation;
-
-                if (lerpFOV)
-                {
-                    GetActiveCamera().LerpFOV(120f, 0.45f);
-                }
-
-                
-                
-            }
+            
         }
 
         public static void DoFov(float endValue)
         {
-            GetActiveCamera().LerpFOV(endValue, 0.25f);
+            switch (ActiveCameraMode)
+            {
+                case CameraSwitcher.CameraModes.FirstPerson:
+                    CameraSwitcher.FirstPersonCam.LerpFirstFOV(endValue, 0.25f);
+                    break;
+                case CameraSwitcher.CameraModes.ThirdPerson:
+                    CameraSwitcher.ThirdPersonCam.LerpThirdFOV(endValue, 0.25f);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public static void DoTilt(float endValue)
         {
-            GetActiveCamera().LerpDutch(endValue, 0.25f);
+            switch (ActiveCameraMode)
+            {
+                case CameraSwitcher.CameraModes.FirstPerson:
+                    CameraSwitcher.FirstPersonCam.LerpFirstDutch(endValue, 0.25f);
+                    break;
+                case CameraSwitcher.CameraModes.ThirdPerson:
+                    CameraSwitcher.ThirdPersonCam.LerpThirdDutch(endValue, 0.25f);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
         

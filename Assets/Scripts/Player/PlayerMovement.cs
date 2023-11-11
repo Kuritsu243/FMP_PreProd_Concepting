@@ -2,11 +2,46 @@ using System;
 using System.Collections;
 using Camera;
 using input;
+using Player.FSM;
+using Player.FSM.States;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
+    
+    
+    #region stateMachine
+
+    public class PlayerStateMachine : FiniteStateMachine
+    {
+        [HideInInspector] public Idle IdleState;
+        [HideInInspector] public Walking walkingState;
+        [HideInInspector] public Sprinting sprintingState;
+        [HideInInspector] public Jumping jumpingState;
+        [HideInInspector] public Airborne airborneState;
+        [HideInInspector] public WallJumping wallJumpingState;
+        [HideInInspector] public WallRunning wallRunState;
+
+
+        // private void Awake()
+        // {
+        //     IdleState = new Idle(this);
+        //     walkingState = new Walking(this);
+        //     sprintingState = new Sprinting(this);
+        //     jumpingState = new Jumping(this);
+        //     airborneState = new Airborne(this);
+        //     wallJumpingState = new WallJumping(this);
+        //     wallRunState = new WallRunning(this);
+        // }
+        
+    }
+    
+
+    #endregion
+    
+    
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Player Movement")] [SerializeField]
@@ -49,6 +84,7 @@ namespace Player
         [SerializeField] private float slideYScale;
 
 
+
         public enum MoveStates
         {
             Sprinting,
@@ -62,8 +98,7 @@ namespace Player
             
         }
 
-
-
+        
         private inputSystem _inputSystem;
         private GameObject _eventSystem;
         private GameObject _mostRecentWall;
@@ -106,7 +141,7 @@ namespace Player
             _playerController = GetComponent<PlayerController>(); // get player controller script
             _inputSystem = _playerController.inputSystem; // reference input system script / component
             _characterController = _playerController.characterController; // get character controller component
-            _playerStamina = _playerController.playerStamina;
+            // _playerStamina = _playerController.playerStamina;
             _startYScale = PlayerTransform.localScale.y;
 
         }
@@ -401,12 +436,12 @@ namespace Player
 
         private static void DoFov(float endValue)
         {
-            mainCamera.DoFov(120f);
+            MainCamera.DoFov(120f);
         }
 
         private static void DoTilt(float endValue)
         {
-            mainCamera.DoTilt(endValue);
+            MainCamera.DoTilt(endValue);
         }
 
         private void ApplyCameraEffects()

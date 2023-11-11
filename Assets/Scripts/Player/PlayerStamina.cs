@@ -22,7 +22,7 @@ namespace Player
         private void Start()
         {
             _playerController = GetComponent<PlayerController>();
-            _playerMovement = _playerController.playerMovement;
+            // _playerMovement = _playerController.playerMovement;
             _stamina = maxStamina;
         }
 

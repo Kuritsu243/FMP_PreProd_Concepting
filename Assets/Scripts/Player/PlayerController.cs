@@ -1,7 +1,9 @@
 using System;
 using Camera;
 using input;
+using Player.FSM.States;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Player
@@ -35,28 +37,117 @@ namespace Player
     {
         public GameObject eventSystem;
         public inputSystem inputSystem;
-        public mainCamera mainCamera;
+        public PlayerInput playerInput;
+        public MainCamera mainCamera;
         public CharacterController characterController;
-        public PlayerMovement playerMovement;
-        public PlayerStamina playerStamina;
         public GameObject playerMesh;
-        public PlayerWallRunning playerWallRunning;
+        
+        public PlayerStateMachine playerStateMachine;
+        public Idle IdleState;
+        public Walking walkingState;
+        public Sprinting sprintingState;
+        public Jumping jumpingState;
+        public Airborne airborneState;
+        public WallJumping wallJumpingState;
+        public WallRunning wallRunState;
+        
+        
+        [Header("Player Movement")] 
+        [SerializeField] private float playerSpeed;
+        [SerializeField] private float sprintingSpeed;
+        [SerializeField] private Quaternion maxWallRotation;
+
+        [Header("Player Look")] 
+        [SerializeField] private Vector2 mouseSensitivity;
+        [SerializeField] private float xClamp;
+        [SerializeField] private float rotationSpeed;
+        
+        
+        
+        
+        
+        [Header("Player Jump")] 
+        [SerializeField] private float playerJumpHeight;
+        [SerializeField] private float playerGravity;
+        [SerializeField] private float playerJumpCooldown;
+
+        [Header("Layer Mask Settings")] 
+        [SerializeField] private LayerMask groundMask;
+        [SerializeField] private LayerMask whatIsWall;
+
+        [Header("Wall Run Settings")] 
+        [SerializeField] private float wallRunSpeed;
+        [SerializeField] private float wallRunForce;
+        [SerializeField] private float wallRunMaxDuration;
+        [SerializeField] private float wallRunExitTime;
+
+        [Header("Wall Run Detection Settings")] 
+        [SerializeField] private float maxWallDistance;
+
+        [Header("Wall Jump Settings")] 
+        [SerializeField] private float wallJumpUpForce;
+        [SerializeField] private float wallJumpSideForce;
+        [SerializeField] private float wallMemoryTime;
+
+        [Header("Sliding Settings")] 
+        [SerializeField] private float maxSlideTime;
+        [SerializeField] private float slideForce;
+        [SerializeField] private float slideYScale;
+
+        
+        public Transform PlayerTransform => characterController.transform;
+        public float JumpHeight => playerJumpHeight;
+        public float PlayerSpeed => playerSpeed;
+        public float SprintingSpeed => sprintingSpeed;
+
+        public float XClamp => xClamp;
+
+        public Vector2 MouseSensitivity => mouseSensitivity;
+
+        public float RotationSpeed => rotationSpeed;
+
+        public float PlayerGravity => playerGravity;
+        
+
+        public bool isGrounded;
         
         public void Awake()
         {
             characterController = GetComponentInChildren<CharacterController>();
-            playerMovement = GetComponent<PlayerMovement>();
             eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
-            mainCamera = eventSystem.GetComponent<mainCamera>();
+            mainCamera = eventSystem.GetComponent<MainCamera>();
             inputSystem = eventSystem.GetComponent<inputSystem>();
-            playerStamina = GetComponent<PlayerStamina>();
             playerMesh = transform.FindGameObjectInChildWithTag("PlayerMesh");
-            playerWallRunning = GetComponent<PlayerWallRunning>();
+            playerInput = GetComponent<PlayerInput>();
+            playerStateMachine = new PlayerStateMachine();
+            
+            IdleState = new Idle("Idle", this, playerStateMachine);
+            walkingState = new Walking("Walking", this, playerStateMachine);
+            jumpingState = new Jumping("Jumping", this, playerStateMachine);
+            
+            playerStateMachine.Initialize(IdleState);
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
+
+        private void Update()
+        {
+            playerStateMachine.CurrentState.HandleInput();
+            playerStateMachine.CurrentState.LogicUpdate();
         }
 
         private void FixedUpdate()
         {
-            // transform.position = playerMesh.transform.position;
+            isGrounded = characterController.isGrounded;
+            playerStateMachine.CurrentState.PhysicsUpdate();
+        }
+
+        private void OnGUI()
+        {
+            string content = playerStateMachine.CurrentState != null
+                ? playerStateMachine.CurrentState.ToString()
+                : "No state";
+            GUILayout.Label($"<color='black'><size='40'>{content}</size></color>");
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Debugging
         private void Start()
         {
             _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            _playerMovement = _playerController.playerMovement;
+            // _playerMovement = _playerController.playerMovement;
             _moveStateText = GetComponentInChildren<TextMeshProUGUI>();
         }
 

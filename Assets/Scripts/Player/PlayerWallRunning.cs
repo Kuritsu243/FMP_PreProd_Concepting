@@ -40,7 +40,7 @@ namespace Player
         private void Start()
         {
             _playerController = GetComponent<PlayerController>();
-            _playerMovement = _playerController.playerMovement;
+            // _playerMovement = _playerController.playerMovement;
             _playerMesh = _playerController.playerMesh;
             _playerTransform = _playerTransform.transform;
             _inputSystem = _playerController.inputSystem;
