@@ -38,8 +38,7 @@ namespace Player.FSM.States
         public override void Enter()
         {
             base.Enter();
-
-
+            
             isMoving = true;
             isJumping = false;
             isSliding = false;
@@ -52,19 +51,9 @@ namespace Player.FSM.States
         {
             base.HandleInput();
             
-            if (JumpAction.triggered)
-                isJumping = true;
-            if (SlideAction.triggered)
-                isSliding = true;
-            if (movementInput is {x: 0, y: 0})
-                isMoving = false;
-            movementInput = MoveAction.ReadValue<Vector2>();
-            playerVelocity = (PlayerTransform.right * movementInput.x +
-                              PlayerTransform.forward * movementInput.y) * playerSpeed;
+            playerVelocity = (PlayerTransform.right * MovementInput.x + PlayerTransform.forward * MovementInput.y) *
+                             PlayerSpeed;
 
-            mouseInput = LookAction.ReadValue<Vector2>();
-            _mouseX = mouseInput.x * Character.MouseSensitivity.x;
-            _mouseY = mouseInput.y * Character.MouseSensitivity.y;
         }
 
         public override void LogicUpdate()
@@ -74,7 +63,7 @@ namespace Player.FSM.States
             
             if (isJumping)
                 StateMachine.ChangeState(Character.jumpingState);
-            if (!isMoving)
+            if (!isMoving && !isJumping)
                 StateMachine.ChangeState(Character.IdleState);
 
         }
@@ -86,49 +75,20 @@ namespace Player.FSM.States
             
             verticalVelocity.y += gravityValue * Time.deltaTime;
             isGrounded = Character.isGrounded;
-
-            if (isGrounded && verticalVelocity.y < 0)
-                verticalVelocity.y = 0f;
-
-            Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
-
             
-            if (mouseInput is {x: 0, y: 0}) return;
-            CameraSwitcher.GetActiveCams(out thirdPersonCam, out firstPersonCam);
-            switch (MainCamera.ActiveCameraMode)
-            {
-                case CameraSwitcher.CameraModes.FirstPerson:
-                    Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
-                    _xRotation -= _mouseY;
-                    _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
-                    _targetRotation = Character.playerMesh.transform.eulerAngles;
-                    _targetRotation.x = _xRotation;
-                    firstPersonCam.transform.eulerAngles = _targetRotation;
-                    break;
-                case CameraSwitcher.CameraModes.ThirdPerson:
-                    var cameraPos = thirdPersonCam.transform.position;
-                    var playerPos = PlayerTransform.position;
-                    var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
-                    PlayerTransform.forward = viewDir.normalized;
-                    var inputDir = 
-                        PlayerTransform.forward * mouseInput.x + 
-                        PlayerTransform.right * mouseInput.y;
-                    if (inputDir != Vector3.zero)
-                        Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
-                            inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            Debug.LogWarning(playerVelocity);
+            Character.characterController.Move(playerVelocity * Time.deltaTime + VerticalVelocity * Time.deltaTime);
+
         }
 
         public override void Exit()
         {
             base.Exit();
-
-            _xRotation = 0;
-            _targetRotation = Vector3.zero;
+            verticalVelocity = Vector3.zero;
+            XRotation = 0;
+            TargetRotation = Vector3.zero;
             
+
         }
     }
 }

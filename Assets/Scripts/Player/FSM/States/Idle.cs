@@ -41,7 +41,6 @@ namespace Player.FSM.States
             isJumping = false;
             isSliding = false;
             isGrounded = true;
-            playerVelocity = Vector3.zero;
             verticalVelocity = Vector3.zero;
             playerSpeed = Character.PlayerSpeed;
             gravityValue = Character.PlayerGravity;
@@ -61,28 +60,21 @@ namespace Player.FSM.States
         {
             base.Exit();
             verticalVelocity = Vector3.zero;
-            playerVelocity = Vector3.zero;
-            _xRotation = 0;
-            _targetRotation = Vector3.zero;
+            XRotation = 0;
+            TargetRotation = Vector3.zero;
         }
 
         public override void HandleInput()
         {
             base.HandleInput();
-
-            if (JumpAction.triggered)
-                isJumping = true;
-            if (SlideAction.triggered)
-                isSliding = true;
-            if (movementInput is not {x: 0, y: 0})
-                isMoving = true;
-            movementInput = MoveAction.ReadValue<Vector2>();
-            playerVelocity = (PlayerTransform.right * movementInput.x +
-                               PlayerTransform.forward * movementInput.y) * playerSpeed;
-
-            mouseInput = LookAction.ReadValue<Vector2>();
-            _mouseX = mouseInput.x * Character.MouseSensitivity.x;
-            _mouseY = mouseInput.y * Character.MouseSensitivity.y;
+            
+            playerVelocity = (PlayerTransform.right * MovementInput.x + PlayerTransform.forward * MovementInput.y) *
+                             PlayerSpeed;
+            
+            
+            MouseInput = LookAction.ReadValue<Vector2>();
+            MouseX = MouseInput.x * Character.MouseSensitivity.x;
+            MouseY = MouseInput.y * Character.MouseSensitivity.y;
 
         }
 
@@ -92,7 +84,7 @@ namespace Player.FSM.States
             
             if (isJumping)
                 StateMachine.ChangeState(Character.jumpingState);
-            if (isMoving)
+            if (isMoving && !isJumping)
                 StateMachine.ChangeState(Character.walkingState);
 
         }
@@ -103,32 +95,31 @@ namespace Player.FSM.States
 
             verticalVelocity.y += gravityValue * Time.deltaTime;
             isGrounded = Character.isGrounded;
-            Debug.LogWarning(isGrounded);
-            if (isGrounded && verticalVelocity.y < 0)
-                verticalVelocity.y = 0f;
-
             Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
-            Debug.LogWarning(verticalVelocity);
-            if (mouseInput is {x: 0, y: 0}) return;
-            CameraSwitcher.GetActiveCams(out thirdPersonCam, out firstPersonCam);
+            
+            
+            Debug.Log($"XRotation: {XRotation},\n" +
+                      $"TargetRotation: {TargetRotation},\n");
+            CameraSwitcher.GetActiveCams(out ThirdPersonCam, out FirstPersonCam);
             switch (MainCamera.ActiveCameraMode)
             {
                 case CameraSwitcher.CameraModes.FirstPerson:
-                    Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
-                    _xRotation -= _mouseY;
+                    Character.playerMesh.transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
+   
+                    _xRotation -= MouseY;
                     _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
-                    _targetRotation = Character.playerMesh.transform.eulerAngles;
-                    _targetRotation.x = _xRotation;
-                    firstPersonCam.transform.eulerAngles = _targetRotation;
+                    TargetRotation = Character.playerMesh.transform.eulerAngles;
+                    TargetRotation.x = _xRotation8;
+                    FirstPersonCam.transform.eulerAngles = TargetRotation;
                     break;
                 case CameraSwitcher.CameraModes.ThirdPerson:
-                    var cameraPos = thirdPersonCam.transform.position;
+                    var cameraPos = ThirdPersonCam.transform.position;
                     var playerPos = PlayerTransform.position;
                     var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
                     PlayerTransform.forward = viewDir.normalized;
                     var inputDir = 
-                        PlayerTransform.forward * mouseInput.x + 
-                        PlayerTransform.right * mouseInput.y;
+                        PlayerTransform.forward * MouseInput.x + 
+                        PlayerTransform.right * MouseInput.y;
                     if (inputDir != Vector3.zero)
                         Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
                             inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
@@ -136,6 +127,15 @@ namespace Player.FSM.States
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            
+            CameraControl();
+        }
+        
+        
+        public void CameraControl()
+        {
+
         }
 
     }

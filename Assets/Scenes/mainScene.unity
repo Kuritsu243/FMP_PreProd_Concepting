@@ -357,7 +357,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251456140}
-  m_LocalRotation: {x: 0.16110669, y: -0.000000016981616, z: 0.000000002772063, w: 0.98693705}
+  m_LocalRotation: {x: 0.16110677, y: -0.000000018986018, z: 0.0000000030992617, w: 0.986937}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1031,8 +1031,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.16110669, y: -0.000000033963232, z: 0.0000000055441265, w: 0.98693705}
-  m_LocalPosition: {x: 0, y: 1.5271599, z: -2.8320308}
+  m_LocalRotation: {x: 0.16110677, y: -0.00000003797204, z: 0.000000006198524, w: 0.98693705}
+  m_LocalPosition: {x: 0, y: 1.5271604, z: -2.8320308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1532,7 +1532,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533890316}
-  m_LocalRotation: {x: 0.28316253, y: -0.000000011244206, z: 0.0000000033198104, w: 0.95907193}
+  m_LocalRotation: {x: 0.2831625, y: 0.000000025899537, z: -0.000000007646744, w: 0.95907193}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2045,7 +2045,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675421783}
-  m_LocalRotation: {x: 0.23827925, y: -0.000000023632547, z: 0.000000005798151, w: 0.9711967}
+  m_LocalRotation: {x: 0.23827924, y: 0.000000016710782, z: -0.000000004099923, w: 0.9711967}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2232,7 +2232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847702112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2264,12 +2264,11 @@ MonoBehaviour:
   sprintingState: {fileID: 0}
   airborneState: {fileID: 0}
   wallJumpingState: {fileID: 0}
-  wallRunState: {fileID: 0}
   playerSpeed: 5
   sprintingSpeed: 0
   maxWallRotation: {x: 0, y: 0, z: 0, w: 0}
   mouseSensitivity: {x: 20, y: 4}
-  xClamp: 25
+  xClamp: 90
   rotationSpeed: 0
   playerJumpHeight: 4
   playerGravity: -16
@@ -2292,6 +2291,8 @@ MonoBehaviour:
   slideForce: 0.5
   slideYScale: 0.5
   isGrounded: 0
+  leftWall: 0
+  rightWall: 0
 --- !u!114 &1847702120
 MonoBehaviour:
   m_ObjectHideFlags: 0

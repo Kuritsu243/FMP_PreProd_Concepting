@@ -107,9 +107,20 @@ namespace Player
         public float RotationSpeed => rotationSpeed;
 
         public float PlayerGravity => playerGravity;
-        
 
+        public float WallRunForce => wallRunForce;
+
+        public float WallRunSpeed => wallRunSpeed;
+
+        public LayerMask WhatIsWall => whatIsWall;
+        
         public bool isGrounded;
+
+        public RaycastHit leftWallHit;
+        public RaycastHit rightWallHit;
+        public bool leftWall;
+        public bool rightWall;
+        public float MaxWallDistance => maxWallDistance;
         
         public void Awake()
         {
@@ -124,6 +135,7 @@ namespace Player
             IdleState = new Idle("Idle", this, playerStateMachine);
             walkingState = new Walking("Walking", this, playerStateMachine);
             jumpingState = new Jumping("Jumping", this, playerStateMachine);
+            wallRunState = new WallRunning("WallRunning", this, playerStateMachine);
             
             playerStateMachine.Initialize(IdleState);
             Cursor.lockState = CursorLockMode.Locked;
@@ -139,6 +151,7 @@ namespace Player
         private void FixedUpdate()
         {
             isGrounded = characterController.isGrounded;
+            Debug.LogWarning($"Is Player Grounded? {isGrounded}");
             playerStateMachine.CurrentState.PhysicsUpdate();
         }
 

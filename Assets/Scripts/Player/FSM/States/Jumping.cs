@@ -21,9 +21,16 @@ namespace Player.FSM.States
         private float _mouseX;
         private float _mouseY;
         private float _xRotation;
+        private float _maxWallDistance;
+        private LayerMask _whatIsWall;
         private Vector3 _targetRotation;
         private CinemachineFreeLook thirdPersonCam;
         private CinemachineVirtualCamera firstPersonCam;
+        private RaycastHit _leftWallHit;
+        private RaycastHit _rightWallHit;
+        private bool _leftWall;
+        private bool _rightWall;
+        private bool _canWallRun;
         private Transform PlayerTransform => Character.PlayerTransform;
 
 
@@ -40,6 +47,8 @@ namespace Player.FSM.States
         {
             base.Enter();
 
+
+            _canWallRun = false;
             isMoving = true;
             isJumping = true;
             isSliding = false;
@@ -47,6 +56,9 @@ namespace Player.FSM.States
             playerSpeed = Character.PlayerSpeed;
             gravityValue = Character.PlayerGravity;
             playerJumpHeight = Character.JumpHeight;
+            verticalVelocity = Vector3.zero;
+            _maxWallDistance = Character.MaxWallDistance;
+            _whatIsWall = Character.WhatIsWall;
             
             
             Jump();
@@ -54,7 +66,7 @@ namespace Player.FSM.States
 
         private void Jump()
         {
-            verticalVelocity.y += Mathf.Sqrt(-2f * playerJumpHeight * gravityValue);
+            verticalVelocity.y = Mathf.Sqrt(-2f * playerJumpHeight * gravityValue);
         }
 
         public override void HandleInput()
@@ -80,30 +92,45 @@ namespace Player.FSM.States
 
             switch (isGrounded)
             {
-                case true when movementInput is not {x: 0, y: 0}:
+                case false when (_leftWall || _rightWall) && _canWallRun:
+                    StateMachine.ChangeState(Character.wallRunState);
+                    break;
+                case true when movementInput is not {x: 0, y: 0} && verticalVelocity.y < 0:
                     StateMachine.ChangeState(Character.IdleState);
                     break;
-                case true when movementInput is {x: 0, y: 0}:
+                case true when movementInput is {x: 0, y: 0} && verticalVelocity.y < 0:
                     StateMachine.ChangeState(Character.walkingState);
-                    break;
+                    break; 
             }
         }
 
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
-
-
-            verticalVelocity.y += gravityValue * Time.deltaTime;
             isGrounded = Character.isGrounded;
-
-            if (isGrounded && verticalVelocity.y < 0)
-                verticalVelocity.y = 0f;
-
             Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
+            if (!isGrounded) verticalVelocity.y += gravityValue * Time.deltaTime;
 
-            
-            
+
+            var right = PlayerTransform.right;
+            var position = PlayerTransform.position;
+            _rightWall = Physics.Raycast(position, right, out _rightWallHit, _maxWallDistance, _whatIsWall);
+            _leftWall = Physics.Raycast(position, -right, out _leftWallHit, _maxWallDistance, _whatIsWall);
+
+            if ((_leftWall || _rightWall) && movementInput is not {x: 0, y: 0} && !isGrounded)
+            {
+                if (_leftWall)
+                {
+                    Character.leftWall = true;
+                    Character.leftWallHit = _leftWallHit;
+                }
+                else if (_rightWall)
+                {
+                    Character.rightWall = true;
+                    Character.rightWallHit = _rightWallHit;
+                }
+                _canWallRun = true;
+            }
             
             if (mouseInput is {x: 0, y: 0}) return;
             CameraSwitcher.GetActiveCams(out thirdPersonCam, out firstPersonCam);
@@ -137,6 +164,9 @@ namespace Player.FSM.States
         public override void Exit()
         {
             base.Exit();
+            isGrounded = true;
+            isSliding = false;
+            isJumping = false;
             
         }
     }
