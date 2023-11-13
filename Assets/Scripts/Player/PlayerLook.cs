@@ -50,10 +50,10 @@ namespace Player
 
         private void HandleRotation()
         {
-            CameraSwitcher.GetActiveCams(out thirdPersonCam, out firstPersonCam);
+            CameraChanger.GetActiveCams(out thirdPersonCam, out firstPersonCam);
             switch (MainCamera.ActiveCameraMode)
             {
-                case CameraSwitcher.CameraModes.FirstPerson:
+                case CameraChanger.CameraModes.FirstPerson:
                     _playerMesh.transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
                     _xRotation -= MouseY;
                     _xRotation = Mathf.Clamp(_xRotation, -xClamp, xClamp);
@@ -61,7 +61,7 @@ namespace Player
                     _targetRotation.x = _xRotation;
                     firstPersonCam.transform.eulerAngles = _targetRotation;
                     break;
-                case CameraSwitcher.CameraModes.ThirdPerson:
+                case CameraChanger.CameraModes.ThirdPerson:
                     var cameraPos = thirdPersonCam.transform.position;
                     var playerPos = PlayerTransform.position;
                     var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.4964133, b: 0.57481784, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -412,6 +412,43 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1514902972}
+--- !u!1 &297565766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3298339324466926989, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
+  m_PrefabInstance: {fileID: 208171012398316144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &297565767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 322785781609073001, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
+  m_PrefabInstance: {fileID: 208171012398316144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297565766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &297565770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297565766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feed225c59b7528498aea3209d946c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonCam: {fileID: 708343200}
+  thirdPersonCam: {fileID: 1569583002}
+  isTesting: 0
+  xRotation: 0
+  yRotation: 0
+  zRotation: 0
+  dutch: 0
+  fov: 0
+  lerpFOV: 0
 --- !u!1 &441236194
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708343199}
   - component: {fileID: 708343200}
+  - component: {fileID: 708343201}
   m_Layer: 0
   m_Name: 1st
   m_TagString: Untagged
@@ -840,6 +878,22 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2082925059}
+--- !u!114 &708343201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708343198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndex: -1
+  AutoEnableInputs: 1
+  XYAxis: {fileID: -5630151704836100654, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  ZAxis: {fileID: 0}
 --- !u!1 &927832246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2321,7 @@ MonoBehaviour:
   playerSpeed: 5
   sprintingSpeed: 0
   maxWallRotation: {x: 0, y: 0, z: 0, w: 0}
-  mouseSensitivity: {x: 20, y: 4}
+  mouseSensitivity: {x: 12, y: 2}
   xClamp: 90
   rotationSpeed: 0
   playerJumpHeight: 4
@@ -2307,7 +2361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: abdf239144d09d7468e35c34f080973d, type: 3}
   m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
+  m_UIInputModule: {fileID: 297565767}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2476,6 +2530,7 @@ GameObject:
   - component: {fileID: 2082925059}
   - component: {fileID: 2082925062}
   - component: {fileID: 2082925064}
+  - component: {fileID: 2082925065}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -2523,6 +2578,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0
+--- !u!114 &2082925065
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082925058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RecenterTarget: 0
+  m_VerticalAxis:
+    Value: 0
+    m_SpeedMode: 1
+    m_MaxSpeed: 0.5
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: Mouse Y
+    m_InputAxisValue: 0
+    m_InvertInput: 1
+    m_MinValue: -70
+    m_MaxValue: 70
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 1
+      m_RecenteringTime: 2
+      m_LegacyHeadingDefinition: -1
+      m_LegacyVelocityFilterStrength: -1
+  m_VerticalRecentering:
+    m_enabled: 0
+    m_WaitTime: 1
+    m_RecenteringTime: 2
+    m_LegacyHeadingDefinition: -1
+    m_LegacyVelocityFilterStrength: -1
+  m_HorizontalAxis:
+    Value: 0
+    m_SpeedMode: 1
+    m_MaxSpeed: 0.5
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: Mouse X
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: -180
+    m_MaxValue: 180
+    m_Wrap: 1
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 1
+      m_RecenteringTime: 2
+      m_LegacyHeadingDefinition: -1
+      m_LegacyVelocityFilterStrength: -1
+  m_HorizontalRecentering:
+    m_enabled: 0
+    m_WaitTime: 1
+    m_RecenteringTime: 2
+    m_LegacyHeadingDefinition: -1
+    m_LegacyVelocityFilterStrength: -1
+  m_ApplyBeforeBody: 0
 --- !u!1001 &208171012398316144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2596,8 +2713,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 2089587025194910572, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
     - {fileID: 8985598844384858207, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3298339324466926989, guid: d4855a910c1a8404794d54870350aa1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 297565770}
   m_SourcePrefab: {fileID: 100100000, guid: d4855a910c1a8404794d54870350aa1a, type: 3}

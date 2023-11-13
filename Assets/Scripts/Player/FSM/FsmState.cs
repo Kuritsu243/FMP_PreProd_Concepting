@@ -20,14 +20,16 @@ namespace Player.FSM
         public InputAction SprintAction;
         protected readonly float PlayerSpeed;
         protected readonly float GravityValue;
-        protected Vector2 MouseInput;
-        protected float MouseX;
-        protected float MouseY;
-        protected CinemachineFreeLook ThirdPersonCam;
-        protected CinemachineVirtualCamera FirstPersonCam;
-        protected float XRotation;
-        protected Vector3 TargetRotation;
+        private Vector2 _mouseInput;
+        private float _mouseX;
+        private float _mouseY;
+        private CinemachineFreeLook _thirdPersonCam;
+        private CinemachineVirtualCamera _firstPersonCam;
+        private float _xRotation;
+        private Vector3 _targetRotation;
         protected float XClamp;
+        protected Vector2 md;
+        protected Vector2 mouseLook;
 
         protected FsmState(string stateName, FiniteStateMachine stateMachine, PlayerController playerController)
         {
@@ -50,14 +52,16 @@ namespace Player.FSM
         // mechanics
         public virtual void Enter()
         {
-
         }
 
         public virtual void HandleInput()
         {
-            MouseInput = LookAction.ReadValue<Vector2>();
-            MouseX = MouseInput.x * Character.MouseSensitivity.x;
-            MouseY = MouseInput.y * Character.MouseSensitivity.y;
+
+            _mouseInput = LookAction.ReadValue<Vector2>();
+            _mouseX = _mouseInput.x * Character.MouseSensitivity.x;
+            _mouseY = _mouseInput.y * Character.MouseSensitivity.y;
+            
+            // Debug.Log($"Mouse Input: {MouseInput}");
         }
 
         public virtual void LogicUpdate()
@@ -67,35 +71,50 @@ namespace Player.FSM
 
         public virtual void PhysicsUpdate()
         {
-            CameraSwitcher.GetActiveCams(out ThirdPersonCam, out FirstPersonCam);
-            switch (MainCamera.ActiveCameraMode)
-            {
-                case CameraSwitcher.CameraModes.FirstPerson:
-                    if (MouseInput is {x: 0, y: 0}) return;
-                    if (TargetRotation == Vector3.zero) return;
-                    if (XRotation == 0) return;
-                    Character.playerMesh.transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
-                    XRotation -= MouseY;
-                    XRotation = Mathf.Clamp(XRotation, -Character.XClamp, Character.XClamp);
-                    TargetRotation = Character.playerMesh.transform.eulerAngles;
-                    TargetRotation.x = XRotation;
-                    FirstPersonCam.transform.eulerAngles = TargetRotation;
-                    break;
-                case CameraSwitcher.CameraModes.ThirdPerson:
-                    var cameraPos = ThirdPersonCam.transform.position;
-                    var playerPos = Character.PlayerTransform.position;
-                    var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
-                    Character.PlayerTransform.forward = viewDir.normalized;
-                    var inputDir = 
-                        Character.PlayerTransform.forward * MouseInput.x + 
-                        Character.PlayerTransform.right * MouseInput.y;
-                    if (inputDir != Vector3.zero)
-                        Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
-                            inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            // CameraChanger.GetActiveCams(out _thirdPersonCam, out _firstPersonCam);
+            // switch (MainCamera.ActiveCameraMode)
+            // {
+            //     case CameraChanger.CameraModes.FirstPerson:
+            //         md.x = _mouseX;
+            //         md.y = _mouseY;
+            //         Vector2 smoothV = Vector2.zero;
+            //         // the interpolated float result between the two float values
+            //         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f);
+            //         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f);
+            //         // incrementally add to the camera look
+            //         mouseLook += smoothV;
+            //
+            //         // vector3.right means the x-axis
+            //         Character.mainCamera.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+            //         Character.PlayerTransform.localRotation = Quaternion.AngleAxis(mouseLook.x, Character.PlayerTransform.up);
+            //         
+            //         // if (_mouseInput is {x: 0, y: 0}) return;
+            //         // Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
+            //         // // _xRotation -= _mouseY;
+            //         // // _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
+            //         // // Debug.LogWarning($"Target Rotation: {_targetRotation}");
+            //         // // var prevRotation = _targetRotation;
+            //         // // _targetRotation = Character.playerMesh.transform.eulerAngles;
+            //         // // if (_targetRotation.x != 0f && Math.Abs(prevRotation.x - -_targetRotation.x) < Mathf.Epsilon) return;
+            //         // // _targetRotation.x = _xRotation;
+            //         // // _firstPersonCam.transform.eulerAngles = _targetRotation;
+            //         // _firstPersonCam.transform.localRotation = Quaternion.AngleAxis(-_mouseY, _firstPersonCam.transform.right);
+            //         break;
+            //     case CameraChanger.CameraModes.ThirdPerson:
+            //         var cameraPos = _thirdPersonCam.transform.position;
+            //         var playerPos = Character.PlayerTransform.position;
+            //         var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
+            //         Character.PlayerTransform.forward = viewDir.normalized;
+            //         var inputDir = 
+            //             Character.PlayerTransform.forward * _mouseInput.x + 
+            //             Character.PlayerTransform.right * _mouseInput.y;
+            //         if (inputDir != Vector3.zero)
+            //             Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
+            //                 inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
+            //         break;
+            //     default:
+            //         throw new ArgumentOutOfRangeException();
+            // }
         }
 
 
@@ -106,12 +125,6 @@ namespace Player.FSM
 
         public virtual void Exit()
         {
-            StateMachine.CurrentState.TargetRotation = StateMachine.PreviousState.TargetRotation;
-            StateMachine.CurrentState.XRotation = StateMachine.PreviousState.XRotation;
-            Debug.Log($"Entered State: {StateMachine.CurrentState}\n" +
-                      $"from State: {StateMachine.PreviousState}\n" +
-                      $"Previous State Target Rotation: {StateMachine.PreviousState.TargetRotation}\n" +
-                      $"New State Target Rotation: {StateMachine.CurrentState.TargetRotation}");
         }
         
     }

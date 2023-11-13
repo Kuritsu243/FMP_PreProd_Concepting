@@ -7,20 +7,13 @@ namespace Player.FSM.States
 {
     public class Idle : FsmState
     {
-        private float _mouseX;
-        private float _mouseY;
-        private float _xRotation;
-        private Vector3 _targetRotation;
         private bool isJumping;
         private bool isSliding;
         private bool isGrounded;
         private bool isMoving;
-        private Vector2 mouseInput;
         private Vector2 movementInput;
         private Vector3 playerVelocity;
         private Vector3 verticalVelocity;
-        private CinemachineFreeLook thirdPersonCam;
-        private CinemachineVirtualCamera firstPersonCam;
         private Transform PlayerTransform => Character.PlayerTransform;
         
 
@@ -71,8 +64,6 @@ namespace Player.FSM.States
             movementInput = MoveAction.ReadValue<Vector2>();
             playerVelocity = (PlayerTransform.right * movementInput.x +
                                PlayerTransform.forward * movementInput.y) * PlayerSpeed;
-            
-
         }
 
         public override void LogicUpdate()

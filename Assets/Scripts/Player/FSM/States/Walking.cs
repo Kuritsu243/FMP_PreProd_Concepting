@@ -13,16 +13,9 @@ namespace Player.FSM.States
         private bool isSliding;
         private bool isGrounded;
         private bool isMoving;
-        private Vector2 mouseInput;
         private Vector2 movementInput;
         private Vector3 playerVelocity;
         private Vector3 verticalVelocity;
-        private float _mouseX;
-        private float _mouseY;
-        private float _xRotation;
-        private Vector3 _targetRotation;
-        private CinemachineFreeLook thirdPersonCam;
-        private CinemachineVirtualCamera firstPersonCam;
         private Transform PlayerTransform => Character.PlayerTransform;
 
 

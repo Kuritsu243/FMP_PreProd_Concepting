@@ -133,10 +133,10 @@ namespace Player.FSM.States
             }
             
             if (mouseInput is {x: 0, y: 0}) return;
-            CameraSwitcher.GetActiveCams(out thirdPersonCam, out firstPersonCam);
+            CameraChanger.GetActiveCams(out thirdPersonCam, out firstPersonCam);
             switch (MainCamera.ActiveCameraMode)
             {
-                case CameraSwitcher.CameraModes.FirstPerson:
+                case CameraChanger.CameraModes.FirstPerson:
                     Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
                     _xRotation -= _mouseY;
                     _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
@@ -144,7 +144,7 @@ namespace Player.FSM.States
                     _targetRotation.x = _xRotation;
                     firstPersonCam.transform.eulerAngles = _targetRotation;
                     break;
-                case CameraSwitcher.CameraModes.ThirdPerson:
+                case CameraChanger.CameraModes.ThirdPerson:
                     var cameraPos = thirdPersonCam.transform.position;
                     var playerPos = PlayerTransform.position;
                     var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);

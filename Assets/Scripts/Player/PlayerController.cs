@@ -32,6 +32,7 @@ namespace Player
         }
     }
     
+
     
     public class PlayerController : MonoBehaviour
     {
@@ -146,6 +147,11 @@ namespace Player
         {
             playerStateMachine.CurrentState.HandleInput();
             playerStateMachine.CurrentState.LogicUpdate();
+        }
+        
+        public void Test()
+        {
+        
         }
 
         private void FixedUpdate()
