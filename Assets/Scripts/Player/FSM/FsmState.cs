@@ -18,24 +18,16 @@ namespace Player.FSM
         protected readonly InputAction JumpAction;
         protected readonly InputAction SlideAction;
         public InputAction SprintAction;
-        protected bool IsGrounded;
-        protected bool IsJumping;
-        protected bool IsSliding;
-        protected bool IsMoving;
-        protected Vector2 MovementInput;
-        // protected Vector3 PlayerVelocity;
+        protected readonly float PlayerSpeed;
+        protected readonly float GravityValue;
         protected Vector2 MouseInput;
         protected float MouseX;
         protected float MouseY;
-        protected Vector3 VerticalVelocity;
-        protected Transform PlayerTransform;
         protected CinemachineFreeLook ThirdPersonCam;
         protected CinemachineVirtualCamera FirstPersonCam;
         protected float XRotation;
         protected Vector3 TargetRotation;
-        protected float GravityValue;
-        protected float PlayerSpeed;
-
+        protected float XClamp;
 
         protected FsmState(string stateName, FiniteStateMachine stateMachine, PlayerController playerController)
         {
@@ -50,65 +42,61 @@ namespace Player.FSM
             JumpAction = playerController.playerInput.actions["Jump"];
             SlideAction = playerController.playerInput.actions["Slide"];
             SprintAction = playerController.playerInput.actions["Sprint"];
-            PlayerTransform = Character.PlayerTransform;
-            GravityValue = Character.PlayerGravity;
             PlayerSpeed = Character.PlayerSpeed;
-
+            GravityValue = Character.PlayerGravity;
         }
         
         
         // mechanics
         public virtual void Enter()
         {
-            //
-            // XRotation = 0;
-            // TargetRotation = Vector3.zero;
-            // PlayerVelocity = Vector3.zero;
+
         }
 
         public virtual void HandleInput()
         {
-            if (JumpAction.triggered)
-            {
-                VerticalVelocity = Vector3.zero;
-                IsJumping = true;
-            }
-
-            if (SlideAction.triggered)
-            {
-                IsSliding = true;
-            }
-
-            IsMoving = MovementInput is not {x: 0, y: 0};
-
-            MovementInput = MoveAction.ReadValue<Vector2>();
-
-
-  
-
-
+            MouseInput = LookAction.ReadValue<Vector2>();
+            MouseX = MouseInput.x * Character.MouseSensitivity.x;
+            MouseY = MouseInput.y * Character.MouseSensitivity.y;
         }
 
         public virtual void LogicUpdate()
         {
-            switch (IsMoving)
-            {
-                case true:
-                    StateMachine.ChangeState(Character.walkingState);
-                    break;
-                case false:
-                    StateMachine.ChangeState(Character.IdleState);
-                    break;
-            }
+            
         }
 
         public virtual void PhysicsUpdate()
         {
-            IsGrounded = Character.isGrounded;
-            VerticalVelocity.y += GravityValue * Time.deltaTime;
-            
+            CameraSwitcher.GetActiveCams(out ThirdPersonCam, out FirstPersonCam);
+            switch (MainCamera.ActiveCameraMode)
+            {
+                case CameraSwitcher.CameraModes.FirstPerson:
+                    if (MouseInput is {x: 0, y: 0}) return;
+                    if (TargetRotation == Vector3.zero) return;
+                    if (XRotation == 0) return;
+                    Character.playerMesh.transform.Rotate(Vector3.up, MouseX * Time.deltaTime);
+                    XRotation -= MouseY;
+                    XRotation = Mathf.Clamp(XRotation, -Character.XClamp, Character.XClamp);
+                    TargetRotation = Character.playerMesh.transform.eulerAngles;
+                    TargetRotation.x = XRotation;
+                    FirstPersonCam.transform.eulerAngles = TargetRotation;
+                    break;
+                case CameraSwitcher.CameraModes.ThirdPerson:
+                    var cameraPos = ThirdPersonCam.transform.position;
+                    var playerPos = Character.PlayerTransform.position;
+                    var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
+                    Character.PlayerTransform.forward = viewDir.normalized;
+                    var inputDir = 
+                        Character.PlayerTransform.forward * MouseInput.x + 
+                        Character.PlayerTransform.right * MouseInput.y;
+                    if (inputDir != Vector3.zero)
+                        Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
+                            inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-
 
 
         public virtual void Tick(float deltaTime)
@@ -118,8 +106,12 @@ namespace Player.FSM
 
         public virtual void Exit()
         {
-
-            // PlayerVelocity = Vector3.zero;
+            StateMachine.CurrentState.TargetRotation = StateMachine.PreviousState.TargetRotation;
+            StateMachine.CurrentState.XRotation = StateMachine.PreviousState.XRotation;
+            Debug.Log($"Entered State: {StateMachine.CurrentState}\n" +
+                      $"from State: {StateMachine.PreviousState}\n" +
+                      $"Previous State Target Rotation: {StateMachine.PreviousState.TargetRotation}\n" +
+                      $"New State Target Rotation: {StateMachine.CurrentState.TargetRotation}");
         }
         
     }

@@ -38,7 +38,8 @@ namespace Player.FSM.States
         public override void Enter()
         {
             base.Enter();
-            
+
+
             isMoving = true;
             isJumping = false;
             isSliding = false;
@@ -51,9 +52,16 @@ namespace Player.FSM.States
         {
             base.HandleInput();
             
-            playerVelocity = (PlayerTransform.right * MovementInput.x + PlayerTransform.forward * MovementInput.y) *
-                             PlayerSpeed;
-
+            if (JumpAction.triggered)
+                isJumping = true;
+            if (SlideAction.triggered)
+                isSliding = true;
+            if (movementInput is {x: 0, y: 0})
+                isMoving = false;
+            movementInput = MoveAction.ReadValue<Vector2>();
+            playerVelocity = (PlayerTransform.right * movementInput.x +
+                              PlayerTransform.forward * movementInput.y) * playerSpeed;
+            
         }
 
         public override void LogicUpdate()
@@ -63,7 +71,7 @@ namespace Player.FSM.States
             
             if (isJumping)
                 StateMachine.ChangeState(Character.jumpingState);
-            if (!isMoving && !isJumping)
+            if (!isMoving)
                 StateMachine.ChangeState(Character.IdleState);
 
         }
@@ -75,20 +83,18 @@ namespace Player.FSM.States
             
             verticalVelocity.y += gravityValue * Time.deltaTime;
             isGrounded = Character.isGrounded;
-            
-            Debug.LogWarning(playerVelocity);
-            Character.characterController.Move(playerVelocity * Time.deltaTime + VerticalVelocity * Time.deltaTime);
 
+            if (isGrounded && verticalVelocity.y < 0)
+                verticalVelocity.y = 0f;
+
+            Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
         }
 
         public override void Exit()
         {
             base.Exit();
-            verticalVelocity = Vector3.zero;
-            XRotation = 0;
-            TargetRotation = Vector3.zero;
-            
 
+            
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Player.FSM
         private FsmState initialState;
         
         public FsmState CurrentState { get; set; }
+        public FsmState PreviousState { get; set; }
         
         
 
@@ -21,6 +22,7 @@ namespace Player.FSM
 
         public void ChangeState(FsmState newState)
         {
+            PreviousState = CurrentState;
             CurrentState?.Exit();
             CurrentState = newState;
             CurrentState?.Enter();
