@@ -44,11 +44,10 @@ namespace Player.FSM.States
         public override void HandleInput()
         {
             base.HandleInput();
+
+            isJumping = JumpAction.IsPressed();
+            isSliding = SlideAction.IsPressed();
             
-            if (JumpAction.triggered)
-                isJumping = true;
-            if (SlideAction.triggered)
-                isSliding = true;
             if (movementInput is {x: 0, y: 0})
                 isMoving = false;
             movementInput = MoveAction.ReadValue<Vector2>();
@@ -62,10 +61,12 @@ namespace Player.FSM.States
             base.LogicUpdate();
             
             
-            if (isJumping)
-                StateMachine.ChangeState(Character.jumpingState);
+            if (isJumping && Character.canJump)
+                StateMachine.ChangeState(Character.JumpingState);
             if (!isMoving)
                 StateMachine.ChangeState(Character.IdleState);
+            if (isSliding && Character.canSlide)
+                StateMachine.ChangeState(Character.SlidingState);
 
         }
 

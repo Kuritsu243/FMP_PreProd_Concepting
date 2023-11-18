@@ -72,18 +72,16 @@ namespace Player.FSM.States
         public override void HandleInput()
         {
             base.HandleInput();
+
+
+            isSliding = SlideAction.IsPressed();
             
-            if (SlideAction.triggered)
-                isSliding = true;
             if (movementInput is {x: 0, y: 0})
                 isMoving = false;
             movementInput = MoveAction.ReadValue<Vector2>();
             playerVelocity = (PlayerTransform.right * movementInput.x +
                               PlayerTransform.forward * movementInput.y) * playerSpeed;
-
-            mouseInput = LookAction.ReadValue<Vector2>();
-            _mouseX = mouseInput.x * Character.MouseSensitivity.x;
-            _mouseY = mouseInput.y * Character.MouseSensitivity.y;
+            
         }
 
         public override void LogicUpdate()
@@ -93,14 +91,17 @@ namespace Player.FSM.States
             switch (isGrounded)
             {
                 case false when (_leftWall || _rightWall) && _canWallRun:
-                    StateMachine.ChangeState(Character.wallRunState);
+                    StateMachine.ChangeState(Character.WallRunState);
                     break;
                 case true when movementInput is not {x: 0, y: 0} && verticalVelocity.y < 0:
                     StateMachine.ChangeState(Character.IdleState);
                     break;
                 case true when movementInput is {x: 0, y: 0} && verticalVelocity.y < 0:
-                    StateMachine.ChangeState(Character.walkingState);
+                    StateMachine.ChangeState(Character.WalkingState);
                     break; 
+                case false when verticalVelocity.y <= 0:
+                    StateMachine.ChangeState(Character.AirborneState);
+                    break;
             }
         }
 
@@ -117,48 +118,21 @@ namespace Player.FSM.States
             _rightWall = Physics.Raycast(position, right, out _rightWallHit, _maxWallDistance, _whatIsWall);
             _leftWall = Physics.Raycast(position, -right, out _leftWallHit, _maxWallDistance, _whatIsWall);
 
-            if ((_leftWall || _rightWall) && movementInput is not {x: 0, y: 0} && !isGrounded)
+            if ((!_leftWall && !_rightWall) || movementInput is {x: 0, y: 0} || isGrounded) return;
+            if (_leftWall && !_rightWall)
             {
-                if (_leftWall)
-                {
-                    Character.leftWall = true;
-                    Character.leftWallHit = _leftWallHit;
-                }
-                else if (_rightWall)
-                {
-                    Character.rightWall = true;
-                    Character.rightWallHit = _rightWallHit;
-                }
-                _canWallRun = true;
+                Character.leftWall = true;
+                Character.rightWall = false;
+                Character.LeftWallHit = _leftWallHit;
             }
-            
-            if (mouseInput is {x: 0, y: 0}) return;
-            CameraChanger.GetActiveCams(out thirdPersonCam, out firstPersonCam);
-            switch (MainCamera.ActiveCameraMode)
+            else if (_rightWall && !_leftWall)
             {
-                case CameraChanger.CameraModes.FirstPerson:
-                    Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
-                    _xRotation -= _mouseY;
-                    _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
-                    _targetRotation = Character.playerMesh.transform.eulerAngles;
-                    _targetRotation.x = _xRotation;
-                    firstPersonCam.transform.eulerAngles = _targetRotation;
-                    break;
-                case CameraChanger.CameraModes.ThirdPerson:
-                    var cameraPos = thirdPersonCam.transform.position;
-                    var playerPos = PlayerTransform.position;
-                    var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
-                    PlayerTransform.forward = viewDir.normalized;
-                    var inputDir =
-                        PlayerTransform.forward * mouseInput.x +
-                        PlayerTransform.right * mouseInput.y;
-                    if (inputDir != Vector3.zero)
-                        Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
-                            inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                Character.rightWall = true;
+                Character.leftWall = false;
+                Character.RightWallHit = _rightWallHit;
             }
+            _canWallRun = true;
+
         }
 
         public override void Exit()
@@ -167,6 +141,19 @@ namespace Player.FSM.States
             isGrounded = true;
             isSliding = false;
             isJumping = false;
+            
+            if (_leftWall && !_rightWall)
+            {
+                Character.leftWall = true;
+                Character.rightWall = false;
+                Character.LeftWallHit = _leftWallHit;
+            }
+            else if (_rightWall && !_leftWall)
+            {
+                Character.rightWall = true;
+                Character.leftWall = false;
+                Character.RightWallHit = _rightWallHit;
+            }
             
         }
     }

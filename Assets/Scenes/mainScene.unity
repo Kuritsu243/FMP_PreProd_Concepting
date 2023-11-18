@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465791, g: 0.4964133, b: 0.57481784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,7 +357,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251456140}
-  m_LocalRotation: {x: 0.16110677, y: -0.000000018986018, z: 0.0000000030992617, w: 0.986937}
+  m_LocalRotation: {x: 0.16110677, y: 0.000000018986018, z: -0.0000000030992617, w: 0.986937}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerIndex: -1
   AutoEnableInputs: 1
-  XYAxis: {fileID: -5630151704836100654, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  XYAxis: {fileID: -3136366302309465376, guid: abdf239144d09d7468e35c34f080973d, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &927832246
 GameObject:
@@ -1085,7 +1085,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.16110677, y: -0.00000003797204, z: 0.000000006198524, w: 0.98693705}
+  m_LocalRotation: {x: 0.16110677, y: 0.00000003797204, z: -0.000000006198524, w: 0.98693705}
   m_LocalPosition: {x: 0, y: 1.5271604, z: -2.8320308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1586,7 +1586,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533890316}
-  m_LocalRotation: {x: 0.2831625, y: 0.000000025899537, z: -0.000000007646744, w: 0.95907193}
+  m_LocalRotation: {x: 0.2831625, y: 0.000000012671818, z: -0.000000003741308, w: 0.95907193}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2316,17 +2316,15 @@ MonoBehaviour:
   characterController: {fileID: 0}
   playerMesh: {fileID: 0}
   sprintingState: {fileID: 0}
-  airborneState: {fileID: 0}
-  wallJumpingState: {fileID: 0}
   playerSpeed: 5
   sprintingSpeed: 0
   maxWallRotation: {x: 0, y: 0, z: 0, w: 0}
-  mouseSensitivity: {x: 12, y: 2}
+  mouseSensitivity: 64.6
   xClamp: 90
   rotationSpeed: 0
   playerJumpHeight: 4
   playerGravity: -16
-  playerJumpCooldown: 0
+  playerJumpCooldown: 1.2
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2337,16 +2335,27 @@ MonoBehaviour:
   wallRunForce: 15
   wallRunMaxDuration: 1.5
   wallRunExitTime: 0.2
+  wallRunCooldown: 0.42
   maxWallDistance: 0.7
-  wallJumpUpForce: 80
-  wallJumpSideForce: 15
+  wallJumpUpForce: 12
+  wallJumpSideForce: 4
   wallMemoryTime: 0
+  wallJumpCooldown: 1.8
   maxSlideTime: 0.25
-  slideForce: 0.5
+  slideForce: 35
   slideYScale: 0.5
+  slideCooldown: 2.5
   isGrounded: 0
+  canSlide: 0
+  canJump: 0
+  checkForWallsWhenAirborne: 0
+  canWallRun: 0
+  canWallJump: 0
+  jumpingFromLeftWall: 0
+  jumpingFromRightWall: 0
   leftWall: 0
   rightWall: 0
+  activeCinemachineBrain: {fileID: 0}
 --- !u!114 &1847702120
 MonoBehaviour:
   m_ObjectHideFlags: 0

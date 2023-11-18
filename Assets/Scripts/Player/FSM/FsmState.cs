@@ -57,9 +57,9 @@ namespace Player.FSM
         public virtual void HandleInput()
         {
 
-            _mouseInput = LookAction.ReadValue<Vector2>();
-            _mouseX = _mouseInput.x * Character.MouseSensitivity.x;
-            _mouseY = _mouseInput.y * Character.MouseSensitivity.y;
+            // _mouseInput = LookAction.ReadValue<Vector2>();
+            // _mouseX = _mouseInput.x * Character.MouseSensitivity.x;
+            // _mouseY = _mouseInput.y * Character.MouseSensitivity.y;
             
             // Debug.Log($"Mouse Input: {MouseInput}");
         }
@@ -71,6 +71,15 @@ namespace Player.FSM
 
         public virtual void PhysicsUpdate()
         {
+            CameraChanger.GetActiveCams(out _thirdPersonCam, out _firstPersonCam);
+            switch (MainCamera.ActiveCameraMode)
+            {
+                case CameraChanger.CameraModes.FirstPerson:
+                    var playerLocalRotation = Character.PlayerTransform.localRotation;
+                    playerLocalRotation.y = Character.activeCinemachineBrain.transform.rotation.y;
+                    Character.PlayerTransform.localRotation = playerLocalRotation;
+                    break;
+            }
             // CameraChanger.GetActiveCams(out _thirdPersonCam, out _firstPersonCam);
             // switch (MainCamera.ActiveCameraMode)
             // {

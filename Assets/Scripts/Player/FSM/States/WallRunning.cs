@@ -38,6 +38,7 @@ namespace Player.FSM.States
         private bool _exitWallTimerExceeded;
         private bool _exitWallTimerActive;
         private bool _canWallRun;
+        private float _maxWallDistance;
         
         private Transform PlayerTransform => Character.PlayerTransform;
         
@@ -62,15 +63,17 @@ namespace Player.FSM.States
             gravityValue = Character.PlayerGravity;
             wallRunForce = Character.WallRunForce;
             wallRunSpeed = Character.WallRunSpeed;
+            _maxWallDistance = Character.MaxWallDistance;
+            _whatIsWall = Character.WhatIsWall;
 
             if (Character.leftWall)
             {
-                _leftWallHit = Character.leftWallHit;
+                _leftWallHit = Character.LeftWallHit;
                 _leftWall = true;
             }
             else if (Character.rightWall)
             {
-                _rightWallHit = Character.rightWallHit;
+                _rightWallHit = Character.RightWallHit;
                 _rightWall = true;
             }
         }
@@ -78,24 +81,25 @@ namespace Player.FSM.States
         public override void HandleInput()
         {
             base.HandleInput();
-
-            if (SlideAction.triggered)
-                isSliding = true;
+            
             if (movementInput is {x: 0, y: 0})
                 isMoving = false;
+
+            isJumping = JumpAction.IsPressed();
             movementInput = MoveAction.ReadValue<Vector2>();
             playerVelocity = (PlayerTransform.right * movementInput.x +
                               PlayerTransform.forward * movementInput.y) * playerSpeed;
-
-            mouseInput = LookAction.ReadValue<Vector2>();
-            _mouseX = mouseInput.x * Character.MouseSensitivity.x;
-            _mouseY = mouseInput.y * Character.MouseSensitivity.y;
+            
         }
 
         public override void LogicUpdate()
         {
             base.LogicUpdate();
-            
+
+            if (!_leftWall && !_rightWall && !isGrounded)
+                StateMachine.ChangeState(Character.AirborneState);
+            if (isJumping && Character.canWallJump)
+                StateMachine.ChangeState(Character.WallJumpingState);
         }
 
         public override void PhysicsUpdate()
@@ -105,6 +109,33 @@ namespace Player.FSM.States
             // Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
             // if (!isGrounded) verticalVelocity.y += gravityValue * Time.deltaTime;
 
+            Debug.Log($"Right Wall detected: {_rightWall}\n" +
+                      $"Left Wall Detected: {_leftWall}");
+            
+            var right = PlayerTransform.right;
+            var position = PlayerTransform.position;
+            _rightWall = Physics.Raycast(position, right, out _rightWallHit, _maxWallDistance, _whatIsWall);
+            _leftWall = Physics.Raycast(position, -right, out _leftWallHit, _maxWallDistance, _whatIsWall);
+
+            if (_rightWall)
+                _leftWall = false;
+            else if (_leftWall)
+                _rightWall = false;
+            
+
+            if (_rightWall && _leftWall)
+                Debug.LogError("You've fucked it lmao");
+            
+            if (!_leftWall && !_rightWall) return;
+   
+            // todo: add camera effects 
+            // MainCamera.DoFov(120f);
+            //
+            // if (_leftWall)
+            //     MainCamera.DoTilt(-5f);
+            // else if (_rightWall)
+            //     MainCamera.DoTilt(5f);
+            
             var wallNormal = _rightWall ? _rightWallHit.normal : _leftWallHit.normal;
             var wallForward = Vector3.Cross(wallNormal, PlayerTransform.up);
             if ((PlayerTransform.forward - wallForward).magnitude > (PlayerTransform.forward - -wallForward).magnitude)
@@ -118,12 +149,12 @@ namespace Player.FSM.States
                     if (_leftWall)
                     {
                         Character.leftWall = true;
-                        Character.leftWallHit = _leftWallHit;
+                        Character.LeftWallHit = _leftWallHit;
                     }
                     else if (_rightWall)
                     {
                         Character.rightWall = true;
-                        Character.rightWallHit = _rightWallHit;
+                        Character.RightWallHit = _rightWallHit;
                     }
                     _canWallRun = true;
                     break;
@@ -133,39 +164,32 @@ namespace Player.FSM.States
                     break;
             }
 
-            if (mouseInput is {x: 0, y: 0}) return;
-            CameraChanger.GetActiveCams(out thirdPersonCam, out firstPersonCam);
-            switch (MainCamera.ActiveCameraMode)
-            {
-                case CameraChanger.CameraModes.FirstPerson:
-                    Character.playerMesh.transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
-                    _xRotation -= _mouseY;
-                    _xRotation = Mathf.Clamp(_xRotation, -Character.XClamp, Character.XClamp);
-                    _targetRotation = Character.playerMesh.transform.eulerAngles;
-                    _targetRotation.x = _xRotation;
-                    firstPersonCam.transform.eulerAngles = _targetRotation;
-                    break;
-                case CameraChanger.CameraModes.ThirdPerson:
-                    var cameraPos = thirdPersonCam.transform.position;
-                    var playerPos = PlayerTransform.position;
-                    var viewDir = playerPos - new Vector3(cameraPos.x, playerPos.y, cameraPos.z);
-                    PlayerTransform.forward = viewDir.normalized;
-                    var inputDir =
-                        PlayerTransform.forward * mouseInput.x +
-                        PlayerTransform.right * mouseInput.y;
-                    if (inputDir != Vector3.zero)
-                        Character.playerMesh.transform.forward = Vector3.Slerp(Character.playerMesh.transform.forward,
-                            inputDir.normalized, Time.deltaTime * Character.RotationSpeed);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+
+
+
         }
 
         public override void Exit()
         {
             base.Exit();
             isWallRunning = false;
+            if (!isJumping) return;
+            if (_leftWall && !_rightWall)
+            {
+                Character.jumpingFromLeftWall = true;
+                Character.jumpingFromRightWall = false;
+                Character.rightWall = false;
+                Character.leftWall = false;
+                Character.JumpingLeftWallHit = _leftWallHit;
+            }
+            else if (_rightWall && !_leftWall)
+            {
+                Character.jumpingFromRightWall = true;
+                Character.jumpingFromLeftWall = false;
+                Character.leftWall = false;
+                Character.rightWall = false;
+                Character.JumpingRightWallHit = _rightWallHit;
+            }
             
         }
     }

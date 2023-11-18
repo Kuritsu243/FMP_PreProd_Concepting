@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Serialization;
 
 
 namespace Camera
@@ -20,7 +22,8 @@ namespace Camera
         [SerializeField] private bool lerpFOV;
         
         public static CameraChanger.CameraModes ActiveCameraMode => CameraChanger.GetActiveCamera();
-        
+
+        private CinemachinePOV _cinemachinePov;
         public MainCamera Instance { get; private set; }
         
         private void OnEnable()
@@ -68,6 +71,26 @@ namespace Camera
 
         private void Testing()
         {
+            
+        }
+
+        public void SetSensitivity(float sensitivity)
+        {
+            if (_cinemachinePov == null)
+            {
+                _cinemachinePov = firstPersonCam.GetCinemachineComponent<CinemachinePOV>();
+                var currentSens = _cinemachinePov.m_VerticalAxis.m_MaxSpeed;
+                var newSens = currentSens * sensitivity / 100;
+                _cinemachinePov.m_VerticalAxis.m_MaxSpeed = newSens;
+                _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = newSens;
+            }
+            else
+            {
+                var currentSens = _cinemachinePov.m_VerticalAxis.m_MaxSpeed;
+                var newSens = currentSens * sensitivity / 100;
+                _cinemachinePov.m_VerticalAxis.m_MaxSpeed = newSens;
+                _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = newSens;   
+            }
             
         }
 

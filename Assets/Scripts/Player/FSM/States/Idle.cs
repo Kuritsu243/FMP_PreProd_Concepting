@@ -55,10 +55,9 @@ namespace Player.FSM.States
         {
             base.HandleInput();
 
-            if (JumpAction.triggered)
-                isJumping = true;
-            if (SlideAction.triggered)
-                isSliding = true;
+
+            isJumping = JumpAction.IsPressed();
+
             if (movementInput is not {x: 0, y: 0})
                 isMoving = true;
             movementInput = MoveAction.ReadValue<Vector2>();
@@ -70,10 +69,12 @@ namespace Player.FSM.States
         {
             base.LogicUpdate();
             
-            if (isJumping)
-                StateMachine.ChangeState(Character.jumpingState);
+            if (isJumping && Character.canJump)
+                StateMachine.ChangeState(Character.JumpingState);
             if (isMoving)
-                StateMachine.ChangeState(Character.walkingState);
+                StateMachine.ChangeState(Character.WalkingState);
+            if (isSliding && Character.canSlide)
+                StateMachine.ChangeState(Character.SlidingState);
 
         }
 
