@@ -1,6 +1,6 @@
 using System;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player.FSM.States
@@ -22,8 +22,8 @@ namespace Player.FSM.States
         private float playerSpeed;
         private float gravityValue;
         private Vector3 _targetRotation;
-        private CinemachineFreeLook thirdPersonCam;
-        private CinemachineVirtualCamera firstPersonCam;
+        private CinemachineCamera thirdPersonCam;
+        private CinemachineCamera firstPersonCam;
         private LayerMask _whatIsWall;
         private float wallRunForce;
         private float wallRunMaxDuration;
@@ -128,13 +128,13 @@ namespace Player.FSM.States
             
             if (!_leftWall && !_rightWall) return;
    
-            // todo: add camera effects 
-            // MainCamera.DoFov(120f);
+            // // todo: add camera effects 
+            // MainCamera.DoFov(120f, 0.15f);
             //
             // if (_leftWall)
-            //     MainCamera.DoTilt(-5f);
+            //     MainCamera.DoTilt(-5f, 0.15f);
             // else if (_rightWall)
-            //     MainCamera.DoTilt(5f);
+            //     MainCamera.DoTilt(5f, 0.15f);
             
             var wallNormal = _rightWall ? _rightWallHit.normal : _leftWallHit.normal;
             var wallForward = Vector3.Cross(wallNormal, PlayerTransform.up);
@@ -172,6 +172,8 @@ namespace Player.FSM.States
         public override void Exit()
         {
             base.Exit();
+            // MainCamera.DoFov(90f);
+            // MainCamera.DoTilt(0f);
             isWallRunning = false;
             if (!isJumping) return;
             if (_leftWall && !_rightWall)

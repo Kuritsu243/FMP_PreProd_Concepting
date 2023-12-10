@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Camera
@@ -18,13 +18,13 @@ namespace Camera
             FreeLook
         }
 
-        public static CinemachineVirtualCamera FirstPersonCam
+        public static CinemachineCamera FirstPersonCam
         {
             get; 
             private set; 
         }
 
-        public static CinemachineFreeLook ThirdPersonCam
+        public static CinemachineCamera ThirdPersonCam
         {
             get;
             private set;
@@ -36,15 +36,15 @@ namespace Camera
 
         public static void SwitchToFirstPerson()
         {
-            ThirdPersonCam.Priority = 0;
-            FirstPersonCam.Priority = 10;
+            ThirdPersonCam.Priority.Value = 0;
+            FirstPersonCam.Priority.Value = 10;
             _cameraModes = CameraModes.FirstPerson;
         }
 
         public static void SwitchToThirdPerson()
         {
-            FirstPersonCam.Priority = 0;
-            ThirdPersonCam.Priority = 10;
+            FirstPersonCam.Priority.Value = 0;
+            ThirdPersonCam.Priority.Value = 10;
             _cameraModes = CameraModes.ThirdPerson;
         }
 
@@ -59,13 +59,13 @@ namespace Camera
             return _cameraModes;
         }
 
-        public static void GetActiveCams(out CinemachineFreeLook thirdCam, out CinemachineVirtualCamera firstCam)
+        public static void GetActiveCams(out CinemachineCamera thirdCam, out CinemachineCamera firstCam)
         {
             thirdCam = ThirdPersonCam;
             firstCam = FirstPersonCam;
         }
 
-        public static void SetCams(CinemachineFreeLook thirdCam, CinemachineVirtualCamera firstCam)
+        public static void SetCams(CinemachineCamera thirdCam, CinemachineCamera firstCam)
         {
             ThirdPersonCam = thirdCam;
             FirstPersonCam = firstCam;

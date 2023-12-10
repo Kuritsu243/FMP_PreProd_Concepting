@@ -1,6 +1,6 @@
 using System;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player.FSM.States
@@ -34,6 +34,9 @@ namespace Player.FSM.States
             isGrounded = true;
             playerVelocity = Vector3.zero;
             verticalVelocity = Vector3.zero;
+            
+            // MainCamera.DoFov(90f, 0.25f);
+            // MainCamera.DoTilt(0f, 0.25f);
         }
 
         public void Execute()

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 
 namespace Player.FSM
 {
@@ -23,8 +23,8 @@ namespace Player.FSM
         private Vector2 _mouseInput;
         private float _mouseX;
         private float _mouseY;
-        private CinemachineFreeLook _thirdPersonCam;
-        private CinemachineVirtualCamera _firstPersonCam;
+        private CinemachineCamera _thirdPersonCam;
+        private CinemachineCamera _firstPersonCam;
         private float _xRotation;
         private Vector3 _targetRotation;
         protected float XClamp;

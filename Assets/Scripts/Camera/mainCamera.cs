@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine.Serialization;
 
 
@@ -9,8 +10,9 @@ namespace Camera
 {
     public class MainCamera : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera firstPersonCam;
-        [SerializeField] private CinemachineFreeLook thirdPersonCam;
+        [SerializeField] private CinemachineCamera firstPersonCam;
+        [SerializeField] private CinemachineCamera thirdPersonCam;
+        [SerializeField] private CameraController _cameraController;
         
         [Header("Testing")]
         [SerializeField] private bool isTesting;
@@ -23,13 +25,16 @@ namespace Camera
         
         public static CameraChanger.CameraModes ActiveCameraMode => CameraChanger.GetActiveCamera();
 
-        private CinemachinePOV _cinemachinePov;
+        private static CinemachineCamera previousCam;
+        private static CinemachineCamera activeCam;
+
+        private CinemachineMouseLook _cinemachineMouseLook;
         public MainCamera Instance { get; private set; }
         
         private void OnEnable()
         {
-            CameraChanger.SetCams(thirdPersonCam, firstPersonCam);
-            CameraChanger.SwitchToFirstPerson();
+            // CameraChanger.SetCams(thirdPersonCam, firstPersonCam);
+            // CameraChanger.SwitchToFirstPerson();
         }
         
         private void Awake()
@@ -42,19 +47,18 @@ namespace Camera
             }
         }
 
-        public static void ChangeCamera()
+        public static void SetActiveCamera(CinemachineCamera newCamera)
         {
-            switch (ActiveCameraMode)
+            if (!activeCam && !previousCam) Debug.LogWarning("No active cam or previous cam assigned");
+            else
             {
-                case CameraChanger.CameraModes.FirstPerson:
-                    CameraChanger.SwitchToThirdPerson();
-                    break;
-                case CameraChanger.CameraModes.ThirdPerson:
-                    CameraChanger.SwitchToFirstPerson();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                previousCam = activeCam;
+                previousCam.Priority.Value = 0;
             }
+            activeCam = newCamera;
+            activeCam.Priority.Value = 10;
+ 
+
         }
 
         public static CameraChanger.CameraModes GetActiveMode()
@@ -76,48 +80,38 @@ namespace Camera
 
         public void SetSensitivity(float sensitivity)
         {
-            if (_cinemachinePov == null)
-            {
-                _cinemachinePov = firstPersonCam.GetCinemachineComponent<CinemachinePOV>();
-                var currentSens = _cinemachinePov.m_VerticalAxis.m_MaxSpeed;
-                var newSens = currentSens * sensitivity / 100;
-                _cinemachinePov.m_VerticalAxis.m_MaxSpeed = newSens;
-                _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = newSens;
-            }
-            else
-            {
-                var currentSens = _cinemachinePov.m_VerticalAxis.m_MaxSpeed;
-                var newSens = currentSens * sensitivity / 100;
-                _cinemachinePov.m_VerticalAxis.m_MaxSpeed = newSens;
-                _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = newSens;   
-            }
-            
+            if (_cinemachineMouseLook == null)
+                _cinemachineMouseLook = firstPersonCam.GetComponent<CinemachineMouseLook>();
+            if (_cinemachineMouseLook == null)
+                throw new Exception("Cannot find the mouse look component!");
+            _cinemachineMouseLook.UpdateSensAndSmoothing(sensitivity);
+
         }
 
-        public static void DoFov(float endValue)
+        public static void DoFov(float endValue, float timeToTake)
         {
             switch (ActiveCameraMode)
-            {
+            {   
                 case CameraChanger.CameraModes.FirstPerson:
-                    CameraChanger.FirstPersonCam.LerpFirstFOV(endValue, 0.25f);
+                    CameraChanger.FirstPersonCam.LerpFirstFOV(endValue, timeToTake);
                     break;
                 case CameraChanger.CameraModes.ThirdPerson:
-                    CameraChanger.ThirdPersonCam.LerpThirdFOV(endValue, 0.25f);
+                    CameraChanger.ThirdPersonCam.LerpThirdFOV(endValue, timeToTake);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        public static void DoTilt(float endValue)
+        public static void DoTilt(float endValue, float timeToTake)
         {
             switch (ActiveCameraMode)
             {
                 case CameraChanger.CameraModes.FirstPerson:
-                    CameraChanger.FirstPersonCam.LerpFirstDutch(endValue, 0.25f);
+                    CameraChanger.FirstPersonCam.LerpFirstDutch(endValue, timeToTake);
                     break;
                 case CameraChanger.CameraModes.ThirdPerson:
-                    CameraChanger.ThirdPersonCam.LerpThirdDutch(endValue, 0.25f);
+                    CameraChanger.ThirdPersonCam.LerpThirdDutch(endValue, timeToTake);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

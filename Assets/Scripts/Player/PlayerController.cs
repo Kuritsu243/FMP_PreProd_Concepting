@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 using input;
 using Player.FSM.States;
 using UnityEngine;

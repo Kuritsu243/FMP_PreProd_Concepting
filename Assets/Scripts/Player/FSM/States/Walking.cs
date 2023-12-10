@@ -1,6 +1,6 @@
 using System;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player.FSM.States

@@ -42,8 +42,7 @@ namespace Player.FSM.States
             checkForWalls = Character.checkForWallsWhenAirborne;
             _whatIsWall = Character.WhatIsWall;
             _maxWallDistance = Character.MaxWallDistance;
-            MainCamera.DoFov(90f);
-            MainCamera.DoTilt(0f);
+
         }
 
         public override void HandleInput()

@@ -436,12 +436,12 @@ namespace Player
 
         private static void DoFov(float endValue)
         {
-            MainCamera.DoFov(120f);
-        }
+            // MainCamera.DoFov(120f);
+            }
 
         private static void DoTilt(float endValue)
         {
-            MainCamera.DoTilt(endValue);
+            // MainCamera.DoTilt(endValue);
         }
 
         private void ApplyCameraEffects()

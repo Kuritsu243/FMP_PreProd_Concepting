@@ -1,6 +1,6 @@
 using System;
 using Camera;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player.FSM.States
@@ -24,8 +24,8 @@ namespace Player.FSM.States
         private float _maxWallDistance;
         private LayerMask _whatIsWall;
         private Vector3 _targetRotation;
-        private CinemachineFreeLook thirdPersonCam;
-        private CinemachineVirtualCamera firstPersonCam;
+        private CinemachineCamera thirdPersonCam;
+        private CinemachineCamera firstPersonCam;
         private RaycastHit _leftWallHit;
         private RaycastHit _rightWallHit;
         private bool _leftWall;
