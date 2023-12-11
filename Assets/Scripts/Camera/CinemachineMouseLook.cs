@@ -51,7 +51,7 @@ namespace Camera
             }
         }
         
-        private void Update()
+        private void FixedUpdate()
         {
             if (Application.isPlaying)
                 UpdateControllers();
