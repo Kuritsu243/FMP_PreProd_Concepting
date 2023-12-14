@@ -37,7 +37,7 @@ namespace Camera
     
 #endregion
 
-        
+        public CameraStateMachine CameraFsm => _cameraStateMachine;
         
         [SerializeField] public List<CinemachineCamera> cinemachineCameras;
 

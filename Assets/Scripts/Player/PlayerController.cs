@@ -128,6 +128,8 @@ namespace Player
         public float WallJumpUpForce => wallJumpUpForce;
         public float WallJumpSideForce => wallJumpSideForce;
         public float MaxWallDistance => maxWallDistance;
+
+        public PlayerStateMachine PlayerFsm => _playerStateMachine;
         
 #endregion
 
