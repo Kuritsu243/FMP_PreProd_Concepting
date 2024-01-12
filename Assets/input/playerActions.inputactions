@@ -24,6 +24,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Slide",
+                    "type": "PassThrough",
+                    "id": "ba223c9b-4aa1-4694-b549-17c9e112fcc8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Perspective",
                     "type": "Button",
                     "id": "51899ccd-bfac-4724-b32d-1d7f5659e007",
@@ -42,18 +51,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slide",
+                    "name": "Sprint",
                     "type": "PassThrough",
-                    "id": "ba223c9b-4aa1-4694-b549-17c9e112fcc8",
+                    "id": "e3879ecf-5c15-4d8c-881c-926efc72f51c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
-                    "type": "PassThrough",
-                    "id": "e3879ecf-5c15-4d8c-881c-926efc72f51c",
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "abe9990d-74f6-4f6f-b305-ed34056cfcef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "097c144c-c5f7-491c-860b-f4abba430f54",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "9dfa5368-be67-414e-ac8c-1de623e13d3f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -151,6 +178,28 @@
                 },
                 {
                     "name": "",
+                    "id": "f14d9bb4-0a8a-4e11-a1a2-2ad45031ca96",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a53cddb-4d34-4b4e-9e40-7b08a851d570",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "43048696-f351-4584-bca7-132988f69698",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -162,12 +211,23 @@
                 },
                 {
                     "name": "",
-                    "id": "f14d9bb4-0a8a-4e11-a1a2-2ad45031ca96",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "d84c6766-3aa6-45de-a2d6-24219f0dc40f",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sprint",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63746993-78c0-4b35-8125-5a97ce92e9da",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

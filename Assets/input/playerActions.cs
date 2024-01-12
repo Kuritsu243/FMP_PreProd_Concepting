@@ -46,6 +46,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Slide"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ba223c9b-4aa1-4694-b549-17c9e112fcc8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Perspective"",
                     ""type"": ""Button"",
                     ""id"": ""51899ccd-bfac-4724-b32d-1d7f5659e007"",
@@ -64,18 +73,36 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Slide"",
+                    ""name"": ""Sprint"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""ba223c9b-4aa1-4694-b549-17c9e112fcc8"",
+                    ""id"": ""e3879ecf-5c15-4d8c-881c-926efc72f51c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Sprint"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""e3879ecf-5c15-4d8c-881c-926efc72f51c"",
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""abe9990d-74f6-4f6f-b305-ed34056cfcef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""097c144c-c5f7-491c-860b-f4abba430f54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""9dfa5368-be67-414e-ac8c-1de623e13d3f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -173,6 +200,28 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f14d9bb4-0a8a-4e11-a1a2-2ad45031ca96"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a53cddb-4d34-4b4e-9e40-7b08a851d570"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""43048696-f351-4584-bca7-132988f69698"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
@@ -184,12 +233,23 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f14d9bb4-0a8a-4e11-a1a2-2ad45031ca96"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""d84c6766-3aa6-45de-a2d6-24219f0dc40f"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sprint"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63746993-78c0-4b35-8125-5a97ce92e9da"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -202,10 +262,13 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_main = asset.FindActionMap("main", throwIfNotFound: true);
         m_main_Movement = m_main.FindAction("Movement", throwIfNotFound: true);
         m_main_Look = m_main.FindAction("Look", throwIfNotFound: true);
+        m_main_Slide = m_main.FindAction("Slide", throwIfNotFound: true);
         m_main_Perspective = m_main.FindAction("Perspective", throwIfNotFound: true);
         m_main_Jump = m_main.FindAction("Jump", throwIfNotFound: true);
-        m_main_Slide = m_main.FindAction("Slide", throwIfNotFound: true);
         m_main_Sprint = m_main.FindAction("Sprint", throwIfNotFound: true);
+        m_main_Shoot = m_main.FindAction("Shoot", throwIfNotFound: true);
+        m_main_Interact = m_main.FindAction("Interact", throwIfNotFound: true);
+        m_main_Reload = m_main.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,20 +332,26 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private List<IMainActions> m_MainActionsCallbackInterfaces = new List<IMainActions>();
     private readonly InputAction m_main_Movement;
     private readonly InputAction m_main_Look;
+    private readonly InputAction m_main_Slide;
     private readonly InputAction m_main_Perspective;
     private readonly InputAction m_main_Jump;
-    private readonly InputAction m_main_Slide;
     private readonly InputAction m_main_Sprint;
+    private readonly InputAction m_main_Shoot;
+    private readonly InputAction m_main_Interact;
+    private readonly InputAction m_main_Reload;
     public struct MainActions
     {
         private @PlayerActions m_Wrapper;
         public MainActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_main_Movement;
         public InputAction @Look => m_Wrapper.m_main_Look;
+        public InputAction @Slide => m_Wrapper.m_main_Slide;
         public InputAction @Perspective => m_Wrapper.m_main_Perspective;
         public InputAction @Jump => m_Wrapper.m_main_Jump;
-        public InputAction @Slide => m_Wrapper.m_main_Slide;
         public InputAction @Sprint => m_Wrapper.m_main_Sprint;
+        public InputAction @Shoot => m_Wrapper.m_main_Shoot;
+        public InputAction @Interact => m_Wrapper.m_main_Interact;
+        public InputAction @Reload => m_Wrapper.m_main_Reload;
         public InputActionMap Get() { return m_Wrapper.m_main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -298,18 +367,27 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
             @Perspective.started += instance.OnPerspective;
             @Perspective.performed += instance.OnPerspective;
             @Perspective.canceled += instance.OnPerspective;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @Slide.started += instance.OnSlide;
-            @Slide.performed += instance.OnSlide;
-            @Slide.canceled += instance.OnSlide;
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -320,18 +398,27 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
             @Perspective.started -= instance.OnPerspective;
             @Perspective.performed -= instance.OnPerspective;
             @Perspective.canceled -= instance.OnPerspective;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @Slide.started -= instance.OnSlide;
-            @Slide.performed -= instance.OnSlide;
-            @Slide.canceled -= instance.OnSlide;
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -353,9 +440,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
         void OnPerspective(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnSlide(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
 }

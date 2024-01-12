@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EventSystem
   - PlayerMesh
+  - Weapon
   layers:
   - Default
   - TransparentFX

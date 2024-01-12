@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   weaponFireRate: 5
-  weaponDamage: 0
+  weaponDamage: 3
   weaponType: 0
-  weaponRange: 0
-  weaponPrimaryAmmo: 0
-  weaponSecondaryAmmo: 0
+  weaponState: 2
+  weaponRange: 25
+  weaponPrimaryAmmo: 6
+  weaponSecondaryAmmo: 24

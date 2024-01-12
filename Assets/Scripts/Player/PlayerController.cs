@@ -6,6 +6,7 @@ using input;
 using Player.FSM.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Weapons;
 
 namespace Player
 {
@@ -43,8 +44,9 @@ namespace Player
         [HideInInspector] public MainCamera mainCamera;
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public GameObject playerMesh;
+        [HideInInspector] public PlayerShooting playerShooting;
 #endregion
-
+ 
 #region Player States
 
         private PlayerStateMachine _playerStateMachine;
@@ -103,6 +105,12 @@ namespace Player
         [SerializeField] private float slideForce;
         [SerializeField] private float slideYScale;
         [SerializeField] private float slideCooldown;
+        
+        [Header("Interact Settings")] 
+        [SerializeField] private float maxInteractDistance;
+        
+        
+        
         
 #endregion
 
@@ -167,6 +175,7 @@ namespace Player
             playerInput = GetComponent<PlayerInput>();
             _playerStateMachine = new PlayerStateMachine();
             activeCinemachineBrain = GetComponentInChildren<CinemachineBrain>();
+            playerShooting = GetComponent<PlayerShooting>();
             
             IdleState = new Idle("Idle", this, _playerStateMachine);
             WalkingState = new Walking("Walking", this, _playerStateMachine);
@@ -175,6 +184,9 @@ namespace Player
             AirborneState = new Airborne("Airborne", this, _playerStateMachine);
             SlidingState = new Sliding("Sliding", this, _playerStateMachine);
             WallJumpingState = new WallJumping("WallJumping", this, _playerStateMachine);
+            playerInput.actions["Shoot"].performed += _ => playerShooting.Fire();
+            playerInput.actions["Interact"].performed += _ => Interact();
+            playerInput.actions["Reload"].performed += _ => StartCoroutine(playerShooting.Reload());
             canSlide = true;
             canJump = true;
             canWallJump = true;
@@ -215,6 +227,24 @@ namespace Player
         {
             yield return new WaitForSeconds(timeToTake);
             cooldownComplete?.Invoke();
+        }
+
+        private void Interact()
+        {
+            var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<UnityEngine.Camera>()
+                .ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (!Physics.Raycast(rayOrigin, out var hit, maxInteractDistance)) return;
+            switch (hit.transform.root.tag)
+            {
+                case "Weapon":
+                    var collidedWeapon = hit.transform.gameObject;
+                    var collidedWeaponScript = collidedWeapon.GetComponent<WeaponScript>();
+                    var collidedWeaponObj = collidedWeaponScript.Weapon;
+                    playerShooting.Equip(collidedWeaponObj, collidedWeaponScript);
+                    Destroy(collidedWeapon);
+                    break;                                              
+                                      
+            }
         }
 
  

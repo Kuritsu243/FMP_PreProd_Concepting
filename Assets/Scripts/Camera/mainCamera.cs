@@ -30,6 +30,7 @@ namespace Camera
 
         private CinemachineMouseLook _cinemachineMouseLook;
         public MainCamera Instance { get; private set; }
+        public CinemachineCamera ActiveCam => activeCam;
         
         private void OnEnable()
         {
