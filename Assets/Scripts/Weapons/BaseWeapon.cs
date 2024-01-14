@@ -1,64 +1,75 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Weapons
 {
-    [CreateAssetMenu(menuName = "Weapons/New Weapon")]
-    public class BaseWeapon : ScriptableObject
+    public class BaseWeapon : MonoBehaviour
     {
-        public enum WeaponType
-        {
-            Pistol,
-            Rifle,
-            Shotgun
-        }
-        
-        public enum WeaponState
+        public enum WeaponState 
         {
             Firing,
             Reloading,
             Idle,
             NoAmmo
         }
+        public float WeaponReloadTime;
+        public float WeaponFireRate;
+        public int WeaponDamage;
+        public int WeaponRange;
+        public int MaxPrimaryAmmo;
+        public int MaxSecondaryAmmo;
         
-        [SerializeField] private float weaponFireRate;
-        [SerializeField] private float weaponDamage;
-        [SerializeField] private WeaponType weaponType;
-        [SerializeField] private WeaponState weaponState;
-        [SerializeField] private float weaponRange;
-        [SerializeField] private float weaponPrimaryAmmo;
-        [SerializeField] private float weaponSecondaryAmmo;
-        [SerializeField] private float weaponReloadTime;
-        
-        
+        public WeaponState WeaponAction;
 
-        public float WeaponFireRate => weaponFireRate;
+        private int currentPrimaryAmmo;
+        private int currentSecondaryAmmo;
+        private bool needsToReload;
 
-        public float WeaponDamage => weaponDamage;
-
-        public float WeaponRange => weaponRange;
-
-        public float WeaponReloadTime => weaponReloadTime;
-
-        public float WeaponPrimaryAmmo
+        public int CurrentPrimaryAmmo
         {
-            get => weaponPrimaryAmmo;
-            set => weaponPrimaryAmmo = value;
+            get => currentPrimaryAmmo;
+            set => currentPrimaryAmmo = value;
         }
 
-        public float WeaponSecondaryAmmo
+        public int CurrentSecondaryAmmo
         {
-            get => weaponSecondaryAmmo;
-            set => weaponSecondaryAmmo = value;
+            get => currentSecondaryAmmo;
+            set => currentSecondaryAmmo = value;
+        }
+        
+        public IEnumerator Reload()
+        {
+            WeaponAction = WeaponState.Reloading;
+            if (MaxPrimaryAmmo <= 0 && MaxSecondaryAmmo <= 0)
+            {
+                WeaponAction = WeaponState.NoAmmo;
+                yield break;
+            }
+
+            var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, MaxPrimaryAmmo);
+            yield return new WaitForSeconds(WeaponReloadTime);
+            currentSecondaryAmmo -= Mathf.Abs(newAmmo - currentPrimaryAmmo);
+            currentPrimaryAmmo = newAmmo;
+            needsToReload = false;
         }
 
-        public WeaponType WeaponVariant => weaponType;
-
-        public WeaponState WeaponAction 
+        public virtual void Fire()
         {
-            get => weaponState;
-            set => weaponState = value;
+            if (WeaponAction != WeaponState.Idle) return;
+            if (currentPrimaryAmmo <= 0)
+            {
+                needsToReload = true;
+                return;
+            }
+            currentPrimaryAmmo--;
         }
 
-
+        public IEnumerator WeaponCooldown()
+        {
+            WeaponAction = WeaponState.Firing;
+            var cooldown = WeaponFireRate / 10;
+            yield return new WaitForSeconds(cooldown);
+            WeaponAction = WeaponState.Idle;
+        }
     }
 }

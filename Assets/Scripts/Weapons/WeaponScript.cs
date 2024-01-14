@@ -26,6 +26,11 @@ namespace Weapons
             
         }
 
+        public void Punch()
+        {
+            
+        }
+
         public void Reload()
         {
             

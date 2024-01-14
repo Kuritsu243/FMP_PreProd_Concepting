@@ -109,6 +109,9 @@ namespace Player
         [Header("Interact Settings")] 
         [SerializeField] private float maxInteractDistance;
         
+        [Header("Weapons")] 
+        [SerializeField] private Pistol pistol;
+
         
         
         
@@ -186,7 +189,7 @@ namespace Player
             WallJumpingState = new WallJumping("WallJumping", this, _playerStateMachine);
             playerInput.actions["Shoot"].performed += _ => playerShooting.Fire();
             playerInput.actions["Interact"].performed += _ => Interact();
-            playerInput.actions["Reload"].performed += _ => StartCoroutine(playerShooting.Reload());
+            playerInput.actions["Reload"].performed += _ => playerShooting.Reload();
             canSlide = true;
             canJump = true;
             canWallJump = true;
@@ -236,17 +239,14 @@ namespace Player
             if (!Physics.Raycast(rayOrigin, out var hit, maxInteractDistance)) return;
             switch (hit.transform.root.tag)
             {
-                case "Weapon":
+                case "Pistol":
                     var collidedWeapon = hit.transform.gameObject;
-                    var collidedWeaponScript = collidedWeapon.GetComponent<WeaponScript>();
-                    var collidedWeaponObj = collidedWeaponScript.Weapon;
-                    playerShooting.Equip(collidedWeaponObj, collidedWeaponScript);
+                    playerShooting.EquipWeapon(pistol);
+                    // pistol.SetActive(true);
                     Destroy(collidedWeapon);
                     break;                                              
-                                      
+                
             }
         }
-
- 
     }
 }
