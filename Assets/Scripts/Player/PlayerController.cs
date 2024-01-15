@@ -242,7 +242,7 @@ namespace Player
                 case "Pistol":
                     var collidedWeapon = hit.transform.gameObject;
                     playerShooting.EquipWeapon(pistol);
-                    // pistol.SetActive(true);
+                    pistol.gameObject.SetActive(true);
                     Destroy(collidedWeapon);
                     break;                                              
                 

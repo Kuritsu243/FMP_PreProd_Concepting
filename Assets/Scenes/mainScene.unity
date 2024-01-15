@@ -2426,13 +2426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8492fa08ad0dc74e9f2bad844428709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponReloadTime: 2
-  WeaponFireRate: 5
-  WeaponDamage: 2
-  WeaponRange: 25
-  MaxPrimaryAmmo: 6
-  MaxSecondaryAmmo: 24
-  WeaponAction: 2
+  weaponReloadTime: 3
+  weaponFireRate: 2
+  weaponDamage: 2
+  weaponRange: 25
+  maxPrimaryAmmo: 6
+  maxSecondaryAmmo: 12
+  weaponAction: 0
 --- !u!1 &1418870230
 GameObject:
   m_ObjectHideFlags: 0

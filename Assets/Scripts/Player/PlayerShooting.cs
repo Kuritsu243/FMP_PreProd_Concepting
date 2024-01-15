@@ -33,18 +33,20 @@ namespace Player
         public void EquipWeapon(BaseWeapon newWeapon)
         {
             currentWeapon = newWeapon;
+            currentWeapon.CurrentPrimaryAmmo = currentWeapon.maxPrimaryAmmo;
+            currentWeapon.CurrentSecondaryAmmo = currentWeapon.maxSecondaryAmmo;
         }
 
         public void Reload()
         {
-            StartCoroutine(currentWeapon.Reload());
+            if (currentWeapon == null) return;
+            currentWeapon.Reload();
         }
 
         public void Fire()
         {
             if (currentWeapon == null) return;
             currentWeapon.Fire();
-            StartCoroutine(currentWeapon.WeaponCooldown());
         }
 
 

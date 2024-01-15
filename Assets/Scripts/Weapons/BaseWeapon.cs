@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Weapons
 {
@@ -12,14 +13,14 @@ namespace Weapons
             Idle,
             NoAmmo
         }
-        public float WeaponReloadTime;
-        public float WeaponFireRate;
-        public int WeaponDamage;
-        public int WeaponRange;
-        public int MaxPrimaryAmmo;
-        public int MaxSecondaryAmmo;
+        public float weaponReloadTime;
+        public float weaponFireRate;
+        public int weaponDamage;
+        public int weaponRange;
+        public int maxPrimaryAmmo;
+        public int maxSecondaryAmmo;
         
-        public WeaponState WeaponAction;
+        public WeaponState weaponAction;
 
         private int currentPrimaryAmmo;
         private int currentSecondaryAmmo;
@@ -37,39 +38,45 @@ namespace Weapons
             set => currentSecondaryAmmo = value;
         }
         
-        public IEnumerator Reload()
+        public virtual void Reload()
         {
-            WeaponAction = WeaponState.Reloading;
-            if (MaxPrimaryAmmo <= 0 && MaxSecondaryAmmo <= 0)
+            weaponAction = WeaponState.Reloading;
+            if (currentPrimaryAmmo <= 0 && currentSecondaryAmmo <= 0)
             {
-                WeaponAction = WeaponState.NoAmmo;
-                yield break;
+                weaponAction = WeaponState.NoAmmo;
+                return;
             }
-
-            var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, MaxPrimaryAmmo);
-            yield return new WaitForSeconds(WeaponReloadTime);
-            currentSecondaryAmmo -= Mathf.Abs(newAmmo - currentPrimaryAmmo);
-            currentPrimaryAmmo = newAmmo;
-            needsToReload = false;
+            var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, maxPrimaryAmmo);
+            StartCoroutine(ReloadCooldown(newAmmo));
         }
 
         public virtual void Fire()
         {
-            if (WeaponAction != WeaponState.Idle) return;
+            if (weaponAction != WeaponState.Idle) return;
             if (currentPrimaryAmmo <= 0)
             {
                 needsToReload = true;
                 return;
             }
             currentPrimaryAmmo--;
+            StartCoroutine(WeaponCooldown());
         }
 
-        public IEnumerator WeaponCooldown()
+        private IEnumerator WeaponCooldown()
         {
-            WeaponAction = WeaponState.Firing;
-            var cooldown = WeaponFireRate / 10;
+            weaponAction = WeaponState.Firing;
+            var cooldown = weaponFireRate / 10;
             yield return new WaitForSeconds(cooldown);
-            WeaponAction = WeaponState.Idle;
+            weaponAction = WeaponState.Idle;
+        }
+
+        private IEnumerator ReloadCooldown(int newPrimary)
+        {
+            yield return new WaitForSeconds(weaponReloadTime);
+            currentSecondaryAmmo -= Mathf.Abs(newPrimary - currentPrimaryAmmo);
+            currentPrimaryAmmo = newPrimary;
+            needsToReload = false;
+            weaponAction = WeaponState.Idle;
         }
     }
 }
