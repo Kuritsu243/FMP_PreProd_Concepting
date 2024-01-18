@@ -1099,11 +1099,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1057176544}
   m_SourcePrefab: {fileID: 100100000, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
 --- !u!4 &538628510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8819312112457674057, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
+  m_PrefabInstance: {fileID: 538628509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &538628511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5097083082565428806, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
   m_PrefabInstance: {fileID: 538628509}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &546232512
@@ -1843,19 +1851,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
   m_PrefabInstance: {fileID: 4929313359781146462}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &968710591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968710587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490ee927c9d16fd48a5a7557d2d0b6a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
 --- !u!64 &968710592
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1910,6 +1905,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1057176541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
+  m_PrefabInstance: {fileID: 538628509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1057176544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057176541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f575c9c536735c342954949c1a8d49a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponReloadTime: 5
+  weaponFireRate: 2
+  weaponDamage: 10
+  weaponRange: 30
+  maxPrimaryAmmo: 2
+  maxSecondaryAmmo: 8
+  shotgunPelletCount: 5
+  weaponProjectile: {fileID: 3663272873305407917, guid: 6927cbae20833de438507952664e233d, type: 3}
+  weaponSpread: {x: 0.1, y: 0.1, z: 0.1}
+  weaponAction: 2
+  shootingType: 1
+  projectileSpeed: 5
+  projectileDespawnTime: 5
+  spawnPosition: {fileID: 538628511}
 --- !u!1 &1066025956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,7 +2458,14 @@ MonoBehaviour:
   weaponRange: 25
   maxPrimaryAmmo: 6
   maxSecondaryAmmo: 12
-  weaponAction: 0
+  shotgunPelletCount: 0
+  weaponProjectile: {fileID: 0}
+  weaponSpread: {x: 0, y: 0, z: 0}
+  weaponAction: 2
+  shootingType: 0
+  projectileSpeed: 0
+  projectileDespawnTime: 0
+  spawnPosition: {fileID: 4449627309767014774}
 --- !u!1 &1418870230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,6 +3389,7 @@ MonoBehaviour:
   slideCooldown: 2.5
   maxInteractDistance: 20
   pistol: {fileID: 1352500664}
+  shotgun: {fileID: 1057176544}
   isGrounded: 0
   canSlide: 0
   canJump: 0
@@ -3801,6 +3835,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1352500664}
   m_SourcePrefab: {fileID: 100100000, guid: 18ba7c4b18df85749a4f3e8707c36e84, type: 3}
+--- !u!4 &4449627309767014774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2389360636136984216, guid: 18ba7c4b18df85749a4f3e8707c36e84, type: 3}
+  m_PrefabInstance: {fileID: 4449627309767014773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4929313359781146462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3815,7 +3854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 8819312112457674057, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
       propertyPath: m_RootOrder
@@ -3868,7 +3907,4 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 968710592}
-    - targetCorrespondingSourceObject: {fileID: 8155927730679363571, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 968710591}
   m_SourcePrefab: {fileID: 100100000, guid: 190dd01ef47e52b43928cc842a0ca9d5, type: 3}

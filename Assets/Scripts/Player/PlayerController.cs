@@ -111,6 +111,8 @@ namespace Player
         
         [Header("Weapons")] 
         [SerializeField] private Pistol pistol;
+        [SerializeField] private Shotgun shotgun;
+        
 
         
         
@@ -240,11 +242,17 @@ namespace Player
             switch (hit.transform.root.tag)
             {
                 case "Pistol":
-                    var collidedWeapon = hit.transform.gameObject;
+                    var collidedPistol = hit.transform.gameObject;
                     playerShooting.EquipWeapon(pistol);
                     pistol.gameObject.SetActive(true);
-                    Destroy(collidedWeapon);
-                    break;                                              
+                    Destroy(collidedPistol);
+                    break;  
+                case "Shotgun":
+                    var collidedShotgun = hit.transform.gameObject;
+                    playerShooting.EquipWeapon(shotgun);
+                    shotgun.gameObject.SetActive(true);
+                    Destroy(collidedShotgun);
+                    break;
                 
             }
         }

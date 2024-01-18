@@ -13,18 +13,36 @@ namespace Weapons
             Idle,
             NoAmmo
         }
+
+        public enum ShootingType
+        {
+            Hitscan,
+            Projectile
+        }
         public float weaponReloadTime;
         public float weaponFireRate;
         public int weaponDamage;
         public int weaponRange;
         public int maxPrimaryAmmo;
         public int maxSecondaryAmmo;
-        
-        public WeaponState weaponAction;
+        public int shotgunPelletCount;
+        public GameObject weaponProjectile;
 
+        public Vector3 weaponSpread;
+        public WeaponState weaponAction;
+        public ShootingType shootingType;
+        
         private int currentPrimaryAmmo;
         private int currentSecondaryAmmo;
         private bool needsToReload;
+
+        [Header("Projectile Specific Settings")] 
+        [SerializeField] private float projectileSpeed;
+        [SerializeField] private float projectileDespawnTime;
+        
+        
+
+        public Transform spawnPosition;
 
         public int CurrentPrimaryAmmo
         {
@@ -36,6 +54,18 @@ namespace Weapons
         {
             get => currentSecondaryAmmo;
             set => currentSecondaryAmmo = value;
+        }
+
+        public float ProjectileSpeed
+        {
+            get => projectileSpeed;
+            set => projectileSpeed = value;
+        }
+
+        public float ProjectileDespawnTime
+        {
+            get => projectileDespawnTime;
+            set => projectileDespawnTime = value;
         }
         
         public virtual void Reload()
@@ -77,6 +107,19 @@ namespace Weapons
             currentPrimaryAmmo = newPrimary;
             needsToReload = false;
             weaponAction = WeaponState.Idle;
+        }
+
+        protected Vector3 GetWeaponSpread(Transform weaponSpawnPos)
+        {
+            var direction = weaponSpawnPos.forward;
+
+            direction += new Vector3(
+                Random.Range(-weaponSpread.x, weaponSpread.x),
+                Random.Range(-weaponSpread.y, weaponSpread.y),
+                Random.Range(-weaponSpread.z, weaponSpread.z)
+            );
+
+            return direction;
         }
     }
 }
