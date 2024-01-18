@@ -33,6 +33,7 @@ namespace Weapons
             _projectileCollider = GetComponent<Collider>();
             _projectileRigidbody = GetComponent<Rigidbody>();
             Invoke(nameof(Despawn), despawnTime);
+            _projectileRigidbody.velocity = (spawnDir + transform.forward) * projSpeed;
         }
 
         private void Despawn()

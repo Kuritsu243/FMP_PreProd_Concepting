@@ -1930,10 +1930,10 @@ MonoBehaviour:
   maxSecondaryAmmo: 8
   shotgunPelletCount: 5
   weaponProjectile: {fileID: 3663272873305407917, guid: 6927cbae20833de438507952664e233d, type: 3}
-  weaponSpread: {x: 0.1, y: 0.1, z: 0.1}
+  weaponSpread: {x: 0.8, y: 0.8, z: 0.8}
   weaponAction: 2
   shootingType: 1
-  projectileSpeed: 5
+  projectileSpeed: 20
   projectileDespawnTime: 5
   spawnPosition: {fileID: 538628511}
 --- !u!1 &1066025956
