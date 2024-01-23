@@ -39,9 +39,9 @@ namespace Weapons
         private int currentSecondaryAmmo;
         private bool needsToReload;
 
-        [ShowIfProjectile("shootingType")][Header("Projectile Specific Settings")] 
-        [ShowIfProjectile("shootingType")][SerializeField] private float projectileSpeed;
-        [ShowIfProjectile("shootingType")][SerializeField] private float projectileDespawnTime;
+        [Header("Projectile Specific Settings")] 
+        [SerializeField] private float projectileSpeed;
+        [SerializeField] private float projectileDespawnTime;
         
         
 
