@@ -1,6 +1,9 @@
 using System.Collections;
+using EditorExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Weapons;
+
 
 namespace Weapons
 {
@@ -36,9 +39,9 @@ namespace Weapons
         private int currentSecondaryAmmo;
         private bool needsToReload;
 
-        [Header("Projectile Specific Settings")] 
-        [SerializeField] private float projectileSpeed;
-        [SerializeField] private float projectileDespawnTime;
+        [ShowIfProjectile("shootingType")][Header("Projectile Specific Settings")] 
+        [ShowIfProjectile("shootingType")][SerializeField] private float projectileSpeed;
+        [ShowIfProjectile("shootingType")][SerializeField] private float projectileDespawnTime;
         
         
 

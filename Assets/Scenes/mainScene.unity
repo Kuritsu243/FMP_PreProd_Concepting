@@ -1995,8 +1995,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.15212339, y: -0, z: -0, w: 0.98836154}
-  m_LocalPosition: {x: 0, y: 0.4804703, z: -3.3380094}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.07199997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4225,6 +4225,7 @@ GameObject:
   - component: {fileID: 2054918757}
   - component: {fileID: 2054918756}
   - component: {fileID: 2054918755}
+  - component: {fileID: 2054918758}
   m_Layer: 0
   m_Name: Enemy_AI
   m_TagString: Enemy
@@ -4249,7 +4250,7 @@ NavMeshAgent:
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
@@ -4267,7 +4268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDetectionRange: 20
-  wallRunSpeedMulitplier: 2
+  wallRunSpeedMultiplier: 0
 --- !u!4 &2054918757
 Transform:
   m_ObjectHideFlags: 0
@@ -4284,6 +4285,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054918758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054918754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bfc8b9684ec47468e3dc5965ba9196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponReloadTime: 0
+  weaponFireRate: 0
+  weaponDamage: 0
+  weaponRange: 0
+  maxPrimaryAmmo: 0
+  maxSecondaryAmmo: 0
+  shotgunPelletCount: 0
+  weaponProjectile: {fileID: 0}
+  weaponSpread: {x: 0, y: 0, z: 0}
+  weaponAction: 0
+  shootingType: 0
+  projectileSpeed: 0
+  projectileDespawnTime: 0
+  spawnPosition: {fileID: 0}
 --- !u!1001 &208171012398316144
 PrefabInstance:
   m_ObjectHideFlags: 0

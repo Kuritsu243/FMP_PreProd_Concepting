@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace AI
 {
@@ -23,15 +24,17 @@ namespace AI
         private NavMeshAgent _navMeshAgent;
         private Vector3 _targetPoint;
         private NavMeshHit _enemyNavHit;
-        private int wallRunLeft;
-        private int wallRunRight;
-        private int wallRunAreas;
+        private int _wallRunLeft;
+        private int _wallRunRight;
+        private int _wallRunAreas;
+        private float _defaultSpeed;
         private bool _onWall;
         private bool _meshRotated;
         private bool _leftWall;
         private bool _rightWall;
+        private bool _hasAppliedAcceleration;
         [SerializeField] private float playerDetectionRange;
-        [SerializeField] private float wallRunSpeedMulitplier;
+        [SerializeField] private float wallRunSpeedMultiplier;
         
 
         
@@ -41,8 +44,9 @@ namespace AI
             _enemyMesh = gameObject.GetChildWithTag("EnemyMesh");
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _player = GameObject.FindGameObjectWithTag("PlayerMesh");
-            wallRunLeft = 1 <<  NavMesh.GetAreaFromName("WallRunLeft");
-            wallRunRight = 1 << NavMesh.GetAreaFromName("WallRunRight");
+            _wallRunLeft = 1 <<  NavMesh.GetAreaFromName("WallRunLeft");
+            _wallRunRight = 1 << NavMesh.GetAreaFromName("WallRunRight");
+            _defaultSpeed = _navMeshAgent.speed;
 
         }
 
@@ -65,16 +69,15 @@ namespace AI
         private void CheckIfOnWalls()
         {
             var position = transform.position;
-            _leftWall = NavMesh.SamplePosition(position, out _enemyNavHit, 0.1f, wallRunLeft) && _enemyNavHit.mask == wallRunLeft;
-            _rightWall = NavMesh.SamplePosition(position, out _enemyNavHit, 0.1f, wallRunRight) &&
-                         _enemyNavHit.mask == wallRunRight;
+            _leftWall = NavMesh.SamplePosition(position, out _enemyNavHit, 0.1f, _wallRunLeft) && _enemyNavHit.mask == _wallRunLeft;
+            _rightWall = NavMesh.SamplePosition(position, out _enemyNavHit, 0.1f, _wallRunRight) &&
+                         _enemyNavHit.mask == _wallRunRight;
             _onWall = _leftWall || _rightWall;
 
             var rotation = _enemyMesh.transform.rotation;
             switch (_onWall)
             {
                 case true when _rightWall && !_meshRotated:
-
                     _enemyMesh.transform.localRotation = Quaternion.Euler(rotation.x, rotation.y, -90f);
                     _meshRotated = true;
                     break;
@@ -87,29 +90,20 @@ namespace AI
                     _meshRotated = false;
                     break;
             }
+
+            switch (_onWall)
+            {
+                case true when !_hasAppliedAcceleration:
+                    _navMeshAgent.speed *= wallRunSpeedMultiplier;
+                    _hasAppliedAcceleration = true;
+                    break;
+                case false when _hasAppliedAcceleration:
+                    _navMeshAgent.speed = _defaultSpeed;
+                    _hasAppliedAcceleration = false;
+                    break;
+            }
             
-            
-            // if (_onWall)
-            //     _navMeshAgent. *= wallRunSpeedMulitplier;
-            // switch (_onWall)
-            // {
-            //
-            //     case true when !_meshRotated && _leftWall:
-            //         EnemyTransform.Rotate(0, 0, 90, Space.Self);
-            //         _meshRotated = true;
-            //         break;
-            //     case true when !_meshRotated && _rightWall:
-            //         EnemyTransform.Rotate(0, 0, -90, Space.Self);
-            //         _meshRotated = true;
-            //         break;
-            //     case false when _meshRotated && !_leftWall:
-            //         EnemyTransform.Rotate(0, 0, -270, Space.Self);
-            //         _meshRotated = false;
-            //         break;
-            //     case false when _meshRotated && !_rightWall:
-            //         EnemyTransform.Rotate(0, 0, 270, Space.Self);
-            //         break;
-            // }
+
     
         }
         
