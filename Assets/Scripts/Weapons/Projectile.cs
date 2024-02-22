@@ -1,4 +1,5 @@
 using System;
+using AI;
 using UnityEngine;
 
 namespace Weapons
@@ -13,10 +14,10 @@ namespace Weapons
 
         public ProjectileType projType;
 
-        private float projectileDamage { get; set; }
-        private float projectileSpeed { get; set; }
-        private float projectileDespawnTime { get; set; }
-        private Vector3 projectileSpawnDirection { get; set; }
+        private float ProjectileDamage { get; set; }
+        private float ProjectileSpeed { get; set; }
+        private float ProjectileDespawnTime { get; set; }
+        private Vector3 ProjectileSpawnDirection { get; set; }
 
         private Collider _projectileCollider;
         private Rigidbody _projectileRigidbody;
@@ -26,10 +27,10 @@ namespace Weapons
         
         public void Initialize(float damage, float projSpeed, float despawnTime, Vector3 spawnDir)
         {
-            projectileDamage = damage;
-            projectileSpeed = projSpeed;
-            projectileDespawnTime = despawnTime;
-            projectileSpawnDirection = spawnDir;
+            ProjectileDamage = damage;
+            ProjectileSpeed = projSpeed;
+            ProjectileDespawnTime = despawnTime;
+            ProjectileSpawnDirection = spawnDir;
             _projectileCollider = GetComponent<Collider>();
             _projectileRigidbody = GetComponent<Rigidbody>();
             Invoke(nameof(Despawn), despawnTime);
@@ -50,6 +51,8 @@ namespace Weapons
                     break;
                 case "Enemy":
                     Debug.LogWarning("Enemy hit!!!");
+                    if (other.transform.root.TryGetComponent<EnemyHealth>(out var enemyHealthScript))
+                        enemyHealthScript.Damage(ProjectileDamage);
                     Despawn();
                     break;
             }

@@ -37,7 +37,7 @@ namespace Weapons
         
         private int currentPrimaryAmmo;
         private int currentSecondaryAmmo;
-        private bool needsToReload;
+        public bool needsToReload;
 
         [Header("Projectile Specific Settings")] 
         [SerializeField] private float projectileSpeed;

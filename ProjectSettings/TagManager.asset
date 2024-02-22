@@ -11,6 +11,7 @@ TagManager:
   - Shotgun
   - Enemy
   - EnemyMesh
+  - weaponSpawnPos
   layers:
   - Default
   - TransparentFX

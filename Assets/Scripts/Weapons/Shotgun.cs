@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AI;
 using UnityEngine;
 
 namespace Weapons
@@ -18,6 +19,7 @@ namespace Weapons
                 {
                     case "Enemy":
                         var collidedEnemy = hit.transform.root.gameObject;
+                        collidedEnemy.GetComponent<EnemyHealth>().Damage(weaponDamage);
                         Debug.LogWarning("hit enemy!!");
                         break;
                 }

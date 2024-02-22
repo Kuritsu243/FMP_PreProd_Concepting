@@ -1,74 +1,65 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using Weapons;
+using Weapons.Enemy;
 
 namespace AI
 {
     public class EnemyShooting : MonoBehaviour
     {
-
-        public enum WeaponState
+        public enum WeaponType
         {
-            Firing,
-            Reloading,
-            Idle,
-            NoAmmo
+            Pistol,
+            Shotgun
         }
 
-        public enum ShootingType
-        {
-            Hitscan,
-            Projectile
-        }
-
+        [SerializeField] private WeaponType weaponType;
+        [SerializeField] private EnemyPistol pistol;
         
-        [Header("Weapon Settings")]
-        public float weaponReloadTime;
-        public float weaponFireRate;
-        public int weaponDamage;
-        public int weaponRange;
-        public int maxPrimaryAmmo;
-        public int maxSecondaryAmmo;
-        public int shotgunPelletCount;
-        public GameObject weaponProjectile;
-        public Vector3 weaponSpread;
-        public WeaponState weaponAction;
-        public ShootingType shootingType;
+        private EnemyBaseWeapon currentWeapon;
 
-  
-        
-        [Header("Projectile Specific Settings")] 
-        [SerializeField] private float projectileSpeed;
-        [SerializeField] private float projectileDespawnTime;
-
-        public Transform spawnPosition;
-
-        public int CurrentPrimaryAmmo
+        public EnemyBaseWeapon CurrentWeapon
         {
-            get => currentPrimaryAmmo;
-            set => currentPrimaryAmmo = value;
-        }
-
-        public int CurrentSecondaryAmmo
-        {
-            get => currentSecondaryAmmo;
-            set => currentSecondaryAmmo = value;
-        }
-
-        public float ProjectileSpeed
-        {
-            get => projectileSpeed;
-            set => projectileSpeed = value;
-        }
-
-        public float ProjectileDespawnTime
-        {
-            get => projectileDespawnTime;
-            set => projectileDespawnTime = value;
+            get => currentWeapon;
+            set => currentWeapon = value;
         }
         
-        private int currentPrimaryAmmo;
-        private int currentSecondaryAmmo;
-        private bool needsToReload;
+        public bool CanAttack { get; set; }
 
+        public void Start()
+        {
+            CanAttack = true;
+            switch (weaponType)
+            {
+                case WeaponType.Pistol:
+                    EquipWeapon(pistol);
+                    break;
+                case WeaponType.Shotgun:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
+        public void EquipWeapon(EnemyBaseWeapon newWeapon)
+        {
+            currentWeapon = newWeapon;
+            currentWeapon.CurrentPrimaryAmmo = currentWeapon.maxPrimaryAmmo;
+            currentWeapon.CurrentSecondaryAmmo = currentWeapon.maxSecondaryAmmo;
+            
+        }
+
+        public void Reload()
+        {
+            if (currentWeapon == null) return;
+            currentWeapon.Reload();
+        }
+
+        public void Fire()
+        {
+            if (currentWeapon == null) return;
+            currentWeapon.Fire();
+        }
     }
 }

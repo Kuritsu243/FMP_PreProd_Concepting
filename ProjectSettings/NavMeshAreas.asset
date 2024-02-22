@@ -11,9 +11,9 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: WallRunLeft
+  - name: 
     cost: 1
-  - name: WallRunRight
+  - name: 
     cost: 1
   - name: 
     cost: 1
