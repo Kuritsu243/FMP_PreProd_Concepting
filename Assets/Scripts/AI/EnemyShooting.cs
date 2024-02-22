@@ -16,6 +16,8 @@ namespace AI
 
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private EnemyPistol pistol;
+        [SerializeField] private EnemyShotgun shotgun;
+        
         
         private EnemyBaseWeapon currentWeapon;
 
@@ -36,6 +38,7 @@ namespace AI
                     EquipWeapon(pistol);
                     break;
                 case WeaponType.Shotgun:
+                    EquipWeapon(shotgun);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

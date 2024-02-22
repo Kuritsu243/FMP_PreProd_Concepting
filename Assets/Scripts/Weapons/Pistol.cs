@@ -27,6 +27,7 @@ namespace Weapons
                 // do projectile shit
             }
 
+            base.Fire();
         }
 
         public override void Reload()

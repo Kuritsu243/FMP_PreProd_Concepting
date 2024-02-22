@@ -98,7 +98,7 @@ namespace Weapons
         private IEnumerator WeaponCooldown()
         {
             weaponAction = WeaponState.Firing;
-            var cooldown = weaponFireRate / 10;
+            var cooldown = weaponFireRate / 10f;
             yield return new WaitForSeconds(cooldown);
             weaponAction = WeaponState.Idle;
         }
