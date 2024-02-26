@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyShotgunPellet
       objectReference: {fileID: 0}
+    - target: {fileID: 3663272873305407917, guid: 6927cbae20833de438507952664e233d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663272873305407917, guid: 6927cbae20833de438507952664e233d, type: 3}
+      propertyPath: m_TagString
+      value: enemyProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 4151579883186805527, guid: 6927cbae20833de438507952664e233d, type: 3}
       propertyPath: m_RootOrder
       value: 0

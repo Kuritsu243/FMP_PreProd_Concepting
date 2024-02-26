@@ -35,7 +35,7 @@ namespace Weapons
                     pellet.transform.rotation =
                         Quaternion.RotateTowards(pellet.transform.rotation, pellets[h], weaponSpread.x);
                     var pelletScript = pellet.GetComponent<Projectile>();
-                    pelletScript.Initialize(weaponDamage, ProjectileSpeed, ProjectileDespawnTime, spawnPosition.transform.forward);
+                    pelletScript.Initialize(weaponDamage, ProjectileSpeed, ProjectileDespawnTime, spawnPosition.transform.forward + GetWeaponSpread(spawnPosition.transform));
                 }
             }
             base.Fire();

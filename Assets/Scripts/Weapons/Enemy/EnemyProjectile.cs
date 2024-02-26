@@ -15,6 +15,7 @@ namespace Weapons.Enemy
                         playerHealthScript.Damage(ProjectileDamage);
                     Despawn();
                     break;
+                case "enemyProjectile":
                 case "Enemy":
                     Physics.IgnoreCollision(other, ProjectileCollider);
                     break;

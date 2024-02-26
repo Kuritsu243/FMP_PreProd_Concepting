@@ -8,7 +8,6 @@ namespace Weapons.Enemy
         public override void Fire()
         {
             if (weaponAction != WeaponState.Idle) return;
-            var direction = GetWeaponSpread(spawnPosition);
             if (weaponProjectile != null && shootingType == ShootingType.Projectile)
             {
                 var pellets = new List<Quaternion>(shotgunPelletCount);
@@ -32,7 +31,7 @@ namespace Weapons.Enemy
                     
                     var pelletScript = pellet.GetComponent<EnemyProjectile>();
                     pelletScript.Initialize(weaponDamage, ProjectileSpeed, ProjectileDespawnTime,
-                        spawnPosition.transform.forward);
+                        spawnPosition.transform.forward + GetWeaponSpread(spawnPosition.transform));
                 }
             }
             base.Fire();

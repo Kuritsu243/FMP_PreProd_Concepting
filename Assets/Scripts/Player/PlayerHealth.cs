@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -16,9 +19,28 @@ namespace Player
             if (CurrentHealth <= 0) Die();
         }
 
+        private void Start()
+        {
+            CurrentHealth = maxHealth;
+        }
+
         private void Die()
         {
-            Debug.LogWarning("Player Dead");
+            LoadNextScene();
+        }
+
+        private void LoadNextScene()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(2);
+        }
+
+        private IEnumerator LoadLevel(int levelIndex)
+        {
+            // todo: add crossfade
+            
+            SceneManager.LoadSceneAsync(levelIndex);
+            yield break;
         }
 
     }
