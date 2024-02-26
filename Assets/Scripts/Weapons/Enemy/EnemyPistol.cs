@@ -1,3 +1,4 @@
+using System;
 using Player;
 using UnityEngine;
 
@@ -7,10 +8,9 @@ namespace Weapons.Enemy
     {
         public override void Fire()
         {
-            Debug.LogWarning("Enemy shooting");
             if (weaponAction != WeaponState.Idle) return;
             var direction = GetWeaponSpread(spawnPosition);
-            if (Physics.Raycast(spawnPosition.position, direction, out RaycastHit hit, weaponRange) &&
+            if (Physics.Raycast(spawnPosition.position, spawnPosition.forward * 10, out RaycastHit hit, weaponRange) &&
                 shootingType == ShootingType.Hitscan)
             {
                 switch (hit.transform.root.tag)
@@ -26,8 +26,14 @@ namespace Weapons.Enemy
             {
                 //
             }
+            base.Fire();
         }
 
+
+        public void FixedUpdate()
+        {
+            Debug.LogWarning(weaponAction);
+        }
 
         public override void Reload()
         {

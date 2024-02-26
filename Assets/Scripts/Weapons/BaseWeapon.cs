@@ -1,5 +1,4 @@
 using System.Collections;
-using EditorExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Weapons;
@@ -98,7 +97,7 @@ namespace Weapons
         private IEnumerator WeaponCooldown()
         {
             weaponAction = WeaponState.Firing;
-            var cooldown = weaponFireRate / 10;
+            var cooldown = weaponFireRate / 10f;
             yield return new WaitForSeconds(cooldown);
             weaponAction = WeaponState.Idle;
         }
@@ -106,7 +105,7 @@ namespace Weapons
         private IEnumerator ReloadCooldown(int newPrimary)
         {
             yield return new WaitForSeconds(weaponReloadTime);
-            currentSecondaryAmmo -= Mathf.Abs(newPrimary - currentPrimaryAmmo);
+            currentSecondaryAmmo -= maxPrimaryAmmo - currentPrimaryAmmo;
             currentPrimaryAmmo = newPrimary;
             needsToReload = false;
             weaponAction = WeaponState.Idle;

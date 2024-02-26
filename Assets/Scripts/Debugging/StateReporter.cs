@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
-using Camera;
-using Camera.FSM;
+using Cameras;
+using Cameras.FSM;
+using Cameras;
 using Player;
 using Player.FSM;
 using TMPro;

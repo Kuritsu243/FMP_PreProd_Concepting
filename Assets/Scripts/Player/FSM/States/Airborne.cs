@@ -1,4 +1,4 @@
-using Camera;
+using Cameras;
 using UnityEngine;
 
 namespace Player.FSM.States

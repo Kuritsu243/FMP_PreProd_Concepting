@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 3636445608541641390}
   - component: {fileID: 2054814896720387617}
   - component: {fileID: 7251203675212878015}
+  - component: {fileID: 5568557576133446366}
   m_Layer: 0
   m_Name: Enemy_AI
   m_TagString: Enemy
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetectionRange: 20
   pauseBeforeAttack: 2
+  timeBetweenAttacks: 0
 --- !u!195 &3636445608541641390
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -189,24 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bfc8b9684ec47468e3dc5965ba9196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponReloadTime: 0
-  weaponFireRate: 0
-  weaponDamage: 0
-  weaponRange: 0
-  maxPrimaryAmmo: 0
-  maxSecondaryAmmo: 0
-  shotgunPelletCount: 0
-  weaponProjectile: {fileID: 0}
-  weaponSpread: {x: 0, y: 0, z: 0}
-  weaponAction: 0
-  shootingType: 0
   weaponType: 0
-  projectileSpeed: 0
-  projectileDespawnTime: 0
-  pistolObject: {fileID: 0}
-  shotgunObject: {fileID: 0}
-  timeBetweenAttacks: 3
-  spawnPosition: {fileID: 0}
+  pistol: {fileID: 0}
+  shotgun: {fileID: 0}
 --- !u!114 &7251203675212878015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +207,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+--- !u!114 &5568557576133446366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917124316847143410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84f5a26487337143adff782f0ac520a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledProjectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  objectToPool: {fileID: 7378004453358860771, guid: 7c8c09ffc8c0b4c42b5944e40a6d2e0a, type: 3}
+  amountToPool: 20
+  parentObj: {fileID: 0}
 --- !u!1 &6335618942833124588
 GameObject:
   m_ObjectHideFlags: 0

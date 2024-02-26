@@ -14,12 +14,12 @@ namespace Weapons
 
         public ProjectileType projType;
 
-        private float ProjectileDamage { get; set; }
+        protected float ProjectileDamage { get; set; }
         private float ProjectileSpeed { get; set; }
         private float ProjectileDespawnTime { get; set; }
         private Vector3 ProjectileSpawnDirection { get; set; }
 
-        private Collider _projectileCollider;
+        protected Collider ProjectileCollider;
         private Rigidbody _projectileRigidbody;
 
 
@@ -31,23 +31,23 @@ namespace Weapons
             ProjectileSpeed = projSpeed;
             ProjectileDespawnTime = despawnTime;
             ProjectileSpawnDirection = spawnDir;
-            _projectileCollider = GetComponent<Collider>();
+            ProjectileCollider = GetComponent<Collider>();
             _projectileRigidbody = GetComponent<Rigidbody>();
             Invoke(nameof(Despawn), despawnTime);
             _projectileRigidbody.velocity = (spawnDir + transform.forward) * projSpeed;
         }
 
-        private void Despawn()
+        public void Despawn()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
-        private void OnTriggerEnter(Collider other)
+        public virtual void OnTriggerEnter(Collider other)
         {
             switch (other.transform.root.tag)
             {
                 case "Player":
-                    Physics.IgnoreCollision(other, _projectileCollider);
+                    Physics.IgnoreCollision(other, ProjectileCollider);
                     break;
                 case "Enemy":
                     Debug.LogWarning("Enemy hit!!!");

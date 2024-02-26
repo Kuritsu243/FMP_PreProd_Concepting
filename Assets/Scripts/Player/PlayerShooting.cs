@@ -11,6 +11,8 @@ namespace Player
     {
         [Header("Fists Class for game start or when no weapon")]
         [SerializeField] private BaseWeapon fists;
+
+        [SerializeField] private TextMeshProUGUI ammoReporter;
         
         
         private BaseWeapon currentWeapon;
@@ -45,11 +47,14 @@ namespace Player
 
         public void Fire()
         {
-            if (currentWeapon == null) return;
+            if (currentWeapon == null || currentWeapon.CurrentPrimaryAmmo <= 0) return;
             currentWeapon.Fire();
         }
 
-
+        private void FixedUpdate()
+        {
+            ammoReporter.text = $"{currentWeapon.CurrentPrimaryAmmo} / {currentWeapon.CurrentSecondaryAmmo}";
+        }
     }
 }
 //     {

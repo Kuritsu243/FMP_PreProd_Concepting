@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Camera;
+using Cameras;
 using input;
 using Player.FSM;
 using Player.FSM.States;

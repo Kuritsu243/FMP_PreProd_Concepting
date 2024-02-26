@@ -12,6 +12,9 @@ TagManager:
   - Enemy
   - EnemyMesh
   - weaponSpawnPos
+  - ProjectilePool
+  - pyramid
+  - plane
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - UI
   - WallLeft
   - WallRight
-  - 
+  - Outline
   - 
   - 
   - 

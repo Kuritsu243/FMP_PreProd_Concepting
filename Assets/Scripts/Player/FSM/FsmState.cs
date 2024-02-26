@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Camera;
+using Cameras;
 using Unity.Cinemachine;
 
 namespace Player.FSM

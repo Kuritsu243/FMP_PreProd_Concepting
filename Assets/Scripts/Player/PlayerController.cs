@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Camera;
+using Cameras;
 using Unity.Cinemachine;
 using input;
 using Player.FSM.States;

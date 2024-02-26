@@ -1,5 +1,5 @@
 using System;
-using Camera;
+using Cameras;
 using Unity.Cinemachine;
 using input;
 using UnityEngine;

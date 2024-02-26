@@ -16,6 +16,8 @@ namespace AI
 
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private EnemyPistol pistol;
+        [SerializeField] private EnemyShotgun shotgun;
+        
         
         private EnemyBaseWeapon currentWeapon;
 
@@ -36,13 +38,14 @@ namespace AI
                     EquipWeapon(pistol);
                     break;
                 case WeaponType.Shotgun:
+                    EquipWeapon(shotgun);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        public void EquipWeapon(EnemyBaseWeapon newWeapon)
+        private void EquipWeapon(EnemyBaseWeapon newWeapon)
         {
             currentWeapon = newWeapon;
             currentWeapon.CurrentPrimaryAmmo = currentWeapon.maxPrimaryAmmo;
@@ -58,7 +61,7 @@ namespace AI
 
         public void Fire()
         {
-            if (currentWeapon == null) return;
+            if (currentWeapon == null || !CanAttack) return;
             currentWeapon.Fire();
         }
     }

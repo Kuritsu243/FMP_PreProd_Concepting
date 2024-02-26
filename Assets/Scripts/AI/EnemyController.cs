@@ -70,7 +70,11 @@ namespace AI
             // if (!_onWall)
             //     _enemyMesh.transform.localRotation = Quaternion.Euler(rotation.x, transform.rotation.y, rotation.z);
             //
-            if (_enemyShooting.CurrentWeapon.CurrentPrimaryAmmo == 0) _enemyShooting.Reload();
+            if (_enemyShooting.CurrentWeapon.CurrentPrimaryAmmo == 0)
+            {
+                _enemyShooting.Reload();
+                return;
+            }
             if (Vector3.Distance(transform.position, _player.transform.position) > playerDetectionRange) return;
             if (IsFacingPlayer() && _enemyShooting.CanAttack) PrepareToShoot();
             if (_targetPoint == _player.transform.position) return;
@@ -93,9 +97,9 @@ namespace AI
 
         private IEnumerator WaitBeforeAttack()
         {
+            if (!_enemyShooting.CanAttack) yield break; 
             yield return new WaitForSeconds(pauseBeforeAttack);
             _enemyShooting.Fire();
-            _enemyShooting.CanAttack = false;
             _navMeshAgent.isStopped = false;
             _canMove = true;
             StartCoroutine(TimeBeforeAttacks());
@@ -103,6 +107,7 @@ namespace AI
 
         private IEnumerator TimeBeforeAttacks()
         {
+            _enemyShooting.CanAttack = false;
             yield return new WaitForSeconds(timeBetweenAttacks);
             _enemyShooting.CanAttack = true;
         }
