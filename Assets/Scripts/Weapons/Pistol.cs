@@ -26,7 +26,7 @@ namespace Weapons
             {
                 // do projectile shit
             }
-
+            Instantiate(pistolBulletCasing, bulletCasingSpawnPos.position, transform.rotation);
             base.Fire();
         }
 

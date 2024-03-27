@@ -38,6 +38,8 @@ namespace Weapons
                     pelletScript.Initialize(weaponDamage, ProjectileSpeed, ProjectileDespawnTime, spawnPosition.transform.forward + GetWeaponSpread(spawnPosition.transform));
                 }
             }
+
+            Instantiate(shotgunBulletCasing, bulletCasingSpawnPos.position, transform.rotation);
             base.Fire();
         }
 

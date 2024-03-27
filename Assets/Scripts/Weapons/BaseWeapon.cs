@@ -41,10 +41,21 @@ namespace Weapons
         [Header("Projectile Specific Settings")] 
         [SerializeField] private float projectileSpeed;
         [SerializeField] private float projectileDespawnTime;
-        
-        
 
+        [Header("Bullet Casing Settings")] 
+        public GameObject pistolBulletCasing;
+        public GameObject shotgunBulletCasing;
+        public Transform bulletCasingSpawnPos;
+
+        [Header("Hands / Armature Settings")] 
+        public GameObject playerArmature;
+        public Animator armatureAnimator;
+        
         public Transform spawnPosition;
+        public ParticleSystem muzzleFlash;
+        public Animator weaponAnimator;
+        private static readonly int IsShooting = Animator.StringToHash("isShooting");
+
 
         public int CurrentPrimaryAmmo
         {
@@ -89,8 +100,13 @@ namespace Weapons
             {
                 needsToReload = true;
                 return;
+                
             }
+            armatureAnimator.SetInteger(IsShooting, 1);
+            weaponAnimator.SetInteger(IsShooting, 1);
+            muzzleFlash.Play();
             currentPrimaryAmmo--;
+
             StartCoroutine(WeaponCooldown());
         }
 
@@ -122,6 +138,12 @@ namespace Weapons
             );
 
             return direction;
+        }
+
+        public void EndOfAnimation()
+        {
+            weaponAnimator.SetInteger(IsShooting, 0);
+            armatureAnimator.SetInteger(IsShooting, 0);
         }
     }
 }
