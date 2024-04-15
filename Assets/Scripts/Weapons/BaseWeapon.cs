@@ -83,6 +83,7 @@ namespace Weapons
         
         public virtual void Reload()
         {
+            if (currentPrimaryAmmo == maxPrimaryAmmo) return;
             weaponAction = WeaponState.Reloading;
             if (currentPrimaryAmmo <= 0 && currentSecondaryAmmo <= 0)
             {
@@ -122,7 +123,9 @@ namespace Weapons
         {
             yield return new WaitForSeconds(weaponReloadTime);
             currentSecondaryAmmo -= maxPrimaryAmmo - currentPrimaryAmmo;
+            currentSecondaryAmmo = Mathf.Clamp(currentSecondaryAmmo, 0, maxSecondaryAmmo);
             currentPrimaryAmmo = newPrimary;
+            currentPrimaryAmmo = Mathf.Clamp(currentPrimaryAmmo, 0, maxPrimaryAmmo);
             needsToReload = false;
             weaponAction = WeaponState.Idle;
         }
