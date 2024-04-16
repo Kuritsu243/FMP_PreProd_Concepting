@@ -5,53 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_Concepting/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_Concepting/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_Concepting/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_Concepting/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_Concepting/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concept/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concept/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concept/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concept/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concept/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.vulkan_test/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.vulkan_test/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.vulkan_test/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/assetTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/assetTesting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame04.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Flame01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Flame01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Videos/pistol_anim.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Videos/shotgun_reload.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapons/Materials/Brown.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapons/Materials/Brown.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapons/Materials/Chipboard.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapons/Materials/Chipboard.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapons/Materials/Cobalt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapons/Materials/Cobalt.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneLinux64.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Island.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Island.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_M.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_M.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_S.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_S.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EventSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EventSystem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Enemy.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Enemy.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Hazmat.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Hazmat.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Soldier.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Soldier.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Guns/FBX/Pistol.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Guns/FBX/Pistol.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713074445670</updated>
       <workItem from="1713074447117" duration="555000" />
-      <workItem from="1713222443388" duration="750000" />
+      <workItem from="1713222443388" duration="2999000" />
     </task>
     <servers />
   </component>

@@ -54,7 +54,7 @@ namespace Player
         private void FixedUpdate()
         {
             if (currentWeapon == null) return;
-            ammoReporter.text = $"{currentWeapon.CurrentPrimaryAmmo} / {currentWeapon.CurrentSecondaryAmmo}";
+            // ammoReporter.text = $"{currentWeapon.CurrentPrimaryAmmo} / {currentWeapon.CurrentSecondaryAmmo}";
         }
     }
 }

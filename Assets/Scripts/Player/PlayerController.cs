@@ -239,7 +239,8 @@ namespace Player
             var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<UnityEngine.Camera>()
                 .ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(rayOrigin, out var hit, maxInteractDistance)) return;
-            switch (hit.transform.root.tag)
+            Debug.LogWarning(hit.transform.tag);
+            switch (hit.transform.tag)
             {
                 case "Pistol":
                     var collidedPistol = hit.transform.gameObject;
