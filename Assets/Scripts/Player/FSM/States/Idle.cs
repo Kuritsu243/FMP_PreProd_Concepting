@@ -60,9 +60,33 @@ namespace Player.FSM.States
 
 
             isJumping = JumpAction.IsPressed();
+            
+            if (Character.IsTutorial && isJumping)
+                TutorialController.TutorialChecks["Jump"] = true;
 
-            if (movementInput is not {x: 0, y: 0})
+            if (movementInput is not { x: 0, y: 0 })
+            {
                 isMoving = true;
+                if (!Character.IsTutorial) return;
+                switch (movementInput)
+                {
+                    case { x: 0, y: > 0 }:
+                        TutorialController.TutorialChecks["Forward"] = true;
+                        break;
+                    case { x: 0, y: < 0 }:
+                        TutorialController.TutorialChecks["Backwards"] = true;
+                        break;
+                    case { x: > 0, y: 0}:
+                        TutorialController.TutorialChecks["Right"] = true;
+                        break;
+                    case { x: < 0, y: 0}:
+                        TutorialController.TutorialChecks["Left"] = true;
+                        break;
+                }
+
+
+            }
+
             movementInput = MoveAction.ReadValue<Vector2>();
             playerVelocity = (PlayerTransform.right * movementInput.x +
                                PlayerTransform.forward * movementInput.y) * PlayerSpeed;

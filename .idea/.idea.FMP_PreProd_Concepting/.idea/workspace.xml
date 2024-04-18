@@ -6,21 +6,63 @@
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Island.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Island.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_M.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_M.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_S.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_S.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EventSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EventSystem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Enemy.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Enemy.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Hazmat.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Hazmat.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Soldier.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Characters/FBX/Character_Soldier.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Guns/FBX/Pistol.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Toon Shooter Game Kit - Dec 2022/Guns/FBX/Pistol.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Islands/SM_FloatingIsland_L_Grass.FBX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_Door.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_Door.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_Door_bottompivot.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_Door_bottompivot.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_bars.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Arch_bars.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bag_Coins.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bag_Coins.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bag_Standing.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bag_Standing.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Banner.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Banner.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Banner_wall.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Banner_wall.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Barrel.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Barrel.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Barrel2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Barrel2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Brick.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Brick.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bucket.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Bucket.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chair.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chair.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chest.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chest.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chest_Gold.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Chest_Gold.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Cobweb.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Cobweb.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Cobweb2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Cobweb2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Coin_Pile.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Coin_Pile.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Column.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Column.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Column2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Column2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Crate.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Crate.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Decorative_Wall.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Decorative_Wall.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_90_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_90_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_End_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_End_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_Straight_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Fence_Straight_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_BricksSeparate.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_BricksSeparate.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_BricksSeparate2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_BricksSeparate2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Floor_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Pedestal.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Pedestal.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Pedestal2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Pedestal2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Skull.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Skull.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Spikes.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Spikes.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_SideCover.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_SideCover.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_SideCoverWall.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Stairs_SideCoverWall.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Statue_Horse.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Statue_Horse.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Sword_WallMount.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Sword_WallMount.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Table_Big.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Table_Big.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Table_Small.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Table_Small.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Torch.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Torch.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trap_empty.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trap_empty.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trap_spikes.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trap_spikes.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trapdoor.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trapdoor.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trapdoor_open.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Trapdoor_open.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Vase.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Vase.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/WallCover_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/WallCover_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Wall_Modular.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Wall_Modular.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Woodfire.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quaternius/Updated Modular Dungeon - May 2019/FBX/Woodfire.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/mainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FsmState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FsmState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Idle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/OutlineTest.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/OutlineTest.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +72,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environment/floatingWallController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -106,7 +152,9 @@
       <option name="presentableId" value="Default" />
       <updated>1713074445670</updated>
       <workItem from="1713074447117" duration="555000" />
-      <workItem from="1713222443388" duration="2999000" />
+      <workItem from="1713222443388" duration="16833000" />
+      <workItem from="1713406536098" duration="12000" />
+      <workItem from="1713406556851" duration="10000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ using Cameras;
 using Unity.Cinemachine;
 using input;
 using Player.FSM.States;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -113,7 +114,10 @@ namespace Player
         [SerializeField] private Pistol pistol;
         [SerializeField] private Shotgun shotgun;
         
+        [Header("Tutorial Settings")] 
+        [SerializeField] private bool isTutorial;
 
+        
         
         
         
@@ -142,6 +146,8 @@ namespace Player
         public float WallJumpSideForce => wallJumpSideForce;
         public float MaxWallDistance => maxWallDistance;
 
+        public bool IsTutorial => isTutorial;
+
         public PlayerStateMachine PlayerFsm => _playerStateMachine;
         
 #endregion
@@ -165,6 +171,7 @@ namespace Player
         public RaycastHit RightWallHit;
 
         public CinemachineBrain activeCinemachineBrain;
+        public TutorialController tutorialController;
 
 #endregion
 
@@ -181,7 +188,7 @@ namespace Player
             _playerStateMachine = new PlayerStateMachine();
             activeCinemachineBrain = GetComponentInChildren<CinemachineBrain>();
             playerShooting = GetComponent<PlayerShooting>();
-            
+            if (isTutorial) tutorialController = eventSystem.GetComponent<TutorialController>();
             IdleState = new Idle("Idle", this, _playerStateMachine);
             WalkingState = new Walking("Walking", this, _playerStateMachine);
             JumpingState = new Jumping("Jumping", this, _playerStateMachine);

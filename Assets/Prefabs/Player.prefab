@@ -2740,29 +2740,29 @@ MonoBehaviour:
   playerMesh: {fileID: 0}
   playerShooting: {fileID: 0}
   sprintingState: {fileID: 0}
-  playerSpeed: 5
+  playerSpeed: 1.25
   sprintingSpeed: 0
   maxWallRotation: {x: 0, y: 0, z: 0, w: 0}
   mouseSensitivity: 12
   xClamp: 90
   rotationSpeed: 0
-  playerJumpHeight: 4
-  playerGravity: -16
+  playerJumpHeight: 0.6
+  playerGravity: -10.8
   playerJumpCooldown: 1.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 0
-  wallRunSpeed: 8.5
-  wallRunForce: 15
-  wallRunMaxDuration: 1.5
+    m_Bits: 64
+  wallRunSpeed: 0.75
+  wallRunForce: 1.8
+  wallRunMaxDuration: 2
   wallRunExitTime: 0.2
   wallRunCooldown: 0.42
   maxWallDistance: 0.7
-  wallJumpUpForce: 12
-  wallJumpSideForce: 4
+  wallJumpUpForce: 1.8
+  wallJumpSideForce: 1.5
   wallMemoryTime: 0
   wallJumpCooldown: 1.8
   maxSlideTime: 0.25

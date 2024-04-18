@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cameras;
+using Tutorial;
 using Unity.Cinemachine;
 
 namespace Player.FSM
@@ -9,6 +10,7 @@ namespace Player.FSM
     public abstract class FsmState
     {
         protected PlayerController Character;
+        protected TutorialController TutorialController;
         protected FiniteStateMachine StateMachine;
         protected string StateName;
 
@@ -46,6 +48,8 @@ namespace Player.FSM
             SprintAction = playerController.playerInput.actions["Sprint"];
             PlayerSpeed = Character.PlayerSpeed;
             GravityValue = Character.PlayerGravity;
+
+            if (Character.IsTutorial) TutorialController = Character.tutorialController;
         }
         
         

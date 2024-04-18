@@ -3089,10 +3089,10 @@ MonoBehaviour:
   playerJumpCooldown: 1.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   wallRunSpeed: 8.5
   wallRunForce: 15
   wallRunMaxDuration: 1.5
