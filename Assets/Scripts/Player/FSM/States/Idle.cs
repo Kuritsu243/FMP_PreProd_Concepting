@@ -60,9 +60,13 @@ namespace Player.FSM.States
 
 
             isJumping = JumpAction.IsPressed();
-            
-            if (Character.IsTutorial && isJumping)
+
+            if (Character.IsTutorial && isJumping && !TutorialController.TutorialChecks["Jump"])
+            {
                 TutorialController.TutorialChecks["Jump"] = true;
+                TutorialController.Jump_Pressed();
+            }
+                
 
             if (movementInput is not { x: 0, y: 0 })
             {
@@ -71,16 +75,24 @@ namespace Player.FSM.States
                 switch (movementInput)
                 {
                     case { x: 0, y: > 0 }:
+                        if (TutorialController.TutorialChecks["Forward"]) break;
                         TutorialController.TutorialChecks["Forward"] = true;
+                        TutorialController.W_Pressed();
                         break;
                     case { x: 0, y: < 0 }:
+                        if (TutorialController.TutorialChecks["Backwards"]) break;
                         TutorialController.TutorialChecks["Backwards"] = true;
+                        TutorialController.S_Pressed();
                         break;
                     case { x: > 0, y: 0}:
+                        if (TutorialController.TutorialChecks["Right"]) break;
                         TutorialController.TutorialChecks["Right"] = true;
+                        TutorialController.D_Pressed();
                         break;
                     case { x: < 0, y: 0}:
+                        if (TutorialController.TutorialChecks["Left"]) break;
                         TutorialController.TutorialChecks["Left"] = true;
+                        TutorialController.A_Pressed();
                         break;
                 }
 
