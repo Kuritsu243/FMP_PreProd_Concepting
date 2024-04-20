@@ -26,6 +26,12 @@ namespace AI
         private Vector3 _targetPoint;
         private EnemyShooting _enemyShooting;
         private bool _canMove = true;
+
+        private Animator _enemyAnimator;
+        private float _velocity;
+        private Vector3 _previousPos;
+
+        private static readonly int Velocity = Animator.StringToHash("velocity");
         // private NavMeshHit _enemyNavHit;
         // private int _wallRunLeft;
         // private int _wallRunRight;
@@ -54,6 +60,7 @@ namespace AI
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _enemyShooting = GetComponent<EnemyShooting>();
             _player = GameObject.FindGameObjectWithTag("PlayerMesh");
+            _enemyAnimator = GetComponentInChildren<Animator>();
             // _wallRunLeft = 1 << NavMesh.GetAreaFromName("WallRunLeft");
             // _wallRunRight = 1 << NavMesh.GetAreaFromName("WallRunRight");
             // _defaultSpeed = _navMeshAgent.speed;
@@ -80,6 +87,13 @@ namespace AI
             if (_targetPoint == _player.transform.position) return;
             _targetPoint = _player.transform.position;
             if (_canMove) _navMeshAgent.SetDestination(_targetPoint);
+        }
+
+        private void LateUpdate()
+        {
+            _velocity = (_enemyMesh.transform.position - _previousPos).magnitude / Time.deltaTime;
+            _previousPos = _enemyMesh.transform.position;
+            _enemyAnimator.SetFloat(Velocity, _velocity);
         }
 
         private bool IsFacingPlayer()

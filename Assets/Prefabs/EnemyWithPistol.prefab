@@ -40,6 +40,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1671674142456776755, guid: 6c40965a065907d45b6ee0fb8cde07da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2054814896720387617, guid: 6c40965a065907d45b6ee0fb8cde07da, type: 3}
       propertyPath: pistol
       value: 
@@ -241,8 +245,17 @@ MonoBehaviour:
   needsToReload: 0
   projectileSpeed: 0
   projectileDespawnTime: 0
+  pistolBulletCasing: {fileID: 0}
+  shotgunBulletCasing: {fileID: 0}
+  bulletCasingSpawnPos: {fileID: 0}
+  playerArmature: {fileID: 0}
+  armatureAnimator: {fileID: 0}
+  tutorialController: {fileID: 0}
   spawnPosition: {fileID: 2010063492178628631}
-  timeBetweenAttacks: 0
+  muzzleFlash: {fileID: 0}
+  weaponAnimator: {fileID: 0}
+  playerController: {fileID: 0}
+  enemyProjectilePool: {fileID: 0}
 --- !u!4 &6695300983193530392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7361102852424740503, guid: 18ba7c4b18df85749a4f3e8707c36e84, type: 3}

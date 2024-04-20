@@ -195,7 +195,7 @@ namespace Player
 
         private void CalculateVerticalVelocity()
         {
-            _verticalVelocity.y = Mathf.Sqrt(-2f * JumpHeight * playerGravity);
+            _verticalVelocity.y = Mathf.Sqrt(-2.21251f * JumpHeight * playerGravity);
         }
 
         private void ControlGravityState()

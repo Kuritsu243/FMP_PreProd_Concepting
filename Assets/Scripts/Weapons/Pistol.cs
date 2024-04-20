@@ -10,10 +10,12 @@ namespace Weapons
         public override void Fire()
         {
             if (tutorialController && !tutorialController.hasFiredPistolYet)
-                tutorialController.hasFiredPistolYet = true;
+                tutorialController.EnemyChecks["Fired"] = true;
             if (weaponAction != WeaponState.Idle) return;
             var direction = GetWeaponSpread(spawnPosition);
-            if (Physics.Raycast(spawnPosition.position, direction, out RaycastHit hit, weaponRange) && shootingType == ShootingType.Hitscan)
+            playerController.activeCinemachineBrain.TryGetComponent<Camera>(out var activeCam);
+            var rayOrigin = new Ray(activeCam.transform.position, activeCam.transform.forward);
+            if (Physics.Raycast(rayOrigin, out RaycastHit hit, weaponRange) && shootingType == ShootingType.Hitscan)
             {
                 Debug.LogWarning(hit.transform.root.tag);
                 switch (hit.transform.root.tag)
@@ -27,8 +29,17 @@ namespace Weapons
                         var tutorialEnemy = hit.transform.root.gameObject;
                         tutorialEnemy.GetComponent<TutorialEnemy>().Die();
                         break;
+                    case null when tutorialController:
+                        tutorialController.ActuallyAim();
+                        break;
+                    default:
+                        if (!tutorialController) break;
+                        tutorialController.ActuallyAim();
+                        break;
                 }
             }
+            else if (tutorialController)
+                tutorialController.ActuallyAim();
             else if (shootingType == ShootingType.Projectile)
             {
                 // do projectile shit

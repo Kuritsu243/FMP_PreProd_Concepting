@@ -148,11 +148,16 @@ namespace Player.FSM.States
                 {
                     if (_leftWall)
                     {
+                        if (Character.IsTutorial && !TutorialController.WallRunChecks["FirstWall"])
+                            TutorialController.WallRunChecks["FirstWall"] = true;
                         Character.leftWall = true;
                         Character.LeftWallHit = _leftWallHit;
                     }
                     else if (_rightWall)
                     {
+                        if (Character.IsTutorial && TutorialController.WallRunChecks["FirstWall"] &&
+                            !TutorialController.WallRunChecks["SecondWall"])
+                            TutorialController.WallRunChecks["SecondWall"] = true;
                         Character.rightWall = true;
                         Character.RightWallHit = _rightWallHit;
                     }
@@ -160,6 +165,9 @@ namespace Player.FSM.States
                     break;
                 }
                 case false when _rightWall && movementInput is not {x: 0, y: 0}:
+                    if (Character.IsTutorial && TutorialController.WallRunChecks["FirstWall"] &&
+                        !TutorialController.WallRunChecks["SecondWall"])
+                        TutorialController.WallRunChecks["SecondWall"] = true;
                     Character.characterController.Move(-wallNormal * (100 * Time.deltaTime));
                     break;
             }

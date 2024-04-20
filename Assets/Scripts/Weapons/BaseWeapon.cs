@@ -1,4 +1,5 @@
 using System.Collections;
+using Player;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -59,6 +60,7 @@ namespace Weapons
         public ParticleSystem muzzleFlash;
         public Animator weaponAnimator;
         private static readonly int IsShooting = Animator.StringToHash("isShooting");
+        public PlayerController playerController;
 
 
         public int CurrentPrimaryAmmo
@@ -107,9 +109,9 @@ namespace Weapons
                 return;
                 
             }
-            armatureAnimator.SetInteger(IsShooting, 1);
-            weaponAnimator.SetInteger(IsShooting, 1);
-            muzzleFlash.Play();
+            // armatureAnimator.SetInteger(IsShooting, 1);
+            // weaponAnimator.SetInteger(IsShooting, 1);
+            // muzzleFlash.Play();
             currentPrimaryAmmo--;
 
             StartCoroutine(WeaponCooldown());
@@ -149,8 +151,8 @@ namespace Weapons
 
         public void EndOfAnimation()
         {
-            weaponAnimator.SetInteger(IsShooting, 0);
-            armatureAnimator.SetInteger(IsShooting, 0);
+            // weaponAnimator.SetInteger(IsShooting, 0);
+            // armatureAnimator.SetInteger(IsShooting, 0);
         }
     }
 }

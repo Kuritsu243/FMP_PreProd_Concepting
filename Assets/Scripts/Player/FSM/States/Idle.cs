@@ -1,5 +1,6 @@
 using System;
 using Cameras;
+using Tutorial;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -61,11 +62,8 @@ namespace Player.FSM.States
 
             isJumping = JumpAction.IsPressed();
 
-            if (Character.IsTutorial && isJumping && !TutorialController.TutorialChecks["Jump"])
-            {
+            if (isJumping && Character.IsTutorial && TutorialController.IntroComplete() && TutorialController.nextKeyToPress == TutorialController.NextKeyPress.Jump)
                 TutorialController.TutorialChecks["Jump"] = true;
-                TutorialController.Jump_Pressed();
-            }
                 
 
             if (movementInput is not { x: 0, y: 0 })
@@ -75,24 +73,20 @@ namespace Player.FSM.States
                 switch (movementInput)
                 {
                     case { x: 0, y: > 0 }:
-                        if (TutorialController.TutorialChecks["Forward"]) break;
+                        if (!TutorialController.IntroComplete() && TutorialController.nextKeyToPress == TutorialController.NextKeyPress.Forward) break;
                         TutorialController.TutorialChecks["Forward"] = true;
-                        TutorialController.W_Pressed();
                         break;
                     case { x: 0, y: < 0 }:
-                        if (TutorialController.TutorialChecks["Backwards"]) break;
+                        if (!TutorialController.IntroComplete() && TutorialController.nextKeyToPress != TutorialController.NextKeyPress.Backwards) break;
                         TutorialController.TutorialChecks["Backwards"] = true;
-                        TutorialController.S_Pressed();
                         break;
                     case { x: > 0, y: 0}:
-                        if (TutorialController.TutorialChecks["Right"]) break;
+                        if (!TutorialController.IntroComplete() && TutorialController.nextKeyToPress != TutorialController.NextKeyPress.Right) break;
                         TutorialController.TutorialChecks["Right"] = true;
-                        TutorialController.D_Pressed();
                         break;
                     case { x: < 0, y: 0}:
-                        if (TutorialController.TutorialChecks["Left"]) break;
+                        if (!TutorialController.IntroComplete() && TutorialController.nextKeyToPress != TutorialController.NextKeyPress.Left) break;
                         TutorialController.TutorialChecks["Left"] = true;
-                        TutorialController.A_Pressed();
                         break;
                 }
 

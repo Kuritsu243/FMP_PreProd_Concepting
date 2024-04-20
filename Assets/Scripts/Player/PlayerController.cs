@@ -118,6 +118,7 @@ namespace Player
         [Header("Tutorial Settings")] 
         [SerializeField] private bool isTutorial;
 
+        [SerializeField] private GameObject lineRender;
         
         
         
@@ -206,6 +207,9 @@ namespace Player
             Cursor.lockState = CursorLockMode.Locked;
             SetMouseSensitivity();
 
+            
+            
+
         }
 
         private void Update()
@@ -213,6 +217,8 @@ namespace Player
             _playerStateMachine.CurrentState.HandleInput();
             _playerStateMachine.CurrentState.LogicUpdate();
         }
+        
+        
         
 
         private void SetMouseSensitivity()
@@ -243,10 +249,16 @@ namespace Player
 
         private void Interact()
         {
-            var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<Camera>()
-                .ScreenPointToRay(Mouse.current.position.ReadValue());
+            // var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<Camera>()
+            //     .ScreenPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            activeCinemachineBrain.gameObject.TryGetComponent<Camera>(out var activeCam);
+            var rayOrigin = new Ray(activeCam.transform.position, activeCam.transform.forward);
+            // Debug.DrawRay(rayOrigin.origin, rayOrigin.direction, Color.red, 20f);
+            // var newLine = Instantiate(lineRender);
+            // var lr = newLine.GetComponent<LineRenderer>();
+            // lr.SetPosition(0, rayOrigin.origin);
+            // lr.SetPosition(1, rayOrigin.direction * 20f);
             
-            Debug.DrawRay(rayOrigin.origin, rayOrigin.direction * 200f, Color.green);
             if (!Physics.Raycast(rayOrigin, out var hit, maxInteractDistance)) return;
             Debug.LogWarning("tag: " +hit.transform.tag);
             Debug.LogWarning("object name:" +hit.transform.gameObject);

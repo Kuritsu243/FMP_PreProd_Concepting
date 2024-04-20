@@ -10,17 +10,21 @@ namespace Tutorial
         [SerializeField] private TutorialController tutorialController;
         
         private Animator _enemyAnimator;
+        private Collider _enemyCollider;
         private static readonly int IsDead = Animator.StringToHash("isDead");
 
         private void Start()
         {
             _enemyAnimator = GetComponent<Animator>();
+            _enemyCollider = GetComponent<Collider>();
         }
 
         public void Die()
         {
             _enemyAnimator.SetBool(IsDead, true);
-            tutorialController.tutorialEnemyDead = true;
+            tutorialController.EnemyChecks["Killed"] = true;
+            tutorialController.TutorialEnemyKilled();
+            Destroy(_enemyCollider);
         }
     }
 }
