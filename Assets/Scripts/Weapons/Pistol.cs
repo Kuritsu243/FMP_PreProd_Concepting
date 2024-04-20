@@ -9,6 +9,8 @@ namespace Weapons
     {
         public override void Fire()
         {
+            if (tutorialController && !tutorialController.hasFiredPistolYet)
+                tutorialController.hasFiredPistolYet = true;
             if (weaponAction != WeaponState.Idle) return;
             var direction = GetWeaponSpread(spawnPosition);
             if (Physics.Raycast(spawnPosition.position, direction, out RaycastHit hit, weaponRange) && shootingType == ShootingType.Hitscan)

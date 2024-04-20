@@ -6,6 +6,9 @@ namespace Tutorial
 {
     public class TutorialEnemy : MonoBehaviour
     {
+
+        [SerializeField] private TutorialController tutorialController;
+        
         private Animator _enemyAnimator;
         private static readonly int IsDead = Animator.StringToHash("isDead");
 
@@ -17,6 +20,7 @@ namespace Tutorial
         public void Die()
         {
             _enemyAnimator.SetBool(IsDead, true);
+            tutorialController.tutorialEnemyDead = true;
         }
     }
 }

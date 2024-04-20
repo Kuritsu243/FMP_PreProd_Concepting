@@ -1,4 +1,5 @@
 using System.Collections;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Weapons;
@@ -50,6 +51,9 @@ namespace Weapons
         [Header("Hands / Armature Settings")] 
         public GameObject playerArmature;
         public Animator armatureAnimator;
+
+        [Header("Tutorial Related Settings")]
+        public TutorialController tutorialController;
         
         public Transform spawnPosition;
         public ParticleSystem muzzleFlash;

@@ -211,7 +211,7 @@ namespace UI
             loadingText.enabled = true;
             crossFadeAnim.SetTrigger(Start1);
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadSceneAsync(levelIndex);
+            SceneManager.LoadSceneAsync(1);
         }
 
 

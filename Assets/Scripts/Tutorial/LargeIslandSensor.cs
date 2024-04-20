@@ -10,9 +10,16 @@ namespace Tutorial
         private void OnTriggerEnter(Collider other)
         {
             if (!other.transform.parent.gameObject.CompareTag("Player")) return;
-            tutorialController.hasPlayerReachedLargeIsland = true;
+            tutorialController.OtherIslandReached();
             Destroy(gameObject);
 
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (!other.transform.parent.gameObject.CompareTag("Player")) return;
+            tutorialController.OtherIslandReached();
+            Destroy(gameObject);
         }
     }
 }

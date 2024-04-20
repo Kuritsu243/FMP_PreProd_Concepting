@@ -83,7 +83,8 @@ namespace Player
         [Header("Layer Mask Settings")] 
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private LayerMask whatIsWall;
-
+        [SerializeField] private LayerMask raycastLayers;
+        
         [Header("Wall Run Settings")] 
         [SerializeField] private float wallRunSpeed;
         [SerializeField] private float wallRunForce;
@@ -175,7 +176,6 @@ namespace Player
 
 #endregion
 
-
         
         public void Awake()
         {
@@ -243,10 +243,15 @@ namespace Player
 
         private void Interact()
         {
-            var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<UnityEngine.Camera>()
+            var rayOrigin = activeCinemachineBrain.gameObject.GetComponent<Camera>()
                 .ScreenPointToRay(Mouse.current.position.ReadValue());
+            
+            Debug.DrawRay(rayOrigin.origin, rayOrigin.direction * 200f, Color.green);
             if (!Physics.Raycast(rayOrigin, out var hit, maxInteractDistance)) return;
-            Debug.LogWarning(hit.transform.tag);
+            Debug.LogWarning("tag: " +hit.transform.tag);
+            Debug.LogWarning("object name:" +hit.transform.gameObject);
+            Debug.LogWarning("parent name:" +hit.transform.root.gameObject);
+            
             switch (hit.transform.tag)
             {
                 case "Pistol":
@@ -254,6 +259,7 @@ namespace Player
                     playerShooting.EquipWeapon(pistol);
                     pistol.gameObject.SetActive(true);
                     Destroy(collidedPistol);
+                    if (isTutorial) tutorialController.PistolCollected();
                     break;  
                 case "Shotgun":
                     var collidedShotgun = hit.transform.gameObject;
@@ -263,6 +269,12 @@ namespace Player
                     break;
                 
             }
+            
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            
         }
     }
 }

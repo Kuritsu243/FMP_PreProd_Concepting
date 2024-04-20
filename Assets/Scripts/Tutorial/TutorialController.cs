@@ -143,6 +143,21 @@ namespace Tutorial
             ClearAlpha(ref newImg, true);
             FillAlpha(ref newImgAlt, true);
         }
+
+        public static void ChangeTextPromptOnly(ref TextMeshProUGUI text, ref Dictionary<int, string> textList,
+            int textIndex)
+        {
+            var tempTxt = text;
+            ClearTextAlpha(ref text, false);
+            LeanTween.value(text.gameObject, 1f, 1f, 1.5f).setOnUpdate(f =>
+            {
+                Color c = tempTxt.color;
+                c.a = f;
+                tempTxt.color = c;
+            });
+            text.text = textList[textIndex];
+            ClearTextAlpha(ref text, true);
+        }
     }
     
     
@@ -186,6 +201,8 @@ namespace Tutorial
         private HighlightWeapon _pistolOutline;
         private bool _areWallsAppearing = false;
         private bool _isWeaponGlowing = false;
+        public bool hasFiredPistolYet = false;
+        public bool tutorialEnemyDead = false;
 
         public bool hasPlayerReachedLargeIsland;
         public Dictionary<string, bool> TutorialChecks;
@@ -216,7 +233,14 @@ namespace Tutorial
                 { 2, "Press A to move Left"},
                 { 3, "Press D to move Right"},
                 { 4, "Press Space to Jump"},
-                { 5, "Movement Tutorial Complete!"}
+                { 5, "Movement Tutorial Complete!"},
+                { 6, "Oh, a free gun!"},
+                { 7, "Press F to pickup the gun."},
+                { 8, "Look nearby the campfire, there's a person."},
+                { 9, "Shoot the person by pressing Mouse1."},
+                { 10, "SHOOT. THEM."},
+                { 11, "It'd help if you actually aimed at the person."},
+                { 12, "Lmao nice."}
             };
 
             tutorialTextHint.text = InputPromptTexts[0];
@@ -293,6 +317,18 @@ namespace Tutorial
             StartCoroutine(HideUIPrompt());
         }
 
+        public void OtherIslandReached()
+        {
+            hasPlayerReachedLargeIsland = true;
+            if (!_isWeaponGlowing)
+                StartCoroutine(StartWeaponTutorial());
+        }
+
+        public void PistolCollected()
+        {
+            StartCoroutine(PistolRelatedDialogue());
+        }
+
 
         private IEnumerator HideUIPrompt()
         {
@@ -321,8 +357,8 @@ namespace Tutorial
         {
        
             // print dict values
-            foreach (KeyValuePair<string, bool> kvp in TutorialChecks)
-                Debug.Log(kvp.Key + kvp.Value);
+            // foreach (KeyValuePair<string, bool> kvp in TutorialChecks)
+            //     Debug.Log(kvp.Key + kvp.Value);
 
             
             // if all checks in dict are true
@@ -332,8 +368,8 @@ namespace Tutorial
             if (allIsTrue && !_areWallsAppearing)
                 StartCoroutine(MakeWallsAppear());
 
-            if (hasPlayerReachedLargeIsland && !_isWeaponGlowing)
-                StartCoroutine(StartWeaponTutorial());
+            // if (hasPlayerReachedLargeIsland && !_isWeaponGlowing)
+            //     StartCoroutine(StartWeaponTutorial());
 
         }
 
@@ -347,8 +383,44 @@ namespace Tutorial
         private IEnumerator StartWeaponTutorial()
         {
             _isWeaponGlowing = true;
+            StartCoroutine(ShowWeaponText());
             yield return new WaitForSeconds(1.2f);
             _pistolOutline.OutlineWeapon();
+        }
+
+        private IEnumerator ShowWeaponText()
+        {
+            yield return new WaitForSeconds(1.6f);
+            tutorialTextHint.gameObject.SetActive(true);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 6);
+            yield return new WaitForSeconds(2f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 7);
+        }
+
+        private IEnumerator PistolRelatedDialogue()
+        {
+            yield return new WaitForSeconds(1.2f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 8);
+            yield return new WaitForSeconds(1.8f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 9);
+            var timerStart = Time.time;
+            yield return new WaitUntil(() => Time.time - timerStart > 5f || hasFiredPistolYet);
+            switch (hasFiredPistolYet)
+            {
+                case false when !tutorialEnemyDead:
+                    // shoot. them.
+                    ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 10);
+                    break;
+                case true when !tutorialEnemyDead:
+                    // aim at the enemy.
+                    ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 11);
+                    break;
+                case true when tutorialEnemyDead:
+                    // nice.
+                    ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref InputPromptTexts, 12);
+                    break;
+            }
+
         }
     }
 }
