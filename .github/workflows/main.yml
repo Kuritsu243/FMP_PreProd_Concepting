@@ -7,6 +7,12 @@ jobs:
     name: Build my project ✨
     runs-on: fedora-latest
     steps:
+    # activate license
+      - name: Unity - Activate
+        uses: game-ci/unity-activate@v2.0.0
+            
+
+    
       # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -61,3 +67,5 @@ jobs:
         with:
           name: Build
           path: build
+
+
