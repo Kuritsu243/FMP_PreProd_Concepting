@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Weapons;
 
 namespace Player
@@ -13,11 +14,13 @@ namespace Player
         [SerializeField] private BaseWeapon fists;
 
         [SerializeField] private TextMeshProUGUI ammoReporter;
+        [SerializeField] private GameObject ammoPanel;
+
+        [SerializeField] private Image reloadBar;
         
         
         private BaseWeapon currentWeapon;
         private BaseWeapon previousWeapon;
-
         
         
         
@@ -25,6 +28,11 @@ namespace Player
         {
             get => currentWeapon;
             set => currentWeapon = value;
+        }
+
+        public bool HasWeapon()
+        {
+            return currentWeapon;
         }
 
         public void Start()
@@ -53,8 +61,18 @@ namespace Player
 
         private void FixedUpdate()
         {
-            if (currentWeapon == null) return;
-            // ammoReporter.text = $"{currentWeapon.CurrentPrimaryAmmo} / {currentWeapon.CurrentSecondaryAmmo}";
+            // if (ammoPanel.activeSelf && Mathf.Approximately(reloadBar.fillAmount, 100))
+            //     reloadBar.gameObject.SetActive(false);
+            //
+            //
+            // if (!currentWeapon && ammoPanel.activeSelf)
+            //     ammoPanel.SetActive(false);
+            // else if (currentWeapon)
+            // {
+            //     if (!ammoPanel.activeSelf) ammoPanel.SetActive(true);
+            //     ammoReporter.text = $"{currentWeapon.CurrentPrimaryAmmo} / {currentWeapon.CurrentSecondaryAmmo}";
+            // }
+           
         }
     }
 }

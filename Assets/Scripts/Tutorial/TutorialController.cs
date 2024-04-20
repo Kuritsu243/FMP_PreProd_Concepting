@@ -509,7 +509,8 @@ namespace Tutorial
             _isWeaponGlowing = true;
             StartCoroutine(ShowWeaponText());
             yield return new WaitForSeconds(1.2f);
-            _pistolOutline.OutlineWeapon();
+            if (_pistolOutline)
+                _pistolOutline.OutlineWeapon();
         }
 
         private IEnumerator ShowWeaponText()

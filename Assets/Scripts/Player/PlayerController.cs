@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using input;
 using Player.FSM.States;
 using Tutorial;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -46,6 +47,8 @@ namespace Player
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public GameObject playerMesh;
         [HideInInspector] public PlayerShooting playerShooting;
+        [HideInInspector] public PlayerHealth playerHealth;
+        [HideInInspector] public CanvasScript canvasScript;
 #endregion
  
 #region Player States
@@ -186,6 +189,8 @@ namespace Player
             inputSystem = eventSystem.GetComponent<inputSystem>();
             playerMesh = transform.FindGameObjectInChildWithTag("PlayerMesh");
             playerInput = GetComponent<PlayerInput>();
+            playerHealth = GetComponent<PlayerHealth>();
+            canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
             _playerStateMachine = new PlayerStateMachine();
             activeCinemachineBrain = GetComponentInChildren<CinemachineBrain>();
             playerShooting = GetComponent<PlayerShooting>();
@@ -270,6 +275,8 @@ namespace Player
                     var collidedPistol = hit.transform.gameObject;
                     playerShooting.EquipWeapon(pistol);
                     pistol.gameObject.SetActive(true);
+                    if (collidedPistol.TryGetComponent<Outline>(out var pistolOutline))
+                        Destroy(collidedPistol.GetComponent<Outline>());
                     Destroy(collidedPistol);
                     if (isTutorial) tutorialController.PistolCollected();
                     break;  

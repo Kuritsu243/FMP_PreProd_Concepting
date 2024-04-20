@@ -16,7 +16,7 @@ namespace Tutorial
         private void Start()
         {
             _enemyAnimator = GetComponent<Animator>();
-            _enemyCollider = GetComponent<Collider>();
+            _enemyCollider = GetComponentInChildren<Collider>();
         }
 
         public void Die()

@@ -54,7 +54,7 @@ namespace input
                 // Input.main.Slide.performed += i => _playerController.playerMovement.CheckIfCanSlide();
                 // Input.main.Slide.canceled += i => _playerController.playerMovement.CancelSlide();
             }
-            Input.Enable();
+            // Input.Enable();
             _mainCamera = GetComponent<MainCamera>();
             _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             Cursor.lockState = CursorLockMode.Locked;

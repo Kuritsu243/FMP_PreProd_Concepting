@@ -89,6 +89,7 @@ namespace Weapons
         
         public virtual void Reload()
         {
+            if (weaponAction == WeaponState.Reloading) return;
             if (currentPrimaryAmmo == maxPrimaryAmmo) return;
             weaponAction = WeaponState.Reloading;
             if (currentPrimaryAmmo <= 0 && currentSecondaryAmmo <= 0)
@@ -98,6 +99,7 @@ namespace Weapons
             }
             var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, maxPrimaryAmmo);
             StartCoroutine(ReloadCooldown(newAmmo));
+            if (playerController) playerController.canvasScript.Reload(weaponReloadTime);
         }
 
         public virtual void Fire()
