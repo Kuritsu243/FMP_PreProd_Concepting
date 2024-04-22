@@ -19,12 +19,12 @@ namespace AI
         [SerializeField] private EnemyShotgun shotgun;
         
         
-        private EnemyBaseWeapon currentWeapon;
+        private EnemyBaseWeapon _currentWeapon;
 
         public EnemyBaseWeapon CurrentWeapon
         {
-            get => currentWeapon;
-            set => currentWeapon = value;
+            get => _currentWeapon;
+            set => _currentWeapon = value;
         }
         
         public bool CanAttack { get; set; }
@@ -47,22 +47,22 @@ namespace AI
 
         private void EquipWeapon(EnemyBaseWeapon newWeapon)
         {
-            currentWeapon = newWeapon;
-            currentWeapon.CurrentPrimaryAmmo = currentWeapon.maxPrimaryAmmo;
-            currentWeapon.CurrentSecondaryAmmo = currentWeapon.maxSecondaryAmmo;
+            _currentWeapon = newWeapon;
+            _currentWeapon.CurrentPrimaryAmmo = _currentWeapon.maxPrimaryAmmo;
+            _currentWeapon.CurrentSecondaryAmmo = _currentWeapon.maxSecondaryAmmo;
             
         }
 
         public void Reload()
         {
-            if (currentWeapon == null) return;
-            currentWeapon.Reload();
+            if (_currentWeapon == null) return;
+            _currentWeapon.Reload();
         }
 
         public void Fire()
         {
-            if (currentWeapon == null || !CanAttack) return;
-            currentWeapon.Fire();
+            if (_currentWeapon == null || !CanAttack) return;
+            _currentWeapon.Fire();
         }
     }
 }

@@ -286,7 +286,9 @@ namespace Player
                     shotgun.gameObject.SetActive(true);
                     Destroy(collidedShotgun);
                     break;
-                
+                case "Computer":
+                    tutorialController.ComputerInteracted();
+                    break;
             }
             
         }

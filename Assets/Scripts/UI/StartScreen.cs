@@ -65,7 +65,6 @@ namespace UI
             if (settingsMenu.activeSelf) settingsMenu.SetActive(false);
             
             InitializeResolutions();
-            LoadSettings(_currentResolutionIndex);
             
             crossFadeAnim = crossFadeObj.GetComponent<Animator>();
         }

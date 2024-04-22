@@ -15,6 +15,7 @@ TagManager:
   - Weapon
   - TutorialEnemy
   - Canvas
+  - Computer
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - UI
   - Wall
   - Floor
-  - 
+  - Weapons
   - 
   - 
   - 

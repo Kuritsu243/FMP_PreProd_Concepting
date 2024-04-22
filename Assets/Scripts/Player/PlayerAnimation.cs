@@ -30,7 +30,6 @@ namespace Player
             _playerAnimator.SetBool(HasWeapon, _playerController.playerShooting.CurrentWeapon);
 
             _playerAnimator.SetFloat(Velocity, _velocity);
-            Debug.LogWarning(_velocity);
         }
     }
 }

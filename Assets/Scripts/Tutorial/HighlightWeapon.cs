@@ -27,7 +27,14 @@ namespace Tutorial
         public void OutlineWeapon()
         {
             _weaponOutline.enabled = true;
-            StartCoroutine(LerpHighlight());
+            LeanTween.value(_weaponOutline.gameObject, _weaponOutline.OutlineWidth, targetOutlineWidth, 2f)
+                .setOnUpdate(
+                    f =>
+                    {
+                        _weaponOutline.OutlineWidth = f;
+                    })
+                .setLoopPingPong();
+            // StartCoroutine(LerpHighlight());
         }
 
         private IEnumerator LerpHighlight()

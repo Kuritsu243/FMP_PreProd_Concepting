@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -18,6 +19,14 @@ namespace AI
     
     public class EnemyController : MonoBehaviour
     {
+        
+        [SerializeField] private float playerDetectionRange;
+        [SerializeField] private float pauseBeforeAttack;
+        [SerializeField] private float timeBetweenAttacks;
+        [SerializeField] private TutorialEnemyController tutorialEnemyController;
+        
+        
+        
         private GameObject _player;
         private GameObject _enemyMesh;
         private Transform _enemyTransform;
@@ -26,30 +35,27 @@ namespace AI
         private Vector3 _targetPoint;
         private EnemyShooting _enemyShooting;
         private bool _canMove = true;
-
         private Animator _enemyAnimator;
         private float _velocity;
         private Vector3 _previousPos;
+        private TutorialEnemy _tutorialEnemy;
 
         private static readonly int Velocity = Animator.StringToHash("velocity");
-        // private NavMeshHit _enemyNavHit;
-        // private int _wallRunLeft;
-        // private int _wallRunRight;
-        // private int _wallRunAreas;
-        // private int _floorID;
-        // private int _playerFloorID;
-        // private float _defaultSpeed;
-        // private bool _onWall;
-        // private bool _meshRotated;
-        // private bool _leftWall;
-        // private bool _rightWall;
-        // private bool _hasAppliedAcceleration;
-        [SerializeField] private float playerDetectionRange;
-        [SerializeField] private float pauseBeforeAttack;
-        [SerializeField] private float timeBetweenAttacks;
+
+        public bool IsTutorial { get; set; }        
         
+        public TutorialEnemy TutorialEnemyScript 
+        { 
+            get => _tutorialEnemy;
+            set => _tutorialEnemy = value;
+        }
+
+        public TutorialEnemyController TutorialEnemyManager
+        {
+            get => tutorialEnemyController;
+            set => tutorialEnemyController = value;
+        }
         
-        // [SerializeField] private float wallRunSpeedMultiplier;
         
 
         
@@ -61,22 +67,26 @@ namespace AI
             _enemyShooting = GetComponent<EnemyShooting>();
             _player = GameObject.FindGameObjectWithTag("PlayerMesh");
             _enemyAnimator = GetComponentInChildren<Animator>();
+            IsTutorial = TryGetComponent(out _tutorialEnemy);
+            if (!IsTutorial) return;
+            _navMeshAgent.enabled = false;
+            _enemyShooting.enabled = false;
+            _canMove = false;
             // _wallRunLeft = 1 << NavMesh.GetAreaFromName("WallRunLeft");
             // _wallRunRight = 1 << NavMesh.GetAreaFromName("WallRunRight");
             // _defaultSpeed = _navMeshAgent.speed;
-
         }
 
+        public void EnableEnemy()
+        {
+            _navMeshAgent.enabled = true;
+            _enemyShooting.enabled = true;
+            _canMove = true;
+        }
+        
         private void FixedUpdate()
         {
-            // CheckIfOnWalls();
-            // GroundCheck();
-            // CheckIfPathExists();
-            // var rotation = _enemyMesh.transform.rotation;
-            //
-            // if (!_onWall)
-            //     _enemyMesh.transform.localRotation = Quaternion.Euler(rotation.x, transform.rotation.y, rotation.z);
-            //
+            if (!_enemyShooting.enabled) return;
             if (_enemyShooting.CurrentWeapon.CurrentPrimaryAmmo == 0)
             {
                 _enemyShooting.Reload();

@@ -6,19 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/CharacterArmature_Death.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Enemies/CharacterArmature_Death.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/hazmatEnemyController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Enemies/hazmatEnemyController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox/NavMesh-navmesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox/NavMesh-navmesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/input/inputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/input/inputSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UI_Frames/panel_beigeLight.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI_Frames/panel_beigeLight.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UI_Frames/panel_brown.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI_Frames/panel_brown.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
@@ -44,26 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
-      &quot;/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
-      &quot;/home/kuritsu/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
+      "/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/SourcesCache",
+      "/home/kuritsu/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/tutorial_test.x86_64" />
@@ -125,6 +128,8 @@
       <workItem from="1713450593386" duration="16301000" />
       <workItem from="1713564306336" duration="42336000" />
       <workItem from="1713613800056" duration="1868000" />
+      <workItem from="1713615845720" duration="841000" />
+      <workItem from="1713740608982" duration="12756000" />
     </task>
     <servers />
   </component>

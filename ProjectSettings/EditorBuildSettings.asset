@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/greybox.unity
     guid: f5f99677bcf1cc74695b48bd3243f099
+  - enabled: 1
+    path: Assets/Scenes/deathScene.unity
+    guid: 17b9bb6b11027d44baa10228616d197d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 096d78fa868ee9f458a84792664ef9c1, type: 2}

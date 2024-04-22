@@ -31,7 +31,7 @@ namespace Weapons
         public int maxSecondaryAmmo;
         public int shotgunPelletCount;
         public GameObject weaponProjectile;
-
+        public LayerMask layersToHitScan;
         public Vector3 weaponSpread;
         public WeaponState weaponAction;
         public ShootingType shootingType;

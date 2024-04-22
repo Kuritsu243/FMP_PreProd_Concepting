@@ -20,6 +20,8 @@ namespace AI
         private static readonly int IsDead = Animator.StringToHash("isDead");
         public float CurrentHealth { get; set; }
 
+        private bool _hasDied;
+
 
         private void Start()
         {
@@ -33,9 +35,8 @@ namespace AI
         
         private void FixedUpdate()
         {
-            if (CurrentHealth <= 0) StartCoroutine(Die());
+            if (CurrentHealth <= 0 && !_hasDied) StartCoroutine(Die());
         }
-
         public void Damage(float value)
         {
             CurrentHealth -= value;
@@ -43,6 +44,10 @@ namespace AI
 
         private IEnumerator Die()
         {
+            _hasDied = true;
+            if (_enemyController.IsTutorial)
+                _enemyController.TutorialEnemyManager.EnemyKilled(_enemyController);
+            
             _enemyAnimator.SetBool(IsDead, true);
             Destroy(_navMeshAgent);
             Destroy(_enemyShooting);

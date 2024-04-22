@@ -177,6 +177,9 @@ namespace Tutorial
         [SerializeField] private PlayerController playerController;
         [SerializeField] private FloatingWallController floatingWallController;
         [SerializeField] private GameObject tutorialPistol;
+        [SerializeField] private TutorialEnemyController tutorialEnemyController;
+        [SerializeField] private GameObject endComputer;
+        
         [FormerlySerializedAs("Prompt_W")]
         [Header("Input Prompts")] 
         [SerializeField] private GameObject promptW;
@@ -207,8 +210,10 @@ namespace Tutorial
 
         
         private HighlightWeapon _pistolOutline;
+        private HighlightComputer _computerOutline;
         private bool _areWallsAppearing = false;
         private bool _isWeaponGlowing = false;
+        private bool _isComputerGlowing = false;
         private bool _hasEnemyIslandAppeared = false;
         public bool hasFiredPistolYet = false;
         public bool tutorialEnemyDead = false;
@@ -234,6 +239,7 @@ namespace Tutorial
         public Dictionary<int, string> WallRunPromptTexts;
         public Dictionary<int, string> WeaponPromptTexts;
         public Dictionary<int, string> EnemyIslandTexts;
+        public Dictionary<int, string> ChallengeCompleteTexts;
         
         private void Start()
         {
@@ -317,12 +323,22 @@ namespace Tutorial
                 { 1, "These guys don't seem too happy." },
                 { 2, "Time to kill them I guess." }
             };
+
+            ChallengeCompleteTexts = new Dictionary<int, string>
+            {
+                { 0, "That's those guys taken care of. " },
+                { 1, "Huh, what's that device over there?" },
+                { 2, "I should press this button."},
+                { 3, "Hmm. It's doing nothing."},
+                { 4, "Nevermind, spoke too soon."}
+            };
             
             
 
             tutorialTextHint.text = IntroductionTexts[0];
             _pistolOutline = tutorialPistol.GetComponent<HighlightWeapon>();
-
+            _computerOutline = endComputer.GetComponent<HighlightComputer>();
+            tutorialEnemyController = GetComponent<TutorialEnemyController>();
             ImageTweening.ClearTextAlpha(ref tutorialTextHint, true);
             ImageTweening.ClearAlpha(ref keyPressW, true);
             ImageTweening.FillAlpha(ref keyPressWalt, true);
@@ -363,6 +379,25 @@ namespace Tutorial
 
         }
 
+        public void EnemyChallengeComplete()
+        {
+            StartCoroutine(EnemiesAreKilled());
+        }
+
+        private IEnumerator EnemiesAreKilled()
+        {
+            tutorialTextHint.gameObject.SetActive(true);
+            ImageTweening.ClearTextAlpha(ref tutorialTextHint, true);
+            yield return new WaitForSeconds(0.8f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 0);
+            yield return new WaitForSeconds(2.5f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 1);
+            _isComputerGlowing = true;
+            _computerOutline.OutlineComputer();
+            
+            yield break;
+        }
+        
         private IEnumerator SpawnEnemyIsland()
         {
             yield return new WaitForSeconds(3f);
@@ -384,9 +419,31 @@ namespace Tutorial
             yield return new WaitForSeconds(3f);
             ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref EnemyIslandTexts, 2);
             yield return new WaitForSeconds(1.2f);
+            tutorialEnemyController.StartKillChallenge();
+            LeanTween.cancel(tutorialTextHint.gameObject);
+            LeanTween.value(tutorialTextHint.gameObject, 1f, 0f, 1.5f).setOnUpdate(f =>
+            {
+                Color c = tutorialTextHint.color;
+                c.a = f;
+                tutorialTextHint.color = c;
+            }).setOnComplete(() => tutorialTextHint.gameObject.SetActive(false));
             // ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref WeaponPromptTexts, 3);
         }
 
+
+        public void ComputerInteracted()
+        {
+            _computerOutline.StopOutline();
+            StartCoroutine(FinalPrompts());
+        }
+
+        private IEnumerator FinalPrompts()
+        {
+            yield return new WaitForSeconds(1f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 3);
+            yield return new WaitForSeconds(2f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 4);
+        }
 
         private IEnumerator CompleteFirstPrompt()
         {
@@ -430,8 +487,8 @@ namespace Tutorial
         {
        
             // print dict values
-            foreach (KeyValuePair<string, bool> kvp in TutorialChecks)
-                Debug.Log(kvp.Key + kvp.Value);
+            // foreach (KeyValuePair<string, bool> kvp in TutorialChecks)
+            //     Debug.Log(kvp.Key + kvp.Value);
 
             // print weapon checks
             // foreach (KeyValuePair<string, bool> kvp in EnemyChecks)
@@ -440,7 +497,7 @@ namespace Tutorial
             
             // if all checks in dict are true
             var allIsTrue = TutorialChecks.Values.All(value => value);
-            Debug.LogWarning("completed?: " + allIsTrue);
+            // Debug.LogWarning("completed?: " + allIsTrue);
 
             if (allIsTrue && !_areWallsAppearing)
                 StartCoroutine(MakeWallsAppear());

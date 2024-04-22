@@ -15,18 +15,24 @@ namespace Weapons
             var direction = GetWeaponSpread(spawnPosition);
             playerController.activeCinemachineBrain.TryGetComponent<Camera>(out var activeCam);
             var rayOrigin = new Ray(activeCam.transform.position, activeCam.transform.forward);
-            if (Physics.Raycast(rayOrigin, out RaycastHit hit, weaponRange) && shootingType == ShootingType.Hitscan)
+            if (Physics.Raycast(rayOrigin, out RaycastHit hit, weaponRange, layersToHitScan) && shootingType == ShootingType.Hitscan)
             {
-                Debug.LogWarning(hit.transform.root.tag);
-                switch (hit.transform.root.tag)
+                Debug.LogWarning(hit.transform.gameObject);
+                Debug.LogWarning(hit.transform.tag);
+                switch (hit.transform.tag)
                 {
+                    
+                    case "EnemyMesh":
+                        var collidedEnemyMesh = hit.transform.parent.gameObject;
+                        collidedEnemyMesh.GetComponent<EnemyHealth>().Damage(weaponDamage);
+                        break;
                     case "Enemy":
-                        var collidedEnemy = hit.transform.root.gameObject;
+                        var collidedEnemy = hit.transform.gameObject;
                         collidedEnemy.GetComponent<EnemyHealth>().Damage(weaponDamage);
                         Debug.LogWarning("hit enemy!!");
                         break;
                     case "TutorialEnemy":
-                        var tutorialEnemy = hit.transform.root.gameObject;
+                        var tutorialEnemy = hit.transform.gameObject;
                         tutorialEnemy.GetComponent<TutorialEnemy>().Die();
                         break;
                     case null when tutorialController:

@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Player;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,16 +18,29 @@ namespace UI
         
         [Header("Panels")]
         [SerializeField] private GameObject ammoPanel;
+
+        [SerializeField] private GameObject enemiesPanel;
+        
         
         [Header("Text")] 
         [SerializeField] private TextMeshProUGUI ammoReporter;
 
+        [SerializeField] private TextMeshProUGUI enemiesToKill;
+        
+        [Header("Required Components")] 
+        [SerializeField] private TutorialEnemyController tutorialEnemyController;
+        [SerializeField] private TutorialController tutorialController;
+        
+        
 
         private PlayerController _player;
         private PlayerShooting _playerShooting;
         private PlayerHealth _playerHealth;
 
         private bool _currentlyReloading;
+        private bool _enemyKillChallenge;
+
+        private int _numberOfEnemies;
         
 
 
@@ -35,6 +51,7 @@ namespace UI
             _playerHealth = _player.playerHealth;
             reloadBar.fillAmount = 0f;
             ammoPanel.SetActive(false);
+            enemiesPanel.SetActive(false);
         }
 
         private void FixedUpdate()
@@ -44,6 +61,12 @@ namespace UI
             
             if (_playerShooting.HasWeapon() && !ammoPanel.activeSelf)
                 ammoPanel.SetActive(true);
+            
+            if (_enemyKillChallenge && !enemiesPanel.activeSelf)
+                enemiesPanel.SetActive(true);
+
+            if (_enemyKillChallenge && enemiesPanel.activeSelf)
+                enemiesToKill.text = $"Remaining: \n{tutorialEnemyController.EnemiesRemaining} / {_numberOfEnemies}";
 
             if (_playerShooting.HasWeapon() && ammoPanel.activeSelf)
                 ammoReporter.text =
@@ -66,6 +89,21 @@ namespace UI
             {
                 _currentlyReloading = false;
             });
+        }
+
+        public void ShowKillChallengeUI(int enemies)
+        {
+            _numberOfEnemies = enemies;
+            StartCoroutine(EnemyKillChallenge());
+        }
+
+        private IEnumerator EnemyKillChallenge()
+        {
+            _enemyKillChallenge = true;
+            yield return new WaitUntil(() => tutorialEnemyController.EnemiesRemaining == 0);
+            _enemyKillChallenge = false;
+            tutorialController.EnemyChallengeComplete();
+
         }
     }
 }
