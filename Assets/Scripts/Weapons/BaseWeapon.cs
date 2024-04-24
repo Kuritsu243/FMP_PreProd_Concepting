@@ -35,7 +35,8 @@ namespace Weapons
         public Vector3 weaponSpread;
         public WeaponState weaponAction;
         public ShootingType shootingType;
-        
+        public AudioClip weaponSound;
+        public AudioClip reloadSound;
         private int currentPrimaryAmmo;
         private int currentSecondaryAmmo;
         public bool needsToReload;
@@ -92,11 +93,13 @@ namespace Weapons
             if (weaponAction == WeaponState.Reloading) return;
             if (currentPrimaryAmmo == maxPrimaryAmmo) return;
             weaponAction = WeaponState.Reloading;
-            if (currentPrimaryAmmo <= 0 && currentSecondaryAmmo <= 0)
+            switch (currentPrimaryAmmo)
             {
-                weaponAction = WeaponState.NoAmmo;
-                return;
+                case <= 0 when currentSecondaryAmmo <= 0:
+                    weaponAction = WeaponState.NoAmmo;
+                    return;
             }
+            playerController.audioSource.PlayOneShot(reloadSound);
             var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, maxPrimaryAmmo);
             StartCoroutine(ReloadCooldown(newAmmo));
             if (playerController) playerController.canvasScript.Reload(weaponReloadTime);
@@ -111,11 +114,13 @@ namespace Weapons
                 return;
                 
             }
+            if (playerController)
+                playerController.audioSource.PlayOneShot(weaponSound);
             // armatureAnimator.SetInteger(IsShooting, 1);
             // weaponAnimator.SetInteger(IsShooting, 1);
             // muzzleFlash.Play();
             currentPrimaryAmmo--;
-
+            
             StartCoroutine(WeaponCooldown());
         }
 

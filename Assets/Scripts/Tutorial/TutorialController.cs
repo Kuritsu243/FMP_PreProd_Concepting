@@ -208,6 +208,11 @@ namespace Tutorial
         [Header("Islands")] 
         [SerializeField] private GameObject enemyIsland;
 
+        [Header("Portal")] 
+        [SerializeField] private GameObject portal;
+        [SerializeField] private SpriteRenderer portalSpriteRenderer;
+        
+        
         
         private HighlightWeapon _pistolOutline;
         private HighlightComputer _computerOutline;
@@ -250,6 +255,7 @@ namespace Tutorial
             promptJump.SetActive(false);
             promptComplete.SetActive(false);
             enemyIsland.SetActive(false);
+            portal.SetActive(false);
             
             
             TutorialChecks = new Dictionary<string, bool>
@@ -330,7 +336,8 @@ namespace Tutorial
                 { 1, "Huh, what's that device over there?" },
                 { 2, "I should press this button."},
                 { 3, "Hmm. It's doing nothing."},
-                { 4, "Nevermind, spoke too soon."}
+                { 4, "Nevermind, spoke too soon."},
+                { 5, "A giant portal! Lets go through it. Nothing bad ever happens with portals."}
             };
             
             
@@ -397,6 +404,39 @@ namespace Tutorial
             
             yield break;
         }
+
+        private IEnumerator SpawnPortal()
+        {
+            yield return new WaitForSeconds(1.2f);
+            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 4);
+            portal.SetActive(true);
+            LeanTween.value(portal, 0f, 1f, 3.5f).setOnUpdate(f =>
+            {
+                Color c = portalSpriteRenderer.color;
+                c.a = f;
+                portalSpriteRenderer.color = c;
+            }).setOnComplete(() =>
+            {
+                endComputer.LeanMoveLocalY(3.25f, 0.4f).setOnComplete(() =>
+                {
+                endComputer.LeanRotateX(-25f, 0.5f).setOnComplete(() =>
+                {
+                endComputer.LeanMoveLocalY(3.825f, 0.4f).setOnComplete(() =>
+                {
+                endComputer.LeanRotateX(-45f, 0.25f).setOnComplete(() =>
+                {
+                endComputer.LeanMoveLocalX(-8.5f, 0.25f).setOnComplete(() =>
+                {
+                    endComputer.SetActive(false);
+                    ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 5);
+                });
+                });
+                });
+                });
+                });
+            });
+            
+        }
         
         private IEnumerator SpawnEnemyIsland()
         {
@@ -442,7 +482,7 @@ namespace Tutorial
             yield return new WaitForSeconds(1f);
             ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 3);
             yield return new WaitForSeconds(2f);
-            ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref ChallengeCompleteTexts, 4);
+            StartCoroutine(SpawnPortal());
         }
 
         private IEnumerator CompleteFirstPrompt()

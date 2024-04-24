@@ -13,12 +13,14 @@ namespace UI
     {
         [Header("Images")] 
         [SerializeField] private Image reloadBar;
+
+        [SerializeField] private Image healthBar;
         
         
         
         [Header("Panels")]
         [SerializeField] private GameObject ammoPanel;
-
+        [SerializeField] private GameObject healthPanel;
         [SerializeField] private GameObject enemiesPanel;
         
         
@@ -52,6 +54,7 @@ namespace UI
             reloadBar.fillAmount = 0f;
             ammoPanel.SetActive(false);
             enemiesPanel.SetActive(false);
+            healthPanel.SetActive(true);
         }
 
         private void FixedUpdate()
@@ -61,12 +64,22 @@ namespace UI
             
             if (_playerShooting.HasWeapon() && !ammoPanel.activeSelf)
                 ammoPanel.SetActive(true);
-            
-            if (_enemyKillChallenge && !enemiesPanel.activeSelf)
-                enemiesPanel.SetActive(true);
 
-            if (_enemyKillChallenge && enemiesPanel.activeSelf)
-                enemiesToKill.text = $"Remaining: \n{tutorialEnemyController.EnemiesRemaining} / {_numberOfEnemies}";
+            if (healthPanel.activeSelf)
+                healthBar.fillAmount = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
+            
+            switch (_enemyKillChallenge)
+            {
+                case true when !enemiesPanel.activeSelf:
+                    enemiesPanel.SetActive(true);
+                    break;
+                case true when enemiesPanel.activeSelf:
+                    enemiesToKill.text = $"Remaining: \n{tutorialEnemyController.EnemiesRemaining} / {_numberOfEnemies}";
+                    break;
+                case false when enemiesPanel.activeSelf:
+                    enemiesPanel.SetActive(false);
+                    break;
+            }
 
             if (_playerShooting.HasWeapon() && ammoPanel.activeSelf)
                 ammoReporter.text =

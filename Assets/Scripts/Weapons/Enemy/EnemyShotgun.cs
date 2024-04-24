@@ -22,6 +22,7 @@ namespace Weapons.Enemy
                     //
 
                     var pellet = enemyProjectilePool.GetPooledProjectile();
+                    var pelletScript = pellet.GetComponent<EnemyProjectile>();
                     if (pellet != null)
                     {
                         pellet.transform.position = spawnPosition.position;
@@ -29,7 +30,7 @@ namespace Weapons.Enemy
                         pellet.SetActive(true);
                     }
                     
-                    var pelletScript = pellet.GetComponent<EnemyProjectile>();
+                    
                     pelletScript.Initialize(weaponDamage, ProjectileSpeed, ProjectileDespawnTime,
                         spawnPosition.transform.forward + GetWeaponSpread(spawnPosition.transform));
                 }

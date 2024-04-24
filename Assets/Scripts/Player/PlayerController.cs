@@ -8,6 +8,7 @@ using Tutorial;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Weapons;
 
 namespace Player
@@ -49,6 +50,7 @@ namespace Player
         [HideInInspector] public PlayerShooting playerShooting;
         [HideInInspector] public PlayerHealth playerHealth;
         [HideInInspector] public CanvasScript canvasScript;
+        [HideInInspector] public AudioSource audioSource;
 #endregion
  
 #region Player States
@@ -183,6 +185,7 @@ namespace Player
         
         public void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
             characterController = GetComponentInChildren<CharacterController>();
             eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
             mainCamera = eventSystem.GetComponent<MainCamera>();

@@ -7,8 +7,9 @@ namespace Weapons.Enemy
     {
         public override void OnTriggerEnter(Collider other)
         {
-            switch (other.transform.root.tag)
+            switch (other.transform.tag)
             {
+                case "PlayerMesh":
                 case "Player":
                     Debug.LogWarning("Player hit!!!");
                     if (other.transform.root.TryGetComponent<PlayerHealth>(out var playerHealthScript))

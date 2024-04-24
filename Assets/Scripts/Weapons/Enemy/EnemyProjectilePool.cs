@@ -16,7 +16,7 @@ namespace Weapons.Enemy
         private GameObject projParent;
         private void Awake()
         {
-            SharedInstance = this;
+            // SharedInstance = this;
         }
 
         private void Start()

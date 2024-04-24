@@ -12,6 +12,12 @@ namespace Player
         
         public float CurrentHealth { get; set; }
 
+        public float MaxHealth
+        {
+            get => maxHealth;
+            set => maxHealth = value;
+        }
+
 
         public void Damage(float amount)
         {

@@ -13,7 +13,7 @@ namespace Weapons.Enemy
 
         private void Awake()
         {
-            enemyProjectilePool = transform.root.GetComponent<EnemyProjectilePool>();
+            enemyProjectilePool = transform.root.GetComponentInChildren<EnemyProjectilePool>();
         }
     }
 }
