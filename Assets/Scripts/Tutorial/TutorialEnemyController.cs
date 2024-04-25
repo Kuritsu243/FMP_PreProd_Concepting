@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using AI;
 using UI;
@@ -10,15 +9,12 @@ namespace Tutorial
     {
         [SerializeField] private List<EnemyController> tutorialEnemies;
         [SerializeField] private CanvasScript canvasScript;
-        
-        private TutorialController _tutorialController;
-        
+
         public int EnemiesRemaining { get; set; }
 
         private void Start()
         {
             EnemiesRemaining = tutorialEnemies.Count;
-            _tutorialController = GetComponent<TutorialController>();
         }
 
         public void EnemyKilled(EnemyController enemyKilled)

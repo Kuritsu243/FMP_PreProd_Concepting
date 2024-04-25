@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,11 +15,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI deathText;
         [SerializeField] private TextMeshProUGUI loadingText;
         [SerializeField] private GameObject crossFadeObj;
-        
-        
-        
-        private Animator crossFadeAnim;
-        private static readonly int Retry = Animator.StringToHash("Retry");
+
 
         private void Start()
         {
@@ -29,7 +24,7 @@ namespace UI
             retryBtn.onClick.AddListener(RetryGame);
             quitBtn.onClick.AddListener(CloseGame);
 
-            crossFadeAnim = crossFadeObj.GetComponent<Animator>();
+            crossFadeObj.GetComponent<Animator>();
         }
 
         private void RetryGame()
@@ -65,7 +60,6 @@ namespace UI
             loadingText.enabled = true;
             retryBtn.gameObject.SetActive(false);
             quitBtn.gameObject.SetActive(false);
-            // crossFadeAnim.SetTrigger(Retry);
             yield return new WaitForSeconds(1f);
             SceneManager.LoadSceneAsync(levelIndex);
         }

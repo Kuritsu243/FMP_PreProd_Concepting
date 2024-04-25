@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Cameras;
 using Cameras.FSM;
 using Cameras.FSM.States;
-using input;
 using Player;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -13,10 +12,8 @@ namespace Cameras
     public class CameraController : MonoBehaviour
     {
 #region Required Components
-        public GameObject eventSystem;
-        public inputSystem inputSystem;
+
         public PlayerInput playerInput;
-        public MainCamera mainCamera;
         public PlayerController playerController;
         
 #endregion
@@ -27,12 +24,9 @@ namespace Cameras
         public ThirdPersonState ThirdPersonState;
 #endregion
 
-//todo: figure out an easier way to implement this
-
 #region Cameras for each state
     [SerializeField] private CinemachineCamera firstPersonCam;
     [SerializeField] private CinemachineCamera thirdPersonCam;
-    
 #endregion
 
         public CameraStateMachine CameraFsm => _cameraStateMachine;
@@ -44,9 +38,6 @@ namespace Cameras
         public void Awake()
         {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            eventSystem = playerController.eventSystem;
-            inputSystem = playerController.inputSystem;
-            mainCamera = playerController.mainCamera;
             playerInput = playerController.playerInput;
             _cameraStateMachine = new CameraMachine();
             

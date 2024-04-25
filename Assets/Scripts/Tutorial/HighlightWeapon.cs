@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +20,6 @@ namespace Tutorial
             _weaponOutline.OutlineWidth = 0;
             _weaponOutline.enabled = false;
             _weaponOutline.OutlineColor = outlineColor;
-            // OutlineWeapon();
         }
 
         public void OutlineWeapon()
@@ -34,7 +32,6 @@ namespace Tutorial
                         _weaponOutline.OutlineWidth = f;
                     })
                 .setLoopPingPong();
-            // StartCoroutine(LerpHighlight());
         }
 
         private IEnumerator LerpHighlight()
@@ -60,7 +57,6 @@ namespace Tutorial
                 timeTaken += Time.deltaTime;
                 yield return null;
             }
-
             StartCoroutine(LerpHighlight());
             yield return null;
 

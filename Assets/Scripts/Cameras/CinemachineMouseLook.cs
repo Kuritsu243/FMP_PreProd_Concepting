@@ -23,9 +23,9 @@ namespace Cameras
             // non-static to static var
             UpdateSensAndSmoothing(mouseSens);
             // attempt to get player input override
-            if (playerInput == null)
+            if (!playerInput)
                 TryGetComponent(out playerInput);
-            if (playerInput == null)
+            if (!playerInput)
                 Debug.LogError("Cannot find input component");
             else
             {
@@ -65,7 +65,7 @@ namespace Cameras
 
             public void ProcessInput(InputAction action)
             {
-                if (inputActionReference == null || inputActionReference.action.id != action.id) return;
+                if (!inputActionReference || inputActionReference.action.id != action.id) return;
                 if (action.expectedControlType == "Vector2")
                     _value = action.ReadValue<Vector2>();
                 else

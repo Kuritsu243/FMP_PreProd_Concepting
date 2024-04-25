@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +7,6 @@ namespace Environment
     {
         private void OnTriggerEnter(Collider other)
         {
-            Debug.LogWarning(other.gameObject);
             if (!other.transform.parent.gameObject.CompareTag("Player")) return;
             SceneManager.LoadSceneAsync("deathScene");
 

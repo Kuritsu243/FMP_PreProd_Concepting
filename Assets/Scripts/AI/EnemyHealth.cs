@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,19 +6,16 @@ namespace AI
 {
     public class EnemyHealth : MonoBehaviour
     {
-
         [SerializeField] private float maxHealth = 5f;
         private Animator _enemyAnimator;
+        private bool _hasDied;
         private Collider _enemyCollider;
-        private NavMeshAgent _navMeshAgent;
         private EnemyShooting _enemyShooting;
         private EnemyController _enemyController;
+        private float CurrentHealth { get; set; }
+        private NavMeshAgent _navMeshAgent;
         private static readonly int IsDead = Animator.StringToHash("isDead");
-        public float CurrentHealth { get; set; }
-
-        private bool _hasDied;
-
-
+        
         private void Start()
         {
             CurrentHealth = maxHealth;
@@ -56,10 +49,5 @@ namespace AI
             yield return new WaitForSeconds(5f);
             Destroy(gameObject);
         }
-
-        // private void Despawn()
-        // {
-        //     Destroy(this.gameObject);
-        // }
     }
 }

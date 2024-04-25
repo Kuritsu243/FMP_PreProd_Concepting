@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -31,9 +30,7 @@ namespace Environment.Lighting
             if (!enableFlicker && lightSmoothing > 0) return;
 
             while (_lightQueue.Count >= lightSmoothing)
-            {
                 _lastSum -= _lightQueue.Dequeue();
-            }
 
             var newVal = Random.Range(minIntensity, maxIntensity);
             _lightQueue.Enqueue(newVal);

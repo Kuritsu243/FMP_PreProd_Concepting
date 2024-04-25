@@ -2,6 +2,8 @@ using Unity.Cinemachine;
 
 namespace Cameras
 {
+    
+    // DEPRECATED
     public static class CameraChanger
     {
         public enum CameraModes

@@ -1,20 +1,14 @@
-using System;
 using UnityEngine;
-using AI;
-using UnityEngine.Serialization;
 
 namespace Tutorial
 {
     public class TutorialEnemy : MonoBehaviour
     {
-
         [SerializeField] private TutorialController tutorialController;
         [SerializeField] private TutorialEnemyController tutorialEnemyController;
         [SerializeField] private bool isHostile;
-        
 
-        public TutorialController gameTutorialController => tutorialController;
-        
+
         private Animator _enemyAnimator;
         private Collider _enemyCollider;
         private static readonly int IsDead = Animator.StringToHash("isDead");

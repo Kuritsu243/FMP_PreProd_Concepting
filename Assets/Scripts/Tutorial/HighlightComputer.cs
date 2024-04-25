@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Tutorial
@@ -32,7 +30,6 @@ namespace Tutorial
                         _computerOutline.OutlineWidth = f;
                     })
                 .setLoopPingPong();
-
         }
 
         public void StopOutline()

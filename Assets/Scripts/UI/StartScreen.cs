@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 namespace UI
 {
@@ -27,7 +27,6 @@ namespace UI
         [SerializeField] private Button settingsCloseBtn;
         
         [Header("Settings Menu")] 
-        [SerializeField] private Resolution[] _screenResolutions;
         [SerializeField] private TMP_Dropdown resolutionDropdown;
         [SerializeField] private Slider volumeSlider;
         [SerializeField] private Toggle fullscreenToggle;
@@ -38,35 +37,30 @@ namespace UI
         [SerializeField] private GameObject aboutMenu;
         [SerializeField] private GameObject settingsMenu;
         
-        
+        private List<Resolution> _screenResolutions;
         private static readonly int Start1 = Animator.StringToHash("Start");
-        private Animator crossFadeAnim;
-        private int _currentResolutionIndex;
-
+        private Animator _crossFadeAnim;
+        private int _currentResIndex;
         private bool _hasFaded;
         private void Start()
         {
             loadingText.enabled = false;
-            // buttons
             startBtn.onClick.AddListener(StartGame);
             closeBtn.onClick.AddListener(CloseGame);
             aboutBtn.onClick.AddListener(ShowAboutMenu);
             aboutCloseBtn.onClick.AddListener(CloseAboutMenu);
             settingsBtn.onClick.AddListener(ShowSettingsMenu);
             settingsCloseBtn.onClick.AddListener(CloseSettingsMenu);
-            // settings
             resolutionDropdown.onValueChanged.AddListener(SetResolution);
             fullscreenToggle.onValueChanged.AddListener(ToggleFullscreen);
             volumeSlider.onValueChanged.AddListener(SetVolume);
             applyBtn.onClick.AddListener(SaveSettings);
-            
             if (!crossFadeObj.activeSelf) crossFadeObj.SetActive(true);
             if (aboutMenu.activeSelf) aboutMenu.SetActive(false);
             if (settingsMenu.activeSelf) settingsMenu.SetActive(false);
-            
             InitializeResolutions();
-            
-            crossFadeAnim = crossFadeObj.GetComponent<Animator>();
+            LoadSettings(_currentResIndex);
+            _crossFadeAnim = crossFadeObj.GetComponent<Animator>();
         }
         
         private void StartGame()
@@ -191,16 +185,17 @@ namespace UI
         {
             resolutionDropdown.ClearOptions();
             var options = new List<string>();
-            _screenResolutions = Screen.resolutions;
-            for (var i = 0; i < _screenResolutions.Length; i++)
+            _screenResolutions = Screen.resolutions.ToList();
+            foreach (var t in _screenResolutions)
             {
-                var option = _screenResolutions[i].width + " x " + _screenResolutions[i].height;
+                var option = t.width + " x " + t.height;
                 options.Add(option);
-                if (_screenResolutions[i].width == Screen.currentResolution.width &
-                    _screenResolutions[i].height == Screen.currentResolution.height)
-                    _currentResolutionIndex = i;
+                if (t.width == Screen.currentResolution.width &
+                    t.height == Screen.currentResolution.height)
+                {
+                    _currentResIndex = _screenResolutions.IndexOf(t);
+                }
             }
-            
             resolutionDropdown.AddOptions(options);
             resolutionDropdown.RefreshShownValue();
         }
@@ -208,9 +203,9 @@ namespace UI
         private IEnumerator LoadLevel(int levelIndex)
         {
             loadingText.enabled = true;
-            crossFadeAnim.SetTrigger(Start1);
+            _crossFadeAnim.SetTrigger(Start1);
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(levelIndex);
         }
 
 

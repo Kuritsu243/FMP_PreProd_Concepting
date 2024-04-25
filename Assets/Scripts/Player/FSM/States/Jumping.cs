@@ -1,5 +1,3 @@
-using System;
-using Cameras;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -7,25 +5,22 @@ namespace Player.FSM.States
 {
     public class Jumping : FsmState
     {
-        private float gravityValue;
-        private float playerSpeed;
-        private float playerJumpHeight;
-        private bool isJumping;
-        private bool isSliding;
-        private bool isGrounded;
-        private bool isMoving;
-        private Vector2 mouseInput;
-        private Vector2 movementInput;
-        private Vector3 playerVelocity;
-        private Vector3 verticalVelocity;
+        private float _gravityValue;
+        private float _playerSpeed;
+        private float _playerJumpHeight;
+        private bool _isGrounded;
+        private Vector2 _mouseInput;
+        private Vector2 _movementInput;
+        private Vector3 _playerVelocity;
+        private Vector3 _verticalVelocity;
         private float _mouseX;
         private float _mouseY;
         private float _xRotation;
         private float _maxWallDistance;
         private LayerMask _whatIsWall;
         private Vector3 _targetRotation;
-        private CinemachineCamera thirdPersonCam;
-        private CinemachineCamera firstPersonCam;
+        private CinemachineCamera _thirdPersonCam;
+        private CinemachineCamera _firstPersonCam;
         private RaycastHit _leftWallHit;
         private RaycastHit _rightWallHit;
         private bool _leftWall;
@@ -34,11 +29,8 @@ namespace Player.FSM.States
         private Transform PlayerTransform => Character.PlayerTransform;
 
 
-        
-        
-        public Jumping(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(stateName, stateMachine, playerController)
+        public Jumping(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(stateMachine, playerController)
         {
-            StateName = stateName;
             Character = playerController;
             StateMachine = stateMachine;
         }
@@ -46,27 +38,20 @@ namespace Player.FSM.States
         public override void Enter()
         {
             base.Enter();
-
-
             _canWallRun = false;
-            isMoving = true;
-            isJumping = true;
-            isSliding = false;
-            isGrounded = false;
-            playerSpeed = Character.PlayerSpeed;
-            gravityValue = Character.PlayerGravity;
-            playerJumpHeight = Character.JumpHeight;
-            verticalVelocity = Vector3.zero;
+            _isGrounded = false;
+            _playerSpeed = Character.PlayerSpeed;
+            _gravityValue = Character.PlayerGravity;
+            _playerJumpHeight = Character.JumpHeight;
+            _verticalVelocity = Vector3.zero;
             _maxWallDistance = Character.MaxWallDistance;
             _whatIsWall = Character.WhatIsWall;
-            
-            
             Jump();
         }
 
         private void Jump()
         {
-            verticalVelocity.y = Mathf.Sqrt(-2f * playerJumpHeight * gravityValue);
+            _verticalVelocity.y = Mathf.Sqrt(-2f * _playerJumpHeight * _gravityValue);
         }
 
         public override void HandleInput()
@@ -74,32 +59,28 @@ namespace Player.FSM.States
             base.HandleInput();
 
 
-            isSliding = SlideAction.IsPressed();
-            
-            if (movementInput is {x: 0, y: 0})
-                isMoving = false;
-            movementInput = MoveAction.ReadValue<Vector2>();
-            playerVelocity = (PlayerTransform.right * movementInput.x +
-                              PlayerTransform.forward * movementInput.y) * playerSpeed;
-            
+            SlideAction.IsPressed();
+            _movementInput = MoveAction.ReadValue<Vector2>();
+            _playerVelocity = (PlayerTransform.right * _movementInput.x +
+                               PlayerTransform.forward * _movementInput.y) * _playerSpeed;
         }
 
         public override void LogicUpdate()
         {
             base.LogicUpdate();
 
-            switch (isGrounded)
+            switch (_isGrounded)
             {
                 case false when (_leftWall || _rightWall) && _canWallRun:
                     StateMachine.ChangeState(Character.WallRunState);
                     break;
-                case true when movementInput is not {x: 0, y: 0} && verticalVelocity.y < 0:
+                case true when _movementInput is not { x: 0, y: 0 } && _verticalVelocity.y < 0:
                     StateMachine.ChangeState(Character.IdleState);
                     break;
-                case true when movementInput is {x: 0, y: 0} && verticalVelocity.y < 0:
+                case true when _movementInput is { x: 0, y: 0 } && _verticalVelocity.y < 0:
                     StateMachine.ChangeState(Character.WalkingState);
-                    break; 
-                case false when verticalVelocity.y <= 0:
+                    break;
+                case false when _verticalVelocity.y <= 0:
                     StateMachine.ChangeState(Character.AirborneState);
                     break;
             }
@@ -108,9 +89,9 @@ namespace Player.FSM.States
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
-            isGrounded = Character.isGrounded;
-            Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
-            if (!isGrounded) verticalVelocity.y += gravityValue * Time.deltaTime;
+            _isGrounded = Character.isGrounded;
+            Character.characterController.Move(_playerVelocity * Time.deltaTime + _verticalVelocity * Time.deltaTime);
+            if (!_isGrounded) _verticalVelocity.y += _gravityValue * Time.deltaTime;
 
 
             var right = PlayerTransform.right;
@@ -118,7 +99,7 @@ namespace Player.FSM.States
             _rightWall = Physics.Raycast(position, right, out _rightWallHit, _maxWallDistance, _whatIsWall);
             _leftWall = Physics.Raycast(position, -right, out _leftWallHit, _maxWallDistance, _whatIsWall);
 
-            if ((!_leftWall && !_rightWall) || movementInput is {x: 0, y: 0} || isGrounded) return;
+            if ((!_leftWall && !_rightWall) || _movementInput is { x: 0, y: 0 } || _isGrounded) return;
             if (_leftWall && !_rightWall)
             {
                 Character.leftWall = true;
@@ -131,17 +112,15 @@ namespace Player.FSM.States
                 Character.leftWall = false;
                 Character.RightWallHit = _rightWallHit;
             }
-            _canWallRun = true;
 
+            _canWallRun = true;
         }
 
         public override void Exit()
         {
             base.Exit();
-            isGrounded = true;
-            isSliding = false;
-            isJumping = false;
-            
+            _isGrounded = true;
+
             if (_leftWall && !_rightWall)
             {
                 Character.leftWall = true;
@@ -154,7 +133,6 @@ namespace Player.FSM.States
                 Character.leftWall = false;
                 Character.RightWallHit = _rightWallHit;
             }
-            
         }
     }
 }

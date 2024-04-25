@@ -1,9 +1,3 @@
-using System;
-using System.Collections;
-using AI;
-using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace Weapons.Enemy
 {
     

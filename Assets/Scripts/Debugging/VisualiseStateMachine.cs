@@ -1,4 +1,3 @@
-using System;
 using Player;
 using TMPro;
 using UnityEngine;
@@ -37,12 +36,11 @@ namespace Debugging
         private void Update()
         {
             if (!enableVisualisation) return;
-            // movementInputText.text = _playerController.
         }
 
         private void Start()
         {
-            if (!enableVisualisation) this.enabled = false;
+            if (!enableVisualisation) enabled = false;
             _moveAction = _playerController.playerInput.actions["Movement"];
             _jumpAction = _playerController.playerInput.actions["Jump"];
             _slideAction = _playerController.playerInput.actions["Slide"];

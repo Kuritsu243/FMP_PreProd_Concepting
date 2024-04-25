@@ -6,23 +6,1076 @@
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox/NavMesh-navmesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/greybox/NavMesh-navmesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BowShot.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BowShot.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Death.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Death.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/SpellCast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/SpellCast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/MiningLoop.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/MiningLoop.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollForward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollForward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunBackwardRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunForward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunForward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RunRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Sprint.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Sprint.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/StrafeRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/DEMO_FREE_LowPolyHumans/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/LowPolyHumanAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Demo_FREE_LowPolyCharacter/PPProfile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Editor/MaterialTilingOffset.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/Editor/MaterialTilingOffset.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Armor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Body.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Eyes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Hair.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Materials_Humans/Underwear.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/PlateSet1_HumanMale.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/PlateSet1_HumanMale.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/StarterArmor_HumanMale.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/ArmorMeshes_Humans/StarterArmor_HumanMale.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/HumanMale_Character.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Meshes_Humans/HumanMale_Character.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Prefabs_Humans/HumanMale_Character_FREE.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyArmorTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyArmorTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyCharacterTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blink/Art/Characters/LowPoly/FREE_HumanLowPoly/Textures_Humans/LowPolyCharacterTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/README.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/Shaders/LowPolyPBRShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/Shaders/LowPolyPBRShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/Shaders/LowPolyUnlitShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyShaders/Shaders/LowPolyUnlitShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/ExampleSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/ExampleSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Purple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Purple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Diffuse_Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Purple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Purple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Metal_Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Purple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Purple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Materials/Storage_Unlit_Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/AmpRack_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/AmpRack_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/AmpRack_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/AmpRack_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Bag_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Bag_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Bag_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Bag_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_03.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_03.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_04.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Barrel_04.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Basket_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Basket_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Basket_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Basket_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Box_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Box_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Box_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Box_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_03.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_03.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_04.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Cabinet_04.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Container_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Container_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Container_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Container_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Crate_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Crate_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Crate_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Crate_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/EUR-Pallet.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/EUR-Pallet.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/ElectricBox_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/ElectricBox_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/ElectricBox_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/ElectricBox_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/GarbageCan.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/GarbageCan.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_03.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Giftbox_03.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Locker.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Locker.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/StorageRack_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/StorageRack_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/StorageRack_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/StorageRack_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Suitcase_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Suitcase_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Suitcase_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Suitcase_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Trashcan_01.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Trashcan_01.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Trashcan_02.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/Trashcan_02.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/TreasureChest.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Models/TreasureChest.dae.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Purple.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Red.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Palettes/Palette_Yellow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Amp_Rack_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Amp_Rack_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Amp_Rack_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Amp_Rack_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_01_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Bag_02_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_03_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_04.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Barrel_04.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Basket_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Basket_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Basket_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Basket_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_01_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Box_02_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_03.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_03.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_04.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Cabinet_04.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_01_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Container_02_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Crate_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Crate_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Crate_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Crate_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/EUR-Pallet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/EUR-Pallet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Electric_Box_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Electric_Box_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Electric_Box_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Electric_Box_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Garbage_Can_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_01_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_02_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Giftbox_03_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Locker.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Locker.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Storage_Rack_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Storage_Rack_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Storage_Rack_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Storage_Rack_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_01_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Yellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Suitcase_02_Yellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Trashcan_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Trashcan_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Trashcan_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Trashcan_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Treasure_Chest.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Prefabs/Treasure_Chest.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Readme.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/LowPolyStoragePack/Readme.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/windowsBuild.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/windowsBuild.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/VLBConfigOverride.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/VLBConfigOverride.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Bonus/9.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/Demo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/Demo.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_SMC_Camera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_SMC_Camera.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_SMC_Handler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_SMC_Handler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_Text.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/V_Text.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/dummy.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Demo/DemoAssets/dummy.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/16.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/18.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/19.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/20.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/21.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/22.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/23.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/24.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/25.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/26.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/27.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/28.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/29.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/30.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/Pack/9.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/ReadMe!.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SMC Pack 1/ReadMe!.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/greybox.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/EnemyShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/CameraSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/CameraSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/CinemachineMouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/CinemachineMouseLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/CameraState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/CameraState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/CameraStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/CameraStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/States/FirstPersonState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/States/FirstPersonState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/States/ThirdPersonState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/FSM/States/ThirdPersonState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/MainCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/MainCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cameras/ThirdPersonAim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cameras/ThirdPersonAim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Debugging/ShowMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Debugging/ShowMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Debugging/StateReporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Debugging/StateReporter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Debugging/VisualiseStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Debugging/VisualiseStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EditorExtensions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/FloatingWallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/FloatingWallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/Lighting/LightFlicker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Lighting/LightFlicker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/OutOfWorldSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/OutOfWorldSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/Portal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Portal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FiniteStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FiniteStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FsmState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/FsmState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Airborne.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Airborne.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Jumping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Jumping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Landing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Landing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Sliding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Sliding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Walking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/Walking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/WallJumping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/WallJumping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/WallRunning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FSM/States/WallRunning.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProjectilePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProjectilePool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStamina.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStamina.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWallRunning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWallRunning.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightComputer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightComputer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/LargeIslandSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/LargeIslandSensor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialEnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DeathScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DeathScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BulletCasing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BulletCasing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyBaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyBaseWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyPistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyPistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectilePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectilePool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyShotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyShotgun.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Shotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Shotgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/input/inputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/input/inputSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Materials/Rio.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Materials/Rio.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Models/Rio.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Models/Rio.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Prefabs/Rio.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Prefabs/Rio.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Scenes/DemoScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Scenes/DemoScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Rio_AlbedoTransparency.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Rio_AlbedoTransparency.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Rio_MetallicSmoothness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Rio_MetallicSmoothness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Riol_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity Technologies/LowpolyCharacterRio/Textures/Riol_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Videos.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(1).blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(1).blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(1).blend1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(1).blend1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(2).blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(2).blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(2).blend1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses(2).blend1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses.blend1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/hand_poses.blend1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip.blend1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip.blend1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip1.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip1.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip2.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/blender/pistol_reload_wip2.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A07.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_A07.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_B04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_B04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_C08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_C08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_D05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_D05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_F06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_F06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_F08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_F08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_G03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_G03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_G06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_G06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_H03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_H03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_J03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_J03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_M00.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_M00.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_M03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Color_M03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/FrontColor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/FrontColor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Mat.2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Materials/Mat.2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Fox_low_poly.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Fox_low_poly.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Grass3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Grass3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Low poly pack.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Low poly pack.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Pers.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Pers.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rcok .fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rcok .fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_big.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_big.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_normal.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_normal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_normal2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Rock_normal2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree7.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree7.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree_list.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/Tree_list.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/grass.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/grass.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/grass2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/grass2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_mini3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_normal3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/rock_normal3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/sky.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/sky.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/tree6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/wood_ big.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/wood_ big.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/wood_mini.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Fbx low poly/Model/wood_mini.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/ReflectionProbe-0.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/ReflectionProbe-0.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/ReflectionProbe-1.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Light and Reflection/ReflectionProbe-1.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Lowpoly tree2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Lowpoly tree2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Lowpoly tree2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Lowpoly tree2/Terrazzo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Lowpoly tree2/Terrazzo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_B06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C07.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C07.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_C08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D07.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D07.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_D08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_E02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_E02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_E05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_E05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_F04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_F04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_F07.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_F07.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G06.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G06.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G07.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G07.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_G08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_H08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_H08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_I03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_I03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_I08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_I08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_L02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_L02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M00.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M00.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Color_M05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/FrontColor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/FrontColor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Mat.1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Mat.1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Terrazzo.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Terrazzo.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Translucent_Glass_Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/Translucent_Glass_Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/f.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/f.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/m.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Materials/m.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Collapsible house.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Collapsible house.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction10.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction10.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction11.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction11.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction12.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction12.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction13.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction13.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction14.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction14.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction15.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction15.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction16.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction16.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction17.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction17.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction18.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction18.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction19.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction19.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction20.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction20.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction21.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction21.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction22.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction22.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction23.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction23.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction24.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction24.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction25.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction25.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction7.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction7.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction8.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction8.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction9.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Construction9.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Wood stone.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Odject/Wood stone.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Demo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Demo.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/DemoSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/DemoSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/Color_B04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/Color_B04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/Color_D05.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/Color_D05.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/FrontColor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/FrontColor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/New Cubemap.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Materials/New Cubemap.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Mesh1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Mesh1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled3.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Flaer/Untitled3.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material 2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material 2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Material/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Dust.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Dust.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames2 .prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Perfab/Flames2 .prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/5845d790af218158d0d20d4d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/5845d790af218158d0d20d4d.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Triangle_model_of_love.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Triangle_model_of_love.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/w256h2561372348496square256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/w256h2561372348496square256.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Захоплення_душ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Захоплення_душ.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Магия_Иллюзии_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Particle/Textur/Магия_Иллюзии_3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Rock5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Rock5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/RockOne.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/RockOne.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Rocktwo.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Rocktwo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Stone.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/Stone.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Rock/rock6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/Materials/New Cubemap.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/Materials/New Cubemap.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/New Cubemap.cubemap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/New Cubemap.cubemap.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/Sky.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/Sky.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/sky2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Sky/sky2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Grass.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Grass.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Island 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Island 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Island.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Island.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Rock3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Rock3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Snow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/Snow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/grass2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/grass2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/rock.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/rock.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/rock2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/rock2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/terain.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Terain/terain.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer1 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer1 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer10.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer10.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer12.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer12.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer2 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer2 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.1 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.1 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer4 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer4 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Eer6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Grass.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Grass.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Group49.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Group49.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Palm.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Palm.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Wood.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/Wood.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer11.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer11.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer7.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer7.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer8.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer8.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer9.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/eer9.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/grass 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/grass 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/grass2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/grass2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/tre19.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/tre19.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/tree16.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Tre/tree16.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/Wolf_low_poly.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/Wolf_low_poly.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_0.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_0.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/Wolf/wolf_lod_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land7.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/Land7.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/land6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/land/land6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Component_4_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Component_4_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Component_5_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Component_5_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1 (1).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1 (1).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1 (2).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1 (2).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Group1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Land4 (4).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Land4 (4).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_C08.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_C08.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_E02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_E02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_M04.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/Color_M04.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/FrontColor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Materials/FrontColor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/New Flare.flare" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/New Flare.flare.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Untitled.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/low poly/Untitled.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo1Settings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo1Settings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo2.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo2.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo2Settings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo2Settings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo3.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo3.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo3Settings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo3Settings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo4.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo4.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo4Settings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/low poly pack/scene/Demo4Settings.lighting.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +1086,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environment/Portal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/HighlightWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CanvasScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@3.0.0-pre.9/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
@@ -46,27 +1100,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/home/kuritsu/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/home/kuritsu/.config/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/home/kuritsu/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/tutorial_test.x86_64" />
@@ -129,7 +1183,9 @@
       <workItem from="1713564306336" duration="42336000" />
       <workItem from="1713613800056" duration="1868000" />
       <workItem from="1713615845720" duration="841000" />
-      <workItem from="1713740608982" duration="12756000" />
+      <workItem from="1713740608982" duration="13126000" />
+      <workItem from="1713906326546" duration="10148000" />
+      <workItem from="1714001512917" duration="8096000" />
     </task>
     <servers />
   </component>

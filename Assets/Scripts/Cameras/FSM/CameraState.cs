@@ -1,8 +1,4 @@
-using Cameras;
-using Cameras.FSM;
 using Unity.Cinemachine;
-using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Cameras.FSM
 {
@@ -10,71 +6,46 @@ namespace Cameras.FSM
     {
         protected CameraController CameraController;
         protected CameraStateMachine StateMachine;
-        protected string StateName;
 
-        protected readonly InputAction PerspectiveAction;
         public bool IsChangingPerspective { get; set; }
 
         protected CinemachineCamera StateCamera { get; set; }
 
 
-        protected CameraState(string stateName, CameraStateMachine stateMachine, CameraController cameraController,
+        protected CameraState(CameraStateMachine stateMachine, CameraController cameraController,
             CinemachineCamera stateCamera)
         {
-            this.StateName = stateName;
-            this.StateMachine = stateMachine;
-            this.CameraController = cameraController;
-            this.StateCamera = stateCamera;
-
-            // PerspectiveAction = cameraController.playerInput.actions["Perspective"];
+            StateMachine = stateMachine;
+            CameraController = cameraController;
+            StateCamera = stateCamera;
             CameraController.playerInput.actions["Perspective"].performed += _ => PerspectiveChange();
         }
 
-        public virtual void Enter()
+        public void Enter()
         {
-            // foreach (var cinemachineCamera in CameraController.cinemachineCameras)
-            // {
-            //     if (cinemachineCamera == ActiveCamera) return;
-            //     cinemachineCamera.Priority.Value = 0;
-            // }
-            // MainCamera.ChangeCamera(ActiveCamera);
-
             MainCamera.SetActiveCamera(StateCamera);
         }
 
-        public virtual void HandleInput()
+        public void HandleInput()
         {
         }
 
         public virtual void LogicUpdate()
         {
-            
         }
 
-        public virtual void PhysicsUpdate()
+        public void PhysicsUpdate()
         {
-            
-        }
-
-        public virtual void Tick(float deltaTime)
-        {
-            
         }
 
         private void PerspectiveChange()
         {
-            Debug.LogWarning("changing perspective");
             StateMachine.CurrentState.IsChangingPerspective = true;
         }
 
-        public virtual void Exit()
+        public void Exit()
         {
             IsChangingPerspective = false;
         }
-        
-        
-        
-        
-        
     }
 }

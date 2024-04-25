@@ -2,15 +2,13 @@ using System.Collections;
 using Player;
 using Tutorial;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Weapons;
 
 
 namespace Weapons
 {
     public class BaseWeapon : MonoBehaviour
     {
-        public enum WeaponState 
+        public enum WeaponState
         {
             Firing,
             Reloading,
@@ -23,6 +21,7 @@ namespace Weapons
             Hitscan,
             Projectile
         }
+
         public float weaponReloadTime;
         public float weaponFireRate;
         public int weaponDamage;
@@ -37,9 +36,6 @@ namespace Weapons
         public ShootingType shootingType;
         public AudioClip weaponSound;
         public AudioClip reloadSound;
-        private int currentPrimaryAmmo;
-        private int currentSecondaryAmmo;
-        public bool needsToReload;
 
         [Header("Projectile Specific Settings")] 
         [SerializeField] private float projectileSpeed;
@@ -50,57 +46,34 @@ namespace Weapons
         public GameObject shotgunBulletCasing;
         public Transform bulletCasingSpawnPos;
 
-        [Header("Hands / Armature Settings")] 
-        public GameObject playerArmature;
-        public Animator armatureAnimator;
-
-        [Header("Tutorial Related Settings")]
+        [Header("Tutorial Related Settings")] 
         public TutorialController tutorialController;
-        
         public Transform spawnPosition;
-        public ParticleSystem muzzleFlash;
-        public Animator weaponAnimator;
-        private static readonly int IsShooting = Animator.StringToHash("isShooting");
         public PlayerController playerController;
 
 
-        public int CurrentPrimaryAmmo
-        {
-            get => currentPrimaryAmmo;
-            set => currentPrimaryAmmo = value;
-        }
+        public int CurrentPrimaryAmmo { get; set; }
 
-        public int CurrentSecondaryAmmo
-        {
-            get => currentSecondaryAmmo;
-            set => currentSecondaryAmmo = value;
-        }
+        public int CurrentSecondaryAmmo { get; set; }
 
-        public float ProjectileSpeed
-        {
-            get => projectileSpeed;
-            set => projectileSpeed = value;
-        }
+        protected float ProjectileSpeed => projectileSpeed;
 
-        public float ProjectileDespawnTime
-        {
-            get => projectileDespawnTime;
-            set => projectileDespawnTime = value;
-        }
-        
+        protected float ProjectileDespawnTime => projectileDespawnTime;
+
         public virtual void Reload()
         {
             if (weaponAction == WeaponState.Reloading) return;
-            if (currentPrimaryAmmo == maxPrimaryAmmo) return;
+            if (CurrentPrimaryAmmo == maxPrimaryAmmo) return;
             weaponAction = WeaponState.Reloading;
-            switch (currentPrimaryAmmo)
+            switch (CurrentPrimaryAmmo)
             {
-                case <= 0 when currentSecondaryAmmo <= 0:
+                case <= 0 when CurrentSecondaryAmmo <= 0:
                     weaponAction = WeaponState.NoAmmo;
                     return;
             }
+
             playerController.audioSource.PlayOneShot(reloadSound);
-            var newAmmo = Mathf.Clamp(currentPrimaryAmmo + currentSecondaryAmmo, 0, maxPrimaryAmmo);
+            var newAmmo = Mathf.Clamp(CurrentPrimaryAmmo + CurrentSecondaryAmmo, 0, maxPrimaryAmmo);
             StartCoroutine(ReloadCooldown(newAmmo));
             if (playerController) playerController.canvasScript.Reload(weaponReloadTime);
         }
@@ -108,19 +81,12 @@ namespace Weapons
         public virtual void Fire()
         {
             if (weaponAction != WeaponState.Idle) return;
-            if (currentPrimaryAmmo <= 0)
-            {
-                needsToReload = true;
+            if (CurrentPrimaryAmmo <= 0)
                 return;
-                
-            }
             if (playerController)
                 playerController.audioSource.PlayOneShot(weaponSound);
-            // armatureAnimator.SetInteger(IsShooting, 1);
-            // weaponAnimator.SetInteger(IsShooting, 1);
-            // muzzleFlash.Play();
-            currentPrimaryAmmo--;
-            
+            CurrentPrimaryAmmo--;
+
             StartCoroutine(WeaponCooldown());
         }
 
@@ -135,31 +101,22 @@ namespace Weapons
         private IEnumerator ReloadCooldown(int newPrimary)
         {
             yield return new WaitForSeconds(weaponReloadTime);
-            currentSecondaryAmmo -= maxPrimaryAmmo - currentPrimaryAmmo;
-            currentSecondaryAmmo = Mathf.Clamp(currentSecondaryAmmo, 0, maxSecondaryAmmo);
-            currentPrimaryAmmo = newPrimary;
-            currentPrimaryAmmo = Mathf.Clamp(currentPrimaryAmmo, 0, maxPrimaryAmmo);
-            needsToReload = false;
+            CurrentSecondaryAmmo -= maxPrimaryAmmo - CurrentPrimaryAmmo;
+            CurrentSecondaryAmmo = Mathf.Clamp(CurrentSecondaryAmmo, 0, maxSecondaryAmmo);
+            CurrentPrimaryAmmo = newPrimary;
+            CurrentPrimaryAmmo = Mathf.Clamp(CurrentPrimaryAmmo, 0, maxPrimaryAmmo);
             weaponAction = WeaponState.Idle;
         }
 
         protected Vector3 GetWeaponSpread(Transform weaponSpawnPos)
         {
             var direction = weaponSpawnPos.forward;
-
             direction += new Vector3(
                 Random.Range(-weaponSpread.x, weaponSpread.x),
                 Random.Range(-weaponSpread.y, weaponSpread.y),
                 Random.Range(-weaponSpread.z, weaponSpread.z)
             );
-
             return direction;
-        }
-
-        public void EndOfAnimation()
-        {
-            // weaponAnimator.SetInteger(IsShooting, 0);
-            // armatureAnimator.SetInteger(IsShooting, 0);
         }
     }
 }

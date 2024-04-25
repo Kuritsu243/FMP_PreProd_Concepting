@@ -1,12 +1,10 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player.FSM.States
 {
     public class Sliding : FsmState
     {
-
         private float _maxSlideTime;
         private float _slideForce;
         private float _slideYScale;
@@ -16,15 +14,12 @@ namespace Player.FSM.States
         private Vector3 _playerVelocity;
         private Vector3 _slideVelocity;
         private bool _isSliding;
-        private bool _isMoving;
-        private bool _isGrounded;
         private bool _isJumping;
-        private Coroutine slideTimer;
+        private Coroutine _slideTimer;
         private float _startYScale;
-        public Sliding(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(
-            stateName, stateMachine, playerController)
+
+        public Sliding(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(stateMachine, playerController)
         {
-            StateName = stateName;
             Character = playerController;
             StateMachine = stateMachine;
         }
@@ -34,17 +29,15 @@ namespace Player.FSM.States
             base.Enter();
 
             _isSliding = true;
-            _isMoving = true;
-            _isGrounded = true;
             _isJumping = false;
             _maxSlideTime = Character.MaxSlideTime;
             _slideForce = Character.SlideForce;
             _slideYScale = Character.SlideYScale;
             _playerTransform = Character.PlayerTransform;
             _playerSpeed = Character.PlayerSpeed;
-            slideTimer = Character.StartCoroutine(SlideTimer());
+            _slideTimer = Character.StartCoroutine(SlideTimer());
             _startYScale = _playerTransform.localScale.y;
-            
+
             var localScale = _playerTransform.localScale;
             localScale = new Vector3(localScale.x, _slideYScale, localScale.y);
             _playerTransform.localScale = localScale;
@@ -60,25 +53,23 @@ namespace Player.FSM.States
 
 
             _isJumping = JumpAction.IsPressed();
-            if (_movementInput is {x: 0, y: 0})
-                _isMoving = false;
-
         }
 
         public override void LogicUpdate()
         {
             base.LogicUpdate();
-            
-            
+
+
             switch (_isSliding)
             {
-                case false when _movementInput is {x: 0, y: 0}:
+                case false when _movementInput is { x: 0, y: 0 }:
                     StateMachine.ChangeState(Character.IdleState);
                     break;
-                case false when _movementInput is not {x: 0, y: 0}:
+                case false when _movementInput is not { x: 0, y: 0 }:
                     StateMachine.ChangeState(Character.WalkingState);
                     break;
             }
+
             if (_isJumping)
                 StateMachine.ChangeState(Character.JumpingState);
         }
@@ -96,9 +87,10 @@ namespace Player.FSM.States
         {
             base.Exit();
             _isSliding = false;
-            Character.StopCoroutine(slideTimer);
+            Character.StopCoroutine(_slideTimer);
             Character.canSlide = false;
-            Character.StartCoroutine(Character.ActionCooldown(() => Character.canSlide = true, Character.SlideCooldown));
+            Character.StartCoroutine(PlayerController.ActionCooldown(() => Character.canSlide = true,
+                Character.SlideCooldown));
             var localScale = _playerTransform.localScale;
             localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _playerTransform.localScale = localScale;

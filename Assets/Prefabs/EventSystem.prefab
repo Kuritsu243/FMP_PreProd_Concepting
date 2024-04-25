@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 322785781609073001}
   - component: {fileID: 967307217582146062}
   - component: {fileID: 5704388156021713242}
+  - component: {fileID: 5232908276629863269}
+  - component: {fileID: 4373205416339743644}
   - component: {fileID: 8985598844384858207}
   - component: {fileID: 2089587025194910572}
   m_Layer: 0
@@ -96,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCam: {fileID: 0}
   thirdPersonCam: {fileID: 0}
-  _cameraController: {fileID: 0}
+  cameraController: {fileID: 0}
   isTesting: 0
   xRotation: 0
   yRotation: 0
@@ -118,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCam: {fileID: 0}
   thirdPersonCam: {fileID: 0}
-  _cameraController: {fileID: 0}
+  cameraController: {fileID: 0}
   isTesting: 0
   xRotation: 0
   yRotation: 0
@@ -126,6 +128,65 @@ MonoBehaviour:
   dutch: 0
   fov: 0
   lerpFOV: 0
+--- !u!114 &5232908276629863269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298339324466926989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2977ddaa9872043efb8f2bb35fa3de47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  playerController: {fileID: 0}
+  floatingWallController: {fileID: 0}
+  tutorialPistol: {fileID: 0}
+  tutorialEnemyController: {fileID: 0}
+  endComputer: {fileID: 0}
+  promptW: {fileID: 0}
+  promptS: {fileID: 0}
+  promptA: {fileID: 0}
+  promptD: {fileID: 0}
+  promptJump: {fileID: 0}
+  promptComplete: {fileID: 0}
+  keyPressW: {fileID: 0}
+  keyPressWalt: {fileID: 0}
+  keyPressS: {fileID: 0}
+  keyPressSalt: {fileID: 0}
+  keyPressA: {fileID: 0}
+  keyPressAalt: {fileID: 0}
+  keyPressD: {fileID: 0}
+  keyPressDalt: {fileID: 0}
+  keyPressSpace: {fileID: 0}
+  keyPressSpacealt: {fileID: 0}
+  keyPressComplete: {fileID: 0}
+  keyPressCompletealt: {fileID: 0}
+  tutorialTextHint: {fileID: 0}
+  enemyIsland: {fileID: 0}
+  portal: {fileID: 0}
+  portalSpriteRenderer: {fileID: 0}
+  hasFiredPistolYet: 0
+  nextKeyToPress: 0
+--- !u!114 &4373205416339743644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298339324466926989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cdf6e25d6fc3951981d49a6bd2fa6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialEnemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  canvasScript: {fileID: 0}
 --- !u!114 &8985598844384858207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCam: {fileID: 0}
   thirdPersonCam: {fileID: 0}
-  _cameraController: {fileID: 0}
+  cameraController: {fileID: 0}
   isTesting: 0
   xRotation: 0
   yRotation: 0

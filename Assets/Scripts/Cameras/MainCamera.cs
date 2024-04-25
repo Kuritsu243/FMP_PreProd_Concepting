@@ -1,6 +1,7 @@
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cameras
 {
@@ -8,7 +9,7 @@ namespace Cameras
     {
         [SerializeField] private CinemachineCamera firstPersonCam;
         [SerializeField] private CinemachineCamera thirdPersonCam;
-        [SerializeField] private CameraController _cameraController;
+        [FormerlySerializedAs("_cameraController")] [SerializeField] private CameraController cameraController;
         
         [Header("Testing")]
         [SerializeField] private bool isTesting;
@@ -21,18 +22,12 @@ namespace Cameras
         
         public static CameraChanger.CameraModes ActiveCameraMode => CameraChanger.GetActiveCamera();
 
-        private static CinemachineCamera previousCam;
-        private static CinemachineCamera activeCam;
+        private static CinemachineCamera _previousCam;
+        private static CinemachineCamera _activeCam;
 
         private CinemachineMouseLook _cinemachineMouseLook;
         public MainCamera Instance { get; private set; }
-        public CinemachineCamera ActiveCam => activeCam;
-        
-        private void OnEnable()
-        {
-            // CameraChanger.SetCams(thirdPersonCam, firstPersonCam);
-            // CameraChanger.SwitchToFirstPerson();
-        }
+
         
         private void Awake()
         {
@@ -46,14 +41,14 @@ namespace Cameras
 
         public static void SetActiveCamera(CinemachineCamera newCamera)
         {
-            if (!activeCam && !previousCam) Debug.LogWarning("No active cam or previous cam assigned");
+            if (!_activeCam && !_previousCam) Debug.LogWarning("No active cam or previous cam assigned");
             else
             {
-                previousCam = activeCam;
-                previousCam.Priority.Value = 0;
+                _previousCam = _activeCam;
+                _previousCam.Priority.Value = 0;
             }
-            activeCam = newCamera;
-            activeCam.Priority.Value = 10;
+            _activeCam = newCamera;
+            _activeCam.Priority.Value = 10;
  
 
         }
@@ -63,23 +58,11 @@ namespace Cameras
             return CameraChanger.GetActiveCamera();
         }
         
-
-        private void FixedUpdate()
-        {
-            if (isTesting)
-                Testing();
-        }
-
-        private void Testing()
-        {
-            
-        }
-
         public void SetSensitivity(float sensitivity)
         {
-            if (_cinemachineMouseLook == null)
+            if (!_cinemachineMouseLook)
                 _cinemachineMouseLook = firstPersonCam.GetComponent<CinemachineMouseLook>();
-            if (_cinemachineMouseLook == null)
+            if (!_cinemachineMouseLook)
                 throw new Exception("Cannot find the mouse look component!");
             _cinemachineMouseLook.UpdateSensAndSmoothing(sensitivity);
 

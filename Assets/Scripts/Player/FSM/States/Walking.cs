@@ -1,29 +1,23 @@
-using System;
-using Cameras;
-using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Player.FSM.States
 {
     public class Walking : FsmState
     {
-        private float gravityValue;
-        private float playerSpeed;
-        private bool isJumping;
-        private bool isSliding;
-        private bool isGrounded;
-        private bool isMoving;
-        private Vector2 movementInput;
-        private Vector3 playerVelocity;
-        private Vector3 verticalVelocity;
+        private float _gravityValue;
+        private float _playerSpeed;
+        private bool _isJumping;
+        private bool _isSliding;
+        private bool _isGrounded;
+        private bool _isMoving;
+        private Vector2 _movementInput;
+        private Vector3 _playerVelocity;
+        private Vector3 _verticalVelocity;
         private Transform PlayerTransform => Character.PlayerTransform;
 
 
-        
-        
-        public Walking(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(stateName, stateMachine, playerController)
+        public Walking(string stateName, PlayerController playerController, FiniteStateMachine stateMachine) : base(stateMachine, playerController)
         {
-            StateName = stateName;
             Character = playerController;
             StateMachine = stateMachine;
         }
@@ -33,62 +27,51 @@ namespace Player.FSM.States
             base.Enter();
 
 
-            isMoving = true;
-            isJumping = false;
-            isSliding = false;
-            isGrounded = true;
-            playerSpeed = Character.PlayerSpeed;
-            gravityValue = Character.PlayerGravity;
+            _isMoving = true;
+            _isJumping = false;
+            _isSliding = false;
+            _isGrounded = true;
+            _playerSpeed = Character.PlayerSpeed;
+            _gravityValue = Character.PlayerGravity;
         }
 
         public override void HandleInput()
         {
             base.HandleInput();
 
-            isJumping = JumpAction.IsPressed();
-            isSliding = SlideAction.IsPressed();
-            
-            if (movementInput is {x: 0, y: 0})
-                isMoving = false;
-            movementInput = MoveAction.ReadValue<Vector2>();
-            playerVelocity = (PlayerTransform.right * movementInput.x +
-                              PlayerTransform.forward * movementInput.y) * playerSpeed;
-            
+            _isJumping = JumpAction.IsPressed();
+            _isSliding = SlideAction.IsPressed();
+
+            if (_movementInput is { x: 0, y: 0 })
+                _isMoving = false;
+            _movementInput = MoveAction.ReadValue<Vector2>();
+            _playerVelocity = (PlayerTransform.right * _movementInput.x +
+                               PlayerTransform.forward * _movementInput.y) * _playerSpeed;
         }
 
         public override void LogicUpdate()
         {
             base.LogicUpdate();
-            
-            
-            if (isJumping && Character.canJump)
-                StateMachine.ChangeState(Character.JumpingState);
-            if (!isMoving)
-                StateMachine.ChangeState(Character.IdleState);
-            if (isSliding && Character.canSlide)
-                StateMachine.ChangeState(Character.SlidingState);
 
+
+            if (_isJumping && Character.canJump)
+                StateMachine.ChangeState(Character.JumpingState);
+            if (!_isMoving)
+                StateMachine.ChangeState(Character.IdleState);
+            if (_isSliding && Character.canSlide)
+                StateMachine.ChangeState(Character.SlidingState);
         }
 
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
-            
-            
-            verticalVelocity.y += gravityValue * Time.deltaTime;
-            isGrounded = Character.isGrounded;
+            _verticalVelocity.y += _gravityValue * Time.deltaTime;
+            _isGrounded = Character.isGrounded;
 
-            if (isGrounded && verticalVelocity.y < 0)
-                verticalVelocity.y = 0f;
+            if (_isGrounded && _verticalVelocity.y < 0)
+                _verticalVelocity.y = 0f;
 
-            Character.characterController.Move(playerVelocity * Time.deltaTime + verticalVelocity * Time.deltaTime);
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-
-            
+            Character.characterController.Move(_playerVelocity * Time.deltaTime + _verticalVelocity * Time.deltaTime);
         }
     }
 }

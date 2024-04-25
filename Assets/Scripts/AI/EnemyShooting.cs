@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using Weapons;
 using Weapons.Enemy;
 
 namespace AI
 {
     public class EnemyShooting : MonoBehaviour
     {
-        public enum WeaponType
+        private enum WeaponType
         {
             Pistol,
             Shotgun
@@ -17,16 +15,9 @@ namespace AI
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private EnemyPistol pistol;
         [SerializeField] private EnemyShotgun shotgun;
-        
-        
-        private EnemyBaseWeapon _currentWeapon;
 
-        public EnemyBaseWeapon CurrentWeapon
-        {
-            get => _currentWeapon;
-            set => _currentWeapon = value;
-        }
-        
+        public EnemyBaseWeapon CurrentWeapon { get; private set; }
+
         public bool CanAttack { get; set; }
 
         public void Start()
@@ -47,22 +38,22 @@ namespace AI
 
         private void EquipWeapon(EnemyBaseWeapon newWeapon)
         {
-            _currentWeapon = newWeapon;
-            _currentWeapon.CurrentPrimaryAmmo = _currentWeapon.maxPrimaryAmmo;
-            _currentWeapon.CurrentSecondaryAmmo = _currentWeapon.maxSecondaryAmmo;
+            CurrentWeapon = newWeapon;
+            CurrentWeapon.CurrentPrimaryAmmo = CurrentWeapon.maxPrimaryAmmo;
+            CurrentWeapon.CurrentSecondaryAmmo = CurrentWeapon.maxSecondaryAmmo;
             
         }
 
         public void Reload()
         {
-            if (_currentWeapon == null) return;
-            _currentWeapon.Reload();
+            if (!CurrentWeapon) return;
+            CurrentWeapon.Reload();
         }
 
         public void Fire()
         {
-            if (_currentWeapon == null || !CanAttack) return;
-            _currentWeapon.Fire();
+            if (!CurrentWeapon || !CanAttack) return;
+            CurrentWeapon.Fire();
         }
     }
 }

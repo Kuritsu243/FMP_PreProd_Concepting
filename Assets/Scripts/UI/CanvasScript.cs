@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Player;
 using TMPro;
 using Tutorial;
@@ -13,27 +12,21 @@ namespace UI
     {
         [Header("Images")] 
         [SerializeField] private Image reloadBar;
-
         [SerializeField] private Image healthBar;
-        
-        
-        
-        [Header("Panels")]
+
+        [Header("Panels")] 
         [SerializeField] private GameObject ammoPanel;
         [SerializeField] private GameObject healthPanel;
         [SerializeField] private GameObject enemiesPanel;
-        
-        
+
+
         [Header("Text")] 
         [SerializeField] private TextMeshProUGUI ammoReporter;
-
         [SerializeField] private TextMeshProUGUI enemiesToKill;
-        
+
         [Header("Required Components")] 
         [SerializeField] private TutorialEnemyController tutorialEnemyController;
         [SerializeField] private TutorialController tutorialController;
-        
-        
 
         private PlayerController _player;
         private PlayerShooting _playerShooting;
@@ -43,7 +36,6 @@ namespace UI
         private bool _enemyKillChallenge;
 
         private int _numberOfEnemies;
-        
 
 
         private void Start()
@@ -61,20 +53,21 @@ namespace UI
         {
             if (ammoPanel.activeSelf && Math.Abs(reloadBar.fillAmount - 1f) < 0.01f && !_currentlyReloading)
                 reloadBar.gameObject.SetActive(false);
-            
+
             if (_playerShooting.HasWeapon() && !ammoPanel.activeSelf)
                 ammoPanel.SetActive(true);
 
             if (healthPanel.activeSelf)
                 healthBar.fillAmount = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
-            
+
             switch (_enemyKillChallenge)
             {
                 case true when !enemiesPanel.activeSelf:
                     enemiesPanel.SetActive(true);
                     break;
                 case true when enemiesPanel.activeSelf:
-                    enemiesToKill.text = $"Remaining: \n{tutorialEnemyController.EnemiesRemaining} / {_numberOfEnemies}";
+                    enemiesToKill.text =
+                        $"Remaining: \n{tutorialEnemyController.EnemiesRemaining} / {_numberOfEnemies}";
                     break;
                 case false when enemiesPanel.activeSelf:
                     enemiesPanel.SetActive(false);
@@ -84,9 +77,7 @@ namespace UI
             if (_playerShooting.HasWeapon() && ammoPanel.activeSelf)
                 ammoReporter.text =
                     $"{_playerShooting.CurrentWeapon.CurrentPrimaryAmmo} / {_playerShooting.CurrentWeapon.CurrentSecondaryAmmo}";
-
         }
-
 
 
         public void Reload(float reloadTime)
@@ -98,10 +89,7 @@ namespace UI
                 var i = reloadBar.fillAmount;
                 i = val;
                 reloadBar.fillAmount = i;
-            }).setOnComplete(() =>
-            {
-                _currentlyReloading = false;
-            });
+            }).setOnComplete(() => { _currentlyReloading = false; });
         }
 
         public void ShowKillChallengeUI(int enemies)
@@ -116,7 +104,6 @@ namespace UI
             yield return new WaitUntil(() => tutorialEnemyController.EnemiesRemaining == 0);
             _enemyKillChallenge = false;
             tutorialController.EnemyChallengeComplete();
-
         }
     }
 }

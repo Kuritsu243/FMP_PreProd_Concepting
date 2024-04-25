@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -14,30 +12,13 @@ namespace Player
         [SerializeField] private float slideStaminaCost;
         [SerializeField] private float pauseLengthUntilRegen;
 
-        public float Stamina => _stamina;
-        
         private float _stamina;
-        private PlayerController _playerController;
         private PlayerMovement _playerMovement;
         private void Start()
         {
-            _playerController = GetComponent<PlayerController>();
-            // _playerMovement = _playerController.playerMovement;
+            GetComponent<PlayerController>();
             _stamina = maxStamina;
         }
-
-
-        public IEnumerator DrainStamina(float drainRate)
-        {
-            if (_stamina <= 0) yield return null;
-            _stamina -= drainRate * Time.deltaTime;
-            
-            yield return null;
-        }
-
-        private void FixedUpdate()
-        {
-            Debug.LogWarning(_playerMovement.GetPlayerMovementState());
-        }
+        
     }
 }

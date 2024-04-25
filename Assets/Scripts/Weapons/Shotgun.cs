@@ -8,10 +8,8 @@ namespace Weapons
     {
         public override void Fire()
         {
-            Debug.LogWarning(weaponAction);
             if (weaponAction != WeaponState.Idle) return;
             var direction = GetWeaponSpread(spawnPosition);
-            Debug.Log("shotgun firing");
             if (Physics.Raycast(spawnPosition.position, direction, out RaycastHit hit, weaponRange) &&
                 shootingType == ShootingType.Hitscan)
             {
@@ -20,11 +18,10 @@ namespace Weapons
                     case "Enemy":
                         var collidedEnemy = hit.transform.root.gameObject;
                         collidedEnemy.GetComponent<EnemyHealth>().Damage(weaponDamage);
-                        Debug.LogWarning("hit enemy!!");
                         break;
                 }
             }
-            else if (weaponProjectile != null && shootingType == ShootingType.Projectile)
+            else if (weaponProjectile && shootingType == ShootingType.Projectile)
             {
                 var pellets = new List<Quaternion>(shotgunPelletCount);
                 for (var i = 0; i < shotgunPelletCount; i++) pellets.Add(Quaternion.Euler(Vector3.zero));
@@ -42,10 +39,6 @@ namespace Weapons
             Instantiate(shotgunBulletCasing, bulletCasingSpawnPos.position, transform.rotation);
             base.Fire();
         }
-
-        public override void Reload()
-        {
-            base.Reload();
-        }
+        
     }
 }

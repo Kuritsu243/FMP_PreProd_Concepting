@@ -5,9 +5,9 @@ namespace Cameras.FSM
 {
     public abstract class CameraStateMachine
     {
-        private CameraState initialState;
+        private CameraState _initialState;
         
-        public CameraState CurrentState { get; set; }
+        public CameraState CurrentState { get; private set; }
         
         public CameraState PreviousState { get; set; }
 

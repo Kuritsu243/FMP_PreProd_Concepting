@@ -1,4 +1,3 @@
-using System;
 using Player;
 using TMPro;
 using UnityEngine;
@@ -9,13 +8,11 @@ namespace Debugging
     {
 
         private TextMeshProUGUI _moveStateText;
-        private PlayerController _playerController;
         private PlayerMovement _playerMovement;
 
         private void Start()
         {
-            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            // _playerMovement = _playerController.playerMovement;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             _moveStateText = GetComponentInChildren<TextMeshProUGUI>();
         }
 

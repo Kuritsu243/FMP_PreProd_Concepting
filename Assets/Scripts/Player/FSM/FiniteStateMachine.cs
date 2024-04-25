@@ -1,11 +1,8 @@
-using System;
-using UnityEngine;
-
 namespace Player.FSM
 {
     public abstract class FiniteStateMachine
     {
-        private FsmState initialState;
+        private FsmState _initialState;
         
         public FsmState CurrentState { get; set; }
         public FsmState PreviousState { get; set; }
