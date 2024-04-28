@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Quaternius/Cyberpunk Game Kit - Quaternius/Platforms/Computer_Large.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Quaternius/Cyberpunk Game Kit - Quaternius/Platforms/Computer_Large.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/tutorialScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/tutorialScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -56,7 +58,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/tutorial_test.x86_64" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/final_build_test.x86_64" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Builds" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -120,7 +122,13 @@
       <workItem from="1713906326546" duration="10148000" />
       <workItem from="1714001512917" duration="11132000" />
       <workItem from="1714052077000" duration="4000" />
-      <workItem from="1714052958867" duration="2354000" />
+      <workItem from="1714052958867" duration="3560000" />
+      <workItem from="1714319679188" duration="37000" />
+      <workItem from="1714322364902" duration="23000" />
+      <workItem from="1714322899623" duration="196000" />
+      <workItem from="1714323175240" duration="13000" />
+      <workItem from="1714323791284" duration="60000" />
+      <workItem from="1714323980534" duration="709000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,6 @@ namespace Weapons.Enemy
             {
                 case "PlayerMesh":
                 case "Player":
-                    Debug.LogWarning("Player hit!!!");
                     if (other.transform.root.TryGetComponent<PlayerHealth>(out var playerHealthScript))
                         playerHealthScript.Damage(ProjectileDamage);
                     Despawn();
