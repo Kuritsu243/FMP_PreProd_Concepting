@@ -366,6 +366,7 @@ namespace Tutorial
             yield return new WaitForSeconds(2.5f);
             ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref _challengeCompleteTexts, 1);
             _computerOutline.OutlineComputer();
+            yield return new WaitForSeconds(1.2f);
             ImageTweening.ChangeTextPromptOnly(ref tutorialTextHint, ref _challengeCompleteTexts, 2);
             
         }

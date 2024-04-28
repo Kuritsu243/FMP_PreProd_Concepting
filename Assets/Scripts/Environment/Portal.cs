@@ -8,12 +8,12 @@ namespace Environment
         private void OnTriggerEnter(Collider other)
         {
             if (!other.transform.parent.gameObject.CompareTag("Player")) return;
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene("winScene");
         }
         private void OnTriggerStay(Collider other)
         {
             if (!other.transform.parent.gameObject.CompareTag("Player")) return;
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene("winScene");
         }
     }
 }

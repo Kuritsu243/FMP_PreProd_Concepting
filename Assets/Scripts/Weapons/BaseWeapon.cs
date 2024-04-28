@@ -75,7 +75,7 @@ namespace Weapons
             playerController.audioSource.PlayOneShot(reloadSound);
             var newAmmo = Mathf.Clamp(CurrentPrimaryAmmo + CurrentSecondaryAmmo, 0, maxPrimaryAmmo);
             StartCoroutine(ReloadCooldown(newAmmo));
-            if (playerController) playerController.canvasScript.Reload(weaponReloadTime);
+            if (transform.root.CompareTag("Player")) playerController.canvasScript.Reload(weaponReloadTime);
         }
 
         public virtual void Fire()

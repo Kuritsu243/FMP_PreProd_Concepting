@@ -198,6 +198,7 @@ namespace Player
             _playerStateMachine.Initialize(IdleState);
             Cursor.lockState = CursorLockMode.Locked;
             SetMouseSensitivity();
+            
         }
 
         private void Update()
