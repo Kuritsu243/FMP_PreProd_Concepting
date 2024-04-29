@@ -6,11 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="554f16fd-26dd-4f6f-8101-d971c3534fd9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FMP_PreProd_Concepting/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Enemy/EnemyProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DeathScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DeathScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.154226.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.154790.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.155196.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.155634.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.156011.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.156440.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.156845.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.157255.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.157665.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.158023.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.221385.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.222282.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.222665.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.223005.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.223550.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.224084.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.224439.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.224941.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.225380.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.225738.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.226098.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.226486.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.226825.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.227169.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.227585.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.227987.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.228387.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.228739.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.229116.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.229461.1.blob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mono_crash.mem.25152.1.blob" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +86,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/final_build_test.x86_64" />
+      <option name="EXE_PATH" value="$USER_HOME$/Documents/Timeleap/Linux/FGTE6003: Final Major Project: TimeLeap.x86_64" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Builds" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -129,6 +157,7 @@
       <workItem from="1714323175240" duration="13000" />
       <workItem from="1714323791284" duration="60000" />
       <workItem from="1714323980534" duration="709000" />
+      <workItem from="1714348909558" duration="477000" />
     </task>
     <servers />
   </component>

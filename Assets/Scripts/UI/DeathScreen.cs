@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEditor;
@@ -16,6 +17,8 @@ namespace UI
         [SerializeField] private TextMeshProUGUI loadingText;
         [SerializeField] private GameObject crossFadeObj;
 
+        private Image _crossFadeImg;
+
 
         private void Start()
         {
@@ -23,15 +26,22 @@ namespace UI
             loadingText.enabled = false;
             retryBtn.onClick.AddListener(RetryGame);
             quitBtn.onClick.AddListener(CloseGame);
-
+            Cursor.lockState = CursorLockMode.None;
             crossFadeObj.GetComponent<Animator>();
+            _crossFadeImg = crossFadeObj.GetComponent<Image>();
         }
 
         private void RetryGame()
         {
             LoadPreviousScene();
         }
-        
+
+        private void FixedUpdate()
+        {
+            if (_crossFadeImg.color.a == 0)
+                crossFadeObj.SetActive(false);
+        }
+
         private static void CloseGame()
         {
             switch (Application.platform)
